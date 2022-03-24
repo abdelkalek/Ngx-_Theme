@@ -1,0 +1,32 @@
+
+
+
+
+<nb-card  accent="info">
+  <nb-card-body>
+    <table class="table m-2 caption-top">
+      <caption>List of users</caption>
+      <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let u of users">
+        <td hidden>{{u.id}}</td>
+        <td>{{u.userName}}</td>
+        <td>{{u.email}}</td>
+        <td>
+          <button nbButton status="success" size="small" ><nb-icon icon="eye-outline"></nb-icon></button>
+          <button nbButton status="primary" size="small"><nb-icon icon="edit-2-outline"></nb-icon></button>
+          <button nbButton status="danger" size="small"><nb-icon icon="trash-2-outline"></nb-icon></button>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>
+

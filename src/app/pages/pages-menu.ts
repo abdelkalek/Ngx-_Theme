@@ -1,247 +1,193 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
-    icon: 'shopping-cart-outline',
-    link: '/pages/dashboard',
-    home: true,
-  },
-  {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
-  },
-  {
-    title: 'FEATURES',
+    title: 'Dashboard',
+    icon: 'monitor-outline',
     group: true,
+    home: true
   },
   {
-    title: 'Layout',
-    icon: 'layout-outline',
+    title: 'Profile',
+    icon: 'person',
+    badge: {
+      text: '30',
+      status: 'primary',
+    },
     children: [
       {
-        title: 'Stepper',
-        link: '/pages/layout/stepper',
+        title: 'Profile',
+        icon: 'person-done-outline',
+        link: '/pages/profile',
       },
       {
-        title: 'List',
-        link: '/pages/layout/list',
+        title: 'Messages',
+        icon: 'message-circle-outline',
+        badge: {
+          text: '99+',
+          status: 'danger',
+        },
       },
       {
-        title: 'Infinite List',
-        link: '/pages/layout/infinite-list',
+        title: 'Notifications',
+        icon:'bell-outline',
+        badge: {
+          dotMode: true,
+          status: 'warning',
+        },
       },
       {
-        title: 'Accordion',
+        title: 'Emails',
+        icon:'email-outline',
+        badge: {
+          text: 'new',
+          status: 'success',
+        },
+      },
+    ],
+  },
+
+  {
+    title: 'User Management',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Users List',
+        link: '/pages/users',
+        icon: 'list-outline'
+
+      },
+      {
+        title: 'Add User',
+        link: '/pages',
+        icon: 'person-add-outline'
+
+      },
+      {
+        title: 'Add Role To User',
+        link: '',
+        icon: 'briefcase-outline'
+
+      },
+      {
+        title: 'Add permission to user',
         link: '/pages/layout/accordion',
+        icon: 'unlock-outline'
+
       },
       {
-        title: 'Tabs',
+        title: 'Config',
         pathMatch: 'prefix',
         link: '/pages/layout/tabs',
+        icon: 'settings-2-outline'
       },
     ],
   },
   {
-    title: 'Forms',
-    icon: 'edit-2-outline',
+    title: 'Manage products',
+    icon: 'cube-outline',
     children: [
       {
-        title: 'Form Inputs',
+        title: 'Add products',
         link: '/pages/forms/inputs',
+        icon: 'shopping-bag-outline'
+
       },
       {
-        title: 'Form Layouts',
+        title: 'Products List ',
         link: '/pages/forms/layouts',
-      },
-      {
-        title: 'Buttons',
-        link: '/pages/forms/buttons',
-      },
-      {
-        title: 'Datepicker',
-        link: '/pages/forms/datepicker',
-      },
+        icon: 'list-outline'
+      }
     ],
   },
   {
-    title: 'UI Features',
-    icon: 'keypad-outline',
-    link: '/pages/ui-features',
+    title: 'Category management',
+    icon: 'pantone-outline',
+
     children: [
       {
-        title: 'Grid',
-        link: '/pages/ui-features/grid',
+        title: 'Add Category',
+        link: '/pages/forms/inputs',
+        icon: 'clipboard-outline'
+
       },
       {
-        title: 'Icons',
-        link: '/pages/ui-features/icons',
-      },
-      {
-        title: 'Typography',
-        link: '/pages/ui-features/typography',
-      },
-      {
-        title: 'Animated Searches',
-        link: '/pages/ui-features/search-fields',
-      },
+        title: 'Category List ',
+        link: '/pages/forms/layouts',
+        icon: 'list-outline'
+      }
     ],
   },
+
   {
-    title: 'Modal & Overlays',
-    icon: 'browser-outline',
+    title: 'Config production lines',
+    icon: 'activity-outline',
     children: [
       {
-        title: 'Dialog',
-        link: '/pages/modal-overlays/dialog',
-      },
-      {
-        title: 'Window',
-        link: '/pages/modal-overlays/window',
-      },
-      {
-        title: 'Popover',
-        link: '/pages/modal-overlays/popover',
-      },
-      {
-        title: 'Toastr',
-        link: '/pages/modal-overlays/toastr',
-      },
-      {
-        title: 'Tooltip',
-        link: '/pages/modal-overlays/tooltip',
-      },
+        title: 'Config prod lines',
+        link: '/pages/forms/inputs',
+        icon: 'options-outline'
+      }
     ],
+
   },
+
   {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
+    title: 'Config of expense items',
+    icon: 'monitor-outline',
     children: [
       {
-        title: 'Calendar',
-        link: '/pages/extra-components/calendar',
+        title: 'Add products',
+        link: '/pages/forms/inputs',
+        icon: 'shopping-bag-outline'
+
       },
       {
-        title: 'Progress Bar',
-        link: '/pages/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/pages/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/pages/extra-components/alert',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/pages/extra-components/calendar-kit',
-      },
-      {
-        title: 'Chat',
-        link: '/pages/extra-components/chat',
-      },
+        title: 'Products List ',
+        link: '/pages/forms/layouts',
+        icon: 'list-outline'
+      }
     ],
+
   },
+
   {
-    title: 'Maps',
-    icon: 'map-outline',
+    title: 'Resource management',
+    // icon: { icon: 'trending-up-outline', pack: 'font-awesome' },
+    icon: 'trending-up-outline',
     children: [
       {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
+        title: 'Config ',
+        link: '/pages/forms/inputs',
+        icon: 'start'
+
       },
       {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
-      },
-      {
-        title: 'Bubble Maps',
-        link: '/pages/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
-      },
+        title: 'Products List ',
+        link: '/pages/forms/layouts',
+        icon: 'list-outline'
+      }
     ],
+
   },
+
   {
-    title: 'Charts',
-    icon: 'pie-chart-outline',
+    title: 'Produ order management',
+    icon: 'layers-outline',
     children: [
       {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
+        title: 'Config',
+        link: '/pages/forms/inputs',
+        icon: 'shopping-bag-outline'
+
       },
       {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-      },
+        title: 'Products List ',
+        link: '/pages/forms/layouts',
+        icon: 'list-outline'
+      }
     ],
+
   },
-  {
-    title: 'Editors',
-    icon: 'text-outline',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
-  {
-    title: 'Tables & Data',
-    icon: 'grid-outline',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/pages/tables/smart-table',
-      },
-      {
-        title: 'Tree Grid',
-        link: '/pages/tables/tree-grid',
-      },
-    ],
-  },
-  {
-    title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+
 ];

@@ -5,7 +5,7 @@ import { MENU_ITEMS } from './pages-menu';
   selector: 'app-pages',
   template: `
     <ngx-one-column-layout>
-        <nb-menu [items]="menu"></nb-menu>
+        <nb-menu  tag="menu" [items]="menu" autoCollapse="true" ></nb-menu>
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,

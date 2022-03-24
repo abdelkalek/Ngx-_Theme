@@ -1,0 +1,36 @@
+<div class="card-row">
+  <div class="card-col">
+    <nb-card>
+      <nb-card-header>
+        <nb-user size="giant"
+                 name="{{email}}"
+                 title="Engineer"
+                 picture='https://avatars.githubusercontent.com/u/10207039?v=4'
+                 [showTitle]="false">
+        </nb-user>
+      </nb-card-header>
+
+      <nb-list>
+        <nb-list-item  *ngFor="let item of ProfileItem">
+          <nb-icon [icon]="item.icon" ></nb-icon>
+     <label class="subtitle">
+       {{item.title }}
+     </label>
+        </nb-list-item>
+      </nb-list>
+    </nb-card>
+  </div>
+  <div class="card-col">
+    <nb-card>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Profile">
+          <p>List of <strong>users</strong>.</p>
+        </nb-tab>
+        <nb-tab tabTitle="Setting">
+          <p>List of <strong>orders</strong>.</p>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+

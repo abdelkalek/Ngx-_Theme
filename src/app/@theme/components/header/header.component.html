@@ -1,32 +1,71 @@
+<!--<div class="header-container">-->
+<!--  <div class="logo-container">-->
+<!--    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">-->
+<!--      <nb-icon icon="menu-2-outline"></nb-icon>-->
+<!--    </a>-->
+<!--    <a class="logo" href="#" (click)="navigateHome()">IPSUM</a>-->
+<!--  </div>-->
+<!--  <nb-select-->
+<!--    [selected]="currentTheme"-->
+<!--    (selectedChange)="changeTheme($event)"-->
+<!--    status="primary"-->
+<!--  >-->
+<!--    <nb-option *ngFor="let theme of themes" [value]="theme.value">-->
+<!--      {{ theme.name }}</nb-option-->
+<!--    >-->
+<!--  </nb-select>-->
+<!--</div>-->
+
+<!--<div class="header-container">-->
+<!--  <nb-actions size="small">-->
+<!--    <nb-action class="user-action" *nbIsGranted="['view', 'user']">-->
+<!--      <nb-user-->
+<!--        [nbContextMenu]="userMenu"-->
+<!--        [nbContextMenuTag]="'userMenuTag'"-->
+<!--        [onlyPicture]="userPictureOnly"-->
+<!--        [name]="user?.name"-->
+<!--        [picture]="user?.picture"-->
+<!--      >-->
+<!--      </nb-user>-->
+<!--    </nb-action>-->
+<!--  </nb-actions>-->
+<!--</div>-->
 <div class="header-container">
   <div class="logo-container">
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()">IPSUM</a>
+    <a class="logo" href="#" (click)="navigateHome()"><img src="assets/Xenophon.svg" width="450" class="img-fluid"/></a>
   </div>
-  <nb-select
-    [selected]="currentTheme"
-    (selectedChange)="changeTheme($event)"
-    status="primary"
-  >
-    <nb-option *ngFor="let theme of themes" [value]="theme.value">
-      {{ theme.name }}</nb-option
-    >
+  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
   </nb-select>
 </div>
+<div >
 
 <div class="header-container">
   <nb-actions size="small">
-    <nb-action class="user-action" *nbIsGranted="['view', 'user']">
-      <nb-user
-        [nbContextMenu]="userMenu"
-        [nbContextMenuTag]="'userMenuTag'"
-        [onlyPicture]="userPictureOnly"
-        [name]="user?.name"
-        [picture]="user?.picture"
-      >
+
+    <nb-action class="control-item">
+      <nb-search type="rotate-layout"></nb-search>
+    </nb-action>
+    <nb-action class="control-item" icon="email-outline"></nb-action>
+    <nb-action class="control-item" icon="bell-outline"></nb-action>
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
+
+<!--      <nb-user [nbContextMenu]="userMenu"-->
+<!--               [onlyPicture]="userPictureOnly"-->
+<!--               [name]="user?.name"-->
+<!--               [picture]="user?.picture">-->
+<!--      </nb-user>-->
+
+      <nb-user class="logon" size="medium" name="{{email}}"
+               title="{{role}}"
+               [nbContextMenu]="items"
+               picture='https://avatars.githubusercontent.com/u/10207039?v=4'
+               nbContextMenuTag="my-context-menu"  >
       </nb-user>
     </nb-action>
   </nb-actions>
+</div>
 </div>

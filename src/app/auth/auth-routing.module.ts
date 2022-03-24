@@ -4,7 +4,6 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  // .. here goes our components routes
   {
     path: '',
     component: AuthComponent,

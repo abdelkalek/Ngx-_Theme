@@ -14,12 +14,7 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
-
-let resolvePersistenceEnabled: (enabled: boolean) => void;
-
-export const persistenceEnabled = new Promise<boolean>((resolve) => {
-  resolvePersistenceEnabled = resolve;
-});
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +29,7 @@ export const persistenceEnabled = new Promise<boolean>((resolve) => {
     NbMenuModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgxAuthRoutingModule } from './auth-routing.module';
@@ -17,6 +17,7 @@ import {
   NbSpinnerModule,
 } from '@nebular/theme';
 import { AuthComponent } from './auth.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { AuthComponent } from './auth.component';
     NbSpinnerModule,
     NbCardModule,
     NbLayoutModule,
+    HttpClientModule,
 
     NbAuthModule.forRoot({
       strategies: [
@@ -55,6 +57,7 @@ import { AuthComponent } from './auth.component';
     NbIconModule,
     NbActionsModule,
     NbFormFieldModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     // ... here goes our new components

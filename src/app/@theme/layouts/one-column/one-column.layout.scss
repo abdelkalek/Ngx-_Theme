@@ -5,5 +5,13 @@
 @include nb-install-component() {
   .menu-sidebar ::ng-deep .scrollable {
     padding-top: nb-theme(layout-padding-top);
+
   }
+  //::ng-deep .menu-items .menu-item  a {
+  //  font-size: 0.95em;
+  //  color :black;
+  //}
+
+
+
 }

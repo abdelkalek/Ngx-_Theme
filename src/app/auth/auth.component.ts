@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   selector: 'app-auth',
   styleUrls: [ '../../../node_modules/@nebular/auth/components/auth.component.scss' ],
   template: `
-    <nb-layout>
-      <nb-layout-column>
+    <nb-layout >
+      <nb-layout-column >
 <!--            <nb-auth-block>-->
               <router-outlet></router-outlet>
 <!--            </nb-auth-block>-->

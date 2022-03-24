@@ -1,0 +1,219 @@
+<!--<div class="form-signin  shadow  bg-body rounded-3 mt-2">-->
+<!--  <div class="card border-light  bg-light">-->
+<!--    <div class="card-body ">-->
+<!--      <h5 class="card-title"><h3>Cree Votre Compte</h3></h5>-->
+<!--      <hr class="mb-5 btn-primary">-->
+<!--      <form  [formGroup]="singupform" (submit)="submit()" >-->
+<!--        <div class="mb-3 row">-->
+
+<!--          <label for="staticName" class="h3 col-sm-4 col-form-label">Nom  </label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input-->
+<!--              type="text"-->
+<!--              class="form-control"-->
+<!--              placeholder="Nom de l'utislisateur"-->
+<!--              id="staticName"-->
+<!--              name="Name"-->
+<!--              formControlName="nom"-->
+
+<!--              required >-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="mb-3 row">-->
+<!--          <label for="staticPrnom" class="h3 col-sm-4 col-form-label">Prenom</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input-->
+<!--              type="text"-->
+<!--              class="form-control"-->
+<!--              placeholder="Prenom de l'utislisateur"-->
+<!--              id="staticPrnom"-->
+<!--              name="Prenom"-->
+<!--              formControlName="prenom"-->
+
+<!--              required >-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="mb-3 row">-->
+<!--          <label for="staticEmail" class=" h3 col-sm-4 col-form-label">Email</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input-->
+<!--              type="Email"-->
+<!--              class="form-control"-->
+<!--              placeholder="Email de l'utislisateur"-->
+<!--              id="staticEmail"-->
+<!--              name="email"-->
+<!--              formControlName="email"-->
+<!--              required >-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="mb-3 row">-->
+<!--          <label for="staticPwd" class=" h3 col-sm-4 col-form-label ">Mot de pass</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input-->
+<!--              type="password"-->
+<!--              name="password"-->
+<!--              formControlName="password"-->
+<!--              class="form-control"-->
+<!--              placeholder="Mot de passe"-->
+<!--              id="staticPwd"-->
+<!--              required-->
+<!--              minlength="6">-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="mb-2 row">-->
+<!--          <label for="staticPwdConfirme" class=" h3 col-sm-4 col-form-label ">Confirmer votre Mot de pass</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input-->
+<!--              type="password"-->
+<!--              name="staticPwdConfirme"-->
+<!--              class="form-control"-->
+<!--              placeholder="Mot de passe"-->
+<!--              formControlName="passwordConfirme"-->
+<!--              id="staticPwdConfirme"-->
+<!--              required-->
+<!--              minlength="6">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="mb-3 row ">-->
+<!--          <div class="col-sm-12 text-center">-->
+<!--            <button type="submit" class="btn btn-primary  col-12  " [disabled]="!singupform.valid">Valider</button>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+
+<!--        <div class="alert alert-primary   " role="alert">-->
+<!--          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">-->
+<!--            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>-->
+<!--          </svg>-->
+<!--          <a  href="#" class="alert" >  Mot de passe oublié ?</a>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="row">
+  <div class="col-md-12">
+    <nb-card status="primary">
+      <nb-card-header>Creat New User</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-md-6">
+            <nb-card>
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-2">
+                    <button nbButton status="primary" size="giant">
+                      <nb-icon icon="settings-outline" pack="eva"></nb-icon>
+                    </button>
+                  </div>
+
+                  <div class="col-10 mx-auto">
+                    <b>Customization Roles</b>
+                    <p class=" text-muted">You can add a new role from here</p>
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+          <div class="col-md-6">
+            <nb-card>
+              <nb-card-body>
+                <div class="row  justify-content">
+                  <div class="col-2">
+                    <button nbButton status="warning" size="giant">
+                      <nb-icon icon="settings-2-outline" pack="eva"></nb-icon>
+                    </button>
+                  </div>
+                  <div class="col-10 ">
+                    <b>customization permissions</b>
+                    <p class=" text-muted">Configure permissions or add a new one</p>
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<nb-card>
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>First step</ng-template>
+        <h4>Informations professionnelles</h4>
+
+        <div class="mb-3 row">
+          <nb-alert accent="success">
+            <nb-action size="large" class="col-md-12">
+              <nb-icon status="warning" icon="bulb-outline" class="mx-3"></nb-icon>
+              don't have a account ? connect the administration
+            </nb-action>
+          </nb-alert>
+          <div class="mb-3 col-md-6">
+            <label for="FirstName" class="form-label h5">First Name </label>
+            <input type="text" class="form-control" id="FirstName" placeholder="First Name  ">
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="FamilyName" class="form-label h5">Family Name </label>
+            <input type="text" class="form-control" id="FamilyName" placeholder="Family Name ">
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label h5">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+
+          <div class="mb-3 col-md-6">
+            <label for="birthdate" class="form-label h5">Birth date</label>
+            <input id="birthdate" fullWidth nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker">
+            <nb-datepicker #dateTimePicker></nb-datepicker>
+          </div>
+
+        </div>
+        <button nbButton disabled status="primary" nbStepperNext class="mx-2"><nb-icon icon="arrow-ios-back-outline"></nb-icon>prev</button>
+        <button nbButton status="success" nbStepperNext class="mx-2" >Next Step<nb-icon icon="arrow-ios-forward-outline"></nb-icon></button>
+
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Second step</ng-template>
+        <h4>Informations personnelles</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious class="mx-1">prev</button>
+        <button nbButton nbStepperNext class="mx-1">next</button>
+      </nb-step>
+      <nb-step label="Third step">
+        <h4>Step content #3</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Final step</ng-template>
+        <h4>Step content #4</h4>
+        <p class="lorem">
+          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
+          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
+          gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>

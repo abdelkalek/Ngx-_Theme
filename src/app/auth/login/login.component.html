@@ -1,0 +1,115 @@
+
+<div class="row">
+  <div class="col-md-6 d-sm-none d-md-block d-none d-sm-block">
+    <div class="">
+      <img src="assets/Xenophon.svg" width="180"/>
+    </div>
+    <img class="img-fluid" src="assets/LoginForm.svg"/>
+  </div>
+  <div class="col-md-5 ">
+  <nb-alert accent="danger" role="alert" *ngIf="false">
+    Error message
+  </nb-alert>
+  <!--<div class="row justify-content-center">-->
+  <nb-card accent="info" [nbSpinner]="isLoadingMode" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+    <nb-card-header class="text-center">
+      <img src="assets/Logo.svg"  width="30em">
+    </nb-card-header>
+    <nb-card-body>
+      <h6> Sign in to you account</h6>
+      <nb-alert accent="success">
+        <nb-action size="large" class="col-md-12">
+          <nb-icon status="warning" icon="bulb-outline" class="mx-3"></nb-icon>
+          don't have a account ? connect the administration
+        </nb-action>
+      </nb-alert>
+      <form [formGroup]="loginform" (ngSubmit)="loginEmail()">
+        <div class="row mb-1">
+          <label for="input-email" class=" subtitle col-sm-3">Email</label>
+          <div class="col-sm-9">
+            <nb-form-field>
+              <input
+                nbInput
+                fullWidth
+                formControlName="email"
+                class="form-control"
+                name="email"
+                id="input-email"
+                pattern=".+@.+\..+"
+                placeholder="Email"
+                fieldSize="large"
+                [status]="loginform.controls['email'].dirty ? (loginform.controls['email'].invalid  ? 'danger' : 'success') : 'basic'"
+              />
+              <button type="button" nbSuffix nbButton ghost (click)="loginform.reset()">
+                <nb-icon icon="trash-outline" pack="eva"></nb-icon>
+              </button>
+            </nb-form-field>
+            <ng-container *ngIf="loginform.controls['email'].invalid && loginform.controls['email'].dirty">
+              <nb-alert class="my-2" status="danger">
+                Incorrect email format ...
+              </nb-alert>
+            </ng-container>
+          </div>
+        </div>
+        <div class="mb-1 row">
+          <label for="input-password" class="col-sm-3 col-form-label subtitle">Password</label>
+          <div class="col-sm-9">
+            <nb-form-field>
+              <input
+                nbInput
+                fullWidth
+                formControlName="password"
+                name="password"
+                type="password"
+                id="input-password"
+                placeholder="password"
+                fieldSize="large"
+                minlength="6"
+                autocomplete="on"
+                [status]="loginform.controls['password'].dirty ? (loginform.controls['password'].invalid  ? 'danger' : 'success') : 'basic'"
+                [type]="getInputType()"/>
+              <button type="button" nbSuffix nbButton ghost (click)="toggleShowPassword()">
+                <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                         pack="eva"
+                         [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+                </nb-icon>
+              </button>
+            </nb-form-field>
+            <ng-container *ngIf="loginform.controls['password'].invalid && loginform.controls['password'].touched">
+              <nb-alert class="my-2" status="danger">
+                Incorrect Password Length ...
+              </nb-alert>
+            </ng-container>
+          </div>
+        </div>
+        <div class="mb-1 row">
+          <nb-checkbox status="danger">Save Connection Parameters</nb-checkbox>
+        </div>
+        <div class="mb-1 m-auto row justify-content-center ">
+          <button
+            class="text-center col-md-6"
+            nbButton
+            status="primary"
+            size="large"
+            hero
+            type="submit"
+          >Connect
+          </button>
+          <!--                [disabled]="loginform.invalid"-->
+        </div>
+        <nb-alert accent="info" class="row">
+          <nb-action size="Medium" class="col-md-12">
+            <nb-icon icon="info-outline" ></nb-icon>
+            Reset or change your password ?
+            <a class="text-link "
+               routerLink="../request-password"> Click here</a>
+          </nb-action>
+        </nb-alert>
+      </form>
+    </nb-card-body>
+  </nb-card>
+  </div>
+<div class="text-center">
+&copy;  copyright 2022
+</div>
+</div>
