@@ -4,20 +4,19 @@
 
 <nb-card  accent="info">
   <nb-card-body>
-    <table class="table m-2 caption-top">
-      <caption>List of users</caption>
-      <thead class="table-dark">
+    <table class="table"  >
+      <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Action</th>
+        <th class="subtitle-2" >Identifiant</th>
+        <th class="subtitle-2" >Email</th>
+        <th class="subtitle-2" >Action</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let u of users">
         <td hidden>{{u.id}}</td>
-        <td>{{u.userName}}</td>
-        <td>{{u.email}}</td>
+        <td  class="subtitle-2">{{u.userName}}</td>
+        <td  class="subtitle-2" >{{u.email}}</td>
         <td>
           <button nbButton status="success" size="small" ><nb-icon icon="eye-outline"></nb-icon></button>
           <button nbButton status="primary" size="small"><nb-icon icon="edit-2-outline"></nb-icon></button>

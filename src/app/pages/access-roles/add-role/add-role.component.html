@@ -1,0 +1,15 @@
+<nb-card status="primary">
+  <nb-card-header>Add New Role</nb-card-header>
+  <nb-card-body>
+    <div class="row my-1">
+
+      <div class="col-md-auto"><label class="subtitle">Role Name </label>
+      </div>
+      <div class="col-md-auto">
+        <input type="text" #rolename   name="rolename" nbInput placeholder="Role Name"><br>
+      </div>
+    </div>
+    <button nbButton outline status="primary" (click)="dismiss(rolename.value)">Add New Role</button>
+  </nb-card-body>
+  <nb-card-footer></nb-card-footer>
+</nb-card>

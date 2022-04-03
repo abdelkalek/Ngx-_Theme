@@ -61,7 +61,9 @@ export class LoginComponent implements OnInit {
       },
       error: errorRes => {
         this.isLoadingMode = false
-        this.showToast("danger", errorRes)
+        this.showToast("danger",errorRes.UserName )
+
+
       },
       complete: () => {
         this.isLoadingMode = false

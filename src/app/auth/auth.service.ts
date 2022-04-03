@@ -19,7 +19,7 @@ export interface authResponsData {
 })
 export class AuthService {
 
-  private endpoint = environment.baseUrl;
+  private endpoint = environment.endPoint;
   private headers: HttpHeaders;
   //Behavior Subject Observable that you can get next value or privious values also :) Nice Yeah
   userAuth = new BehaviorSubject<User | null>(null);
@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   login(loginForm: any) {
-    return this.http.post<authResponsData>('https://localhost:7089/api/AuthManagment/Login', {
+    return this.http.post<authResponsData>(`${this.endpoint}/api/AuthManagment/Login`, {
       email: loginForm.email,
       password: loginForm.password
     }, {headers: this.headers}).pipe(catchError(errorRes => {
@@ -80,7 +80,4 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  getAllRole() {
-    return this.http.get('https://localhost:7089/api/RoleManager');
-  }
 }

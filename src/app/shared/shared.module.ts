@@ -3,15 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import {NbCardModule} from "@nebular/theme";
 
 
 @NgModule({
-  declarations: [
-    ForbiddenComponent
-  ],
+    declarations: [
+        ForbiddenComponent,
+        BreadcrumbComponent
+    ],
+    exports: [
+        BreadcrumbComponent
+    ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    NbCardModule
   ]
 })
 export class SharedModule { }

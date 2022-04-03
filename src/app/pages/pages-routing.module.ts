@@ -4,6 +4,8 @@ import { PagesComponent } from './pages.component';
 import {AddUsersComponent} from "./add-users/add-users.component";
 import {UserprofileComponent} from "./userprofile/userprofile.component";
 import {ListuserComponent} from "./listuser/listuser.component";
+import {AccessRolesComponent} from "./access-roles/access-roles.component";
+import {AccessPermissionComponent} from "./access-permission/access-permission.component";
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
       {
         path: 'users',
         component: ListuserComponent
+      },
+      {
+        path: 'AccessRoles',
+        component: AccessRolesComponent
+      },
+      {
+        path: 'AccessPermission',
+        component: AccessPermissionComponent
       }
       ]
   }];

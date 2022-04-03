@@ -1,0 +1,10 @@
+.box {
+  display: flex;
+  flex-flow: row wrap;
+
+  .one {
+    flex: 1 1 auto;
+  }
+}
+
+

@@ -27,12 +27,11 @@ interface UserModelPage {
   providedIn: 'root'
 })
 export class UsersService {
-  private endpoint = environment.baseUrl;
-
+  private endpoint = environment.endPoint;
   constructor(private http: HttpClient,) {
   }
 
   getUsers() {
-    return this.http.get("https://localhost:7089/api/RoleManager/GetAllUser");
+    return this.http.get(`${this.endpoint}/api/RoleManager/GetAllUser`);
   }
 }

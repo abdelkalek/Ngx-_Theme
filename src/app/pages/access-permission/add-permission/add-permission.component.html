@@ -1,0 +1,22 @@
+<nb-card status="primary">
+  <nb-card-header>Add Permission to role</nb-card-header>
+  <nb-card-body>
+    <label class="subtitle">Role Selected : role</label>
+    <div class="row my-1">
+      <div class="col-md-auto"><label class="subtitle">Permission Type </label>
+      </div>
+      <div class="col-md-auto">
+        <input type="text" #perType   name="perType" nbInput placeholder=" Type"><br>
+      </div>
+    </div>
+    <div class="row my-1">
+      <div class="col-md-auto"><label class="subtitle">Permission Value </label>
+      </div>
+      <div class="col-md-auto">
+        <input type="text" #permValue   name="perValue" nbInput placeholder=" Value"><br>
+      </div>
+    </div>
+    <button nbButton outline status="primary" (click)="dismiss(permValue.value)">Oky!Send</button>
+  </nb-card-body>
+  <nb-card-footer></nb-card-footer>
+</nb-card>

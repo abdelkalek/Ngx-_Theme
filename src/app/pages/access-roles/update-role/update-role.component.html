@@ -1,0 +1,13 @@
+<nb-card status="success">
+  <nb-card-header>Update New Role</nb-card-header>
+  <nb-card-body>
+    <div class="row my-1">
+      <div class="col-md-auto"><label class="subtitle">Role Name </label>
+      </div>
+      <div class="col-md-auto">
+        <input type="text" #rolename [value]="roleName"    name="rolename" nbInput><br>
+      </div>
+    </div>
+    <button nbButton outline status="success" (click)="dismiss(rolename.value)">Update this role</button>
+  </nb-card-body>
+</nb-card>

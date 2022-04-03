@@ -64,17 +64,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
       },
       {
-        title: 'Add Role To User',
+        title: 'Roles & Permission',
         link: '',
-        icon: 'briefcase-outline'
+        icon: 'shield-outline',
+        children :[
+          {
+            title: ' Roles',
+            link: '/pages/AccessRoles',
+            icon: 'unlock-outline'
 
-      },
-      {
-        title: 'Add permission to user',
-        link: '/pages/layout/accordion',
-        icon: 'unlock-outline'
-
-      },
+          },
+          {
+            title: 'Permission ',
+            link: '/pages/AccessPermission',
+            icon: 'keypad-outline'
+          }
+        ]
+      }
+     ,
       {
         title: 'Config',
         pathMatch: 'prefix',
