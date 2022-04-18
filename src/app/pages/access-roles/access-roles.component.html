@@ -1,7 +1,29 @@
-<h4>Roles List</h4>
-<p>A role provided access to predefined menus and features so that depending
-  on assigned role an administrator can have access to what he need
-</p>
+
+<nb-card>
+  <nb-card-header>
+    <ng-template #separatorTemplate>
+      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+    </ng-template>
+    <xng-breadcrumb [separator]="separatorTemplate"
+                    class="subtite"
+                    id="advancedTemplate1"
+                    [preserveQueryParams]="false" ></xng-breadcrumb>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col ">
+        <h4 >Roles</h4>
+      </div>
+      <div class=" left col">
+        <button nbButton  appearance="ghost" ><nb-icon icon="menu-outline"></nb-icon>List View</button>
+        <button nbButton appearance="ghost" > <nb-icon icon="grid"></nb-icon>Grid View</button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+
+
 <div class="box">
   <div class="card1 col-12 col-md-4 col-sm-4 ">
     <nb-card status="info" accent="primary" class="mx-1">

@@ -52,14 +52,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'people-outline',
     children: [
       {
-        title: 'Users List',
+        title: 'Users',
         link: '/pages/users',
-        icon: 'list-outline'
+        icon: 'people-outline'
 
       },
       {
         title: 'Add User',
-        link: '/pages',
+        link: '/pages/adduser',
         icon: 'person-add-outline'
 
       },
@@ -70,7 +70,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children :[
           {
             title: ' Roles',
-            link: '/pages/AccessRoles',
+            link: '/pages/Roles',
             icon: 'unlock-outline'
 
           },

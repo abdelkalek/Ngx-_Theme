@@ -9,7 +9,7 @@ import {AuthService} from "./auth/auth.service";
     <router-outlet></router-outlet> `,
 })
 export class AppComponent implements OnInit {
-  title = 'Control Plus';
+  title = 'Xenphone';
   constructor(private menuService: NbMenuService, private authService :AuthService) {}
 
   ngOnInit(): void {

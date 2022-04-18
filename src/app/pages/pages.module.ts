@@ -22,6 +22,9 @@ import { AddRoleComponent } from './access-roles/add-role/add-role.component';
 import { UpdateRoleComponent } from './access-roles/update-role/update-role.component';
 import { AddPermissionComponent } from './access-permission/add-permission/add-permission.component';
 import {SharedModule} from "../shared/shared.module";
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {NbEvaIconsModule} from "@nebular/eva-icons";
+import {BreadcrumbModule} from "xng-breadcrumb";
 
 @NgModule({
   declarations: [PagesComponent,
@@ -36,33 +39,36 @@ import {SharedModule} from "../shared/shared.module";
     AddPermissionComponent,
 
   ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    ThemeModule,
-    NbMenuModule,
-    ReactiveFormsModule,
-    NbStepperModule,
-    NbCardModule,
-    NbIconModule,
-    NbActionsModule,
-    NbAlertModule,
-    NbDatepickerModule,
-    NbButtonModule,
-    NbMenuModule.forRoot(),
-    NbDatepickerModule.forRoot(),
-    NbTimepickerModule.forRoot(),
-    NbDialogModule.forRoot(),
+    imports: [
+        CommonModule,
+        PagesRoutingModule,
+        ThemeModule,
+        NbMenuModule,
+        ReactiveFormsModule,
+        NbStepperModule,
+        NbCardModule,
+        NbIconModule,
+        NbActionsModule,
+        NbAlertModule,
+        NbDatepickerModule,
+        NbButtonModule,
+        NbMenuModule.forRoot(),
+        NbDatepickerModule.forRoot(),
+        NbTimepickerModule.forRoot(),
+        NbDialogModule.forRoot(),
 
-    NbInputModule,
-    NbUserModule,
-    NbTabsetModule,
-    NbListModule,
-    NbSelectModule,
-    NbSelectModule,
-    NbTableModule,
-    SharedModule,
-
-  ],
+        NbInputModule,
+        NbUserModule,
+        NbTabsetModule,
+        NbListModule,
+        NbSelectModule,
+        NbSelectModule,
+        NbTableModule,
+        SharedModule,
+        Ng2SmartTableModule,
+        NbEvaIconsModule,
+        NbIconModule,
+        BreadcrumbModule
+    ],
 })
 export class PagesModule {}

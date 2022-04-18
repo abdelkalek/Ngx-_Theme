@@ -13,7 +13,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       {
-        path: '',
+        path: 'adduser',
         component: AddUsersComponent
       },
       {
@@ -25,7 +25,7 @@ const routes: Routes = [
         component: ListuserComponent
       },
       {
-        path: 'AccessRoles',
+        path: 'Roles',
         component: AccessRolesComponent
       },
       {

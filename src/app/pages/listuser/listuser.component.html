@@ -1,31 +1,31 @@
 
 
 
-
-<nb-card  accent="info">
+<nb-card>
+  <nb-card-header>
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+  <xng-breadcrumb [separator]="separatorTemplate"
+                  class="myapp-breadcrumb"
+                  id="advancedTemplate1"
+                  [preserveQueryParams]="false" ></xng-breadcrumb>
+</nb-card-header>
   <nb-card-body>
-    <table class="table"  >
-      <thead>
-      <tr>
-        <th class="subtitle-2" >Identifiant</th>
-        <th class="subtitle-2" >Email</th>
-        <th class="subtitle-2" >Action</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let u of users">
-        <td hidden>{{u.id}}</td>
-        <td  class="subtitle-2">{{u.userName}}</td>
-        <td  class="subtitle-2" >{{u.email}}</td>
-        <td>
-          <button nbButton status="success" size="small" ><nb-icon icon="eye-outline"></nb-icon></button>
-          <button nbButton status="primary" size="small"><nb-icon icon="edit-2-outline"></nb-icon></button>
-          <button nbButton status="danger" size="small"><nb-icon icon="trash-2-outline"></nb-icon></button>
-
-        </td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col ">
+      <h4 >Users</h4>
+    </div>
+    <div class=" left col">
+      <button nbButton outline status="success" size="medium"><nb-icon icon="person-add-outline"></nb-icon>add Person </button>
+    </div>
+  </div>
   </nb-card-body>
 </nb-card>
 
+<nb-card  accent="info">
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="users" (deleteConfirm)="onDeleteConfirm($event)"  (userRowSelect)="onRowSelect($event)"> >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

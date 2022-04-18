@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'ngx-footer',
   styleUrls: ['./footer.component.scss'],
   template: `
-    <span class="created-by">
-      <b>Xenophon</b> - Dev - 2022
+    <div class="fouter" >
+          <span class="created-by text-center justify-content-center">
+      Created  by 2019
     </span>
+    </div>
   `,
 })
-export class FooterComponent {}
+export class FooterComponent {
+}

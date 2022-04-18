@@ -5,12 +5,13 @@ import { Component } from '@angular/core';
   selector: 'app-auth',
   styleUrls: [ '../../../node_modules/@nebular/auth/components/auth.component.scss' ],
   template: `
-    <nb-layout >
-      <nb-layout-column >
-<!--            <nb-auth-block>-->
+    <nb-layout class="m-0" >
+      <nb-layout-column class="m-0" >
               <router-outlet></router-outlet>
-<!--            </nb-auth-block>-->
       </nb-layout-column>
+      <nb-layout-footer class="m-0">
+        <label class="subtitle">Xenphone 2022</label><br>
+      </nb-layout-footer>
     </nb-layout>
   `,
 })

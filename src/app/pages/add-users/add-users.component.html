@@ -143,6 +143,29 @@
 <!--</div>-->
 
 <nb-card>
+  <nb-card-header>
+    <ng-template #separatorTemplate>
+      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+    </ng-template>
+    <xng-breadcrumb [separator]="separatorTemplate"
+                    class="myapp-breadcrumb"
+                    id="advancedTemplate1"
+                    [preserveQueryParams]="false" ></xng-breadcrumb>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col ">
+        <h4 >Add New User</h4>
+      </div>
+
+    </div>
+  </nb-card-body>
+</nb-card>
+
+
+
+
+<nb-card>
   <nb-card-body>
     <form [formGroup]="addform" (ngSubmit)="submit()">
     <nb-stepper orientation="horizontal">
