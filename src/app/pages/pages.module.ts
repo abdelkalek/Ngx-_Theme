@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import {
-    NbActionsModule,
-    NbAlertModule, NbButtonModule,
-    NbCardModule, NbDatepickerModule, NbDialogModule,
-    NbIconModule, NbInputModule, NbListModule,
-    NbMenuModule, NbSelectModule,
-    NbStepperModule, NbTableModule, NbTabsetModule, NbTimepickerModule, NbUserModule
+  NbAccordionModule,
+  NbActionsModule,
+  NbAlertModule, NbButtonModule,
+  NbCardModule, NbDatepickerModule, NbDialogModule,
+  NbIconModule, NbInputModule, NbLayoutModule, NbListModule,
+  NbMenuModule, NbSelectModule,
+  NbStepperModule, NbTableModule, NbTabsetModule, NbTimepickerModule, NbUserModule
 } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -25,6 +26,7 @@ import {SharedModule} from "../shared/shared.module";
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import {NbEvaIconsModule} from "@nebular/eva-icons";
 import {BreadcrumbModule} from "xng-breadcrumb";
+import { AccuielComponent } from './accuiel/accuiel.component';
 
 @NgModule({
   declarations: [PagesComponent,
@@ -37,38 +39,42 @@ import {BreadcrumbModule} from "xng-breadcrumb";
     AddRoleComponent,
     UpdateRoleComponent,
     AddPermissionComponent,
+    AccuielComponent,
+
 
   ],
-    imports: [
-        CommonModule,
-        PagesRoutingModule,
-        ThemeModule,
-        NbMenuModule,
-        ReactiveFormsModule,
-        NbStepperModule,
-        NbCardModule,
-        NbIconModule,
-        NbActionsModule,
-        NbAlertModule,
-        NbDatepickerModule,
-        NbButtonModule,
-        NbMenuModule.forRoot(),
-        NbDatepickerModule.forRoot(),
-        NbTimepickerModule.forRoot(),
-        NbDialogModule.forRoot(),
+  imports: [
+    CommonModule,
+    PagesRoutingModule,
+    ThemeModule,
+    NbMenuModule,
+    ReactiveFormsModule,
+    NbStepperModule,
+    NbCardModule,
+    NbIconModule,
+    NbActionsModule,
+    NbAlertModule,
+    NbDatepickerModule,
+    NbButtonModule,
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbTimepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
 
-        NbInputModule,
-        NbUserModule,
-        NbTabsetModule,
-        NbListModule,
-        NbSelectModule,
-        NbSelectModule,
-        NbTableModule,
-        SharedModule,
-        Ng2SmartTableModule,
-        NbEvaIconsModule,
-        NbIconModule,
-        BreadcrumbModule
-    ],
+    NbInputModule,
+    NbUserModule,
+    NbTabsetModule,
+    NbListModule,
+    NbSelectModule,
+    NbSelectModule,
+    NbTableModule,
+    SharedModule,
+    Ng2SmartTableModule,
+    NbEvaIconsModule,
+    NbIconModule,
+    BreadcrumbModule,
+    NbAccordionModule,
+    NbLayoutModule
+  ],
 })
 export class PagesModule {}

@@ -1,24 +1,68 @@
 <div class="card-row">
   <div class="card-col">
-    <nb-card>
+    <nb-card status="primary" class="mt-0">
       <nb-card-header>
-        <nb-user size="giant"
-                 name="{{email}}"
-                 title="Engineer"
-                 picture='https://avatars.githubusercontent.com/u/10207039?v=4'
-                 [showTitle]="false">
-        </nb-user>
+        <div class=" col-md left col">
+          <nb-icon icon="more-vertical-outline"></nb-icon>
+        </div>
       </nb-card-header>
+      <nb-card-body>
+        <div class="row justify-content-center text-center">
+          <img class="roundedImage shadow p-0 mb-1 bg-body " src="https://avatars.githubusercontent.com/u/10207039?v=4"
+               alt="photo de profile"/>
+        </div>
+        <div class="row text-center">
+          <strong>
+            Abdelkhalek Guedri</strong>
+        </div>
+        <div class="row  text-center justify-content-center ">
+          <p class="subtitle-2">
+            <img class="iconProfile" src="assets/profileimgs/a-01.svg"/>
+            Ingenieur en Informatique</p>
+        </div>
+        <nb-tabset>
+          <nb-tab tabIcon="person">
+            <div class="row text-center justify-content-between">
+            <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
+              Détail</strong>
+              <p>
+                software developer with a special focus on Microsoft .NET And Angular
+              </p>
+            </div>
 
-      <nb-list>
-        <nb-list-item  *ngFor="let item of ProfileItem">
-          <nb-icon [icon]="item.icon" ></nb-icon>
-     <label class="subtitle">
-       {{item.title }}
-     </label>
-        </nb-list-item>
-      </nb-list>
+            <div class="row ">
+              <p>
+                <img for="staticEmail" class="iconProfile" src="assets/profileimgs/a-02.svg"/>
+                Abdelkalek Guedri</p>
+            </div>
+            <div class="row ">
+              <p >
+                <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
+                abdelkalek@gmail.com</p>
+            </div>
+            <div class="row ">
+              <p >
+                <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
+                +21650998020</p>
+            </div>
+
+            <div class="row ">
+              <p >
+                <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
+                Tunisie, Monastir</p>
+            </div>
+          </nb-tab>
+          <nb-tab tabIcon="lock">
+            <p>List of <strong>orders</strong>.</p>
+          </nb-tab>
+          <nb-tab tabIcon="email-outline">
+            <p>List of <strong>transactions</strong>.</p>
+          </nb-tab>
+        </nb-tabset>
+      </nb-card-body>
     </nb-card>
+
+
   </div>
   <div class="card-col">
     <nb-card>

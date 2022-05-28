@@ -6,3 +6,21 @@
   @include nb-theme-global();
 };
 /* You can add global styles to this file, and also import other style files */
+
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.5rem;
+}
+button{
+  margin-inline: 0.2em;
+}
+.left {
+  display: flex;
+  justify-content: flex-end;
+}

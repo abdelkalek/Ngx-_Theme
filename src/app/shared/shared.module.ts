@@ -16,6 +16,7 @@ import {NbEvaIconsModule} from "@nebular/eva-icons";
         BreadcrumbComponent,
         SmartTableComponent,
 
+
     ],
   exports: [
     BreadcrumbComponent,

@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private isAuthenticated = false
   email: string | undefined;
   role: string | undefined;
+ changeIconTogel = true;
+  changetheme = false;
   items: NbMenuItem[] = [
     {
       title: 'Profile',
@@ -80,6 +82,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.changeThemeTogel();
     this.userSub = this.authSercvice.userAuth.subscribe(user => {
       //this.isAuthenticated = !user ? false: true;
       this.isAuthenticated = !!user;
@@ -137,11 +140,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
   }
+  changeThemeTogel(){
+    this.changetheme = !this.changetheme;
+    if(this.changetheme){
+      this.themeService.changeTheme("default");
+    }else{
+      this.themeService.changeTheme("dark");
 
+    }
+
+  }
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
-
+this.changeIconTogel = ! this.changeIconTogel;
     return false;
   }
 

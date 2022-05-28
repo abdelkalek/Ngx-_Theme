@@ -6,6 +6,24 @@
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
 
+
+  /*add to theme*/
+  menu-item-icon-active-color: rgb(14, 104, 238),
+  menu-item-active-text-color: #0250c0,
+  menu-item-active-color: #0e68ee,
+  menu-text-color	: rgba(0, 0, 0, 0.92),
+  menu-item-icon-color: #000000,
+  menu-item-border-radius : 0.3em,
+  menu-item-padding: 1em,
+  menu-submenu-item-padding: 0.4em,
+  menu-submenu-item-border-radius : 0em,
+  menu-item-hover-background-color :#0e68ee,
+  menu-item-hover-text-color : #ffffff,
+ // menu-submenu-item-active-hover-background-color: #0e68ee,
+  menu-submenu-item-hover-background-color:#0e68ee,
+  menu-submenu-item-active-hover-text-color : #ffffff,
+  menu-submenu-item-active-background-color:rgba(14, 104, 238, 0.15),
+    /*add to theme*/
   menu-item-icon-margin: 0 0.5rem 0 0,
 
   card-height-tiny: 13.5rem,

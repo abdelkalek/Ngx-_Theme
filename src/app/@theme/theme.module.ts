@@ -11,7 +11,7 @@ import {
   NbButtonModule,
   NbSelectModule,
   NbIconModule,
-  NbThemeModule,
+  NbThemeModule, NbToggleModule, NbFormFieldModule, NbInputModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -65,7 +65,7 @@ const PIPES = [
 ];
 
 @NgModule({
-    imports: [CommonModule, ...NB_MODULES],
+  imports: [CommonModule, ...NB_MODULES, NbToggleModule, NbFormFieldModule, NbInputModule],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
 })

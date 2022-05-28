@@ -33,33 +33,38 @@
 <div class="header-container">
   <div class="logo-container">
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
-      <nb-icon icon="menu-2-outline"></nb-icon>
+      <nb-icon  [icon]="changeIconTogel ? 'arrow-circle-left' : 'arrow-circle-right-outline'" ></nb-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()"><img src="assets/Xenophon-IT-Logo.png" width="700" class="img-fluid"/></a>
+    <a class="logo" href="#" (click)="navigateHome()"><img src="assets/logo.png" width="25" class="img-fluid"/></a>
+    <b>XENOPHON</b>
+
+
   </div>
-  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
-    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
-  </nb-select>
+  <nb-form-field class="mx-3">
+    <nb-icon nbPrefix icon="search" pack="eva"></nb-icon>
+    <input type="text" nbInput fullWidth shape="round" placeholder="Chercher...">
+  </nb-form-field>
+<!--  -->
+<!--  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">-->
+<!--    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>-->
+<!--  </nb-select>-->
+
+
 </div>
 <div >
-
 <div class="header-container">
+  <nb-icon  class="control-item"   icon="bell-outline" ></nb-icon>
+  <nb-icon  class="control-item"   icon="email-outline" ></nb-icon>
+  <nb-icon [icon]="changetheme ? 'moon' : 'sun'"  (click)="changeThemeTogel()"></nb-icon>
+
   <nb-actions size="small">
-
-    <nb-action class="control-item">
-      <nb-search type="rotate-layout"></nb-search>
-    </nb-action>
-    <nb-action class="control-item" icon="email-outline"></nb-action>
-    <nb-action class="control-item" icon="bell-outline"></nb-action>
     <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
-
 <!--      <nb-user [nbContextMenu]="userMenu"-->
 <!--               [onlyPicture]="userPictureOnly"-->
 <!--               [name]="user?.name"-->
 <!--               [picture]="user?.picture">-->
 <!--      </nb-user>-->
-
-      <nb-user class="logon" size="medium" name="{{email}}"
+      <nb-user  class="logon"  size="medium" name="{{email}}"
                title="{{role}}"
                [nbContextMenu]="items"
                picture='https://avatars.githubusercontent.com/u/10207039?v=4'
@@ -67,5 +72,6 @@
       </nb-user>
     </nb-action>
   </nb-actions>
+
 </div>
 </div>

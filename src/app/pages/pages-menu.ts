@@ -3,13 +3,15 @@ import {NbMenuItem} from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: 'monitor-outline',
-    group: true,
-    home: true
+
+    icon: {icon: 'display', pack: 'solid'},
+
+    home: true,
+    link: '/pages',
   },
   {
     title: 'Profile',
-    icon: 'person',
+    icon: {icon: 'user-tie', pack: 'font-awesome'},
     badge: {
       text: '30',
       status: 'primary',
@@ -30,7 +32,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Notifications',
-        icon:'bell-outline',
+        icon: 'bell-outline',
         badge: {
           dotMode: true,
           status: 'warning',
@@ -38,7 +40,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Emails',
-        icon:'email-outline',
+        icon: 'email-outline',
         badge: {
           text: 'new',
           status: 'success',
@@ -49,7 +51,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'User Management',
-    icon: 'people-outline',
+    icon: {icon: 'people-group', pack: 'font-awesome'},
     children: [
       {
         title: 'Users',
@@ -67,7 +69,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Roles & Permission',
         link: '',
         icon: 'shield-outline',
-        children :[
+        children: [
           {
             title: ' Roles',
             link: '/pages/Roles',
@@ -81,7 +83,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
           }
         ]
       }
-     ,
+      ,
       {
         title: 'Config',
         pathMatch: 'prefix',
@@ -92,19 +94,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Manage products',
-    icon: 'cube-outline',
+
+    icon: {icon: 'box', pack: 'font-awesome'},
+    link: '/pages/product',
     children: [
       {
-        title: 'Add products',
-        link: '/pages/forms/inputs',
-        icon: 'shopping-bag-outline'
+        title: 'Products  ',
+        link: '/pages/product',
+        icon: {icon: 'box-open', pack: 'font-awesome'},
 
       },
       {
-        title: 'Products List ',
-        link: '/pages/forms/layouts',
-        icon: 'list-outline'
+        title: 'Category',
+        link: '/pages/forms/inputs',
+        icon: {icon: 'sitemap', pack: 'font-awesome'},
+      },
+      {
+        title: 'Property',
+        link: '/pages/forms/inputs',
+        icon: {icon: 'chart-bar', pack: 'font-awesome'},
       }
+
     ],
   },
   {

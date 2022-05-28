@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NbMenuService} from '@nebular/theme';
+import {NbIconLibraries, NbMenuService} from '@nebular/theme';
 import {filter, map} from 'rxjs';
 import {AuthService} from "./auth/auth.service";
 
@@ -10,10 +10,17 @@ import {AuthService} from "./auth/auth.service";
 })
 export class AppComponent implements OnInit {
   title = 'Xenphone';
-  constructor(private menuService: NbMenuService, private authService :AuthService) {}
-
+  constructor(private menuService: NbMenuService, private authService :AuthService ,private iconLibraries: NbIconLibraries) {
+    this.iconLibraries.registerFontPack('font-awesome', { packClass: 'fab', iconClassPrefix: 'fa' });
+    this.iconLibraries.registerFontPack('font-awesome', { packClass: 'fa', iconClassPrefix: 'fa' });
+    this.iconLibraries.registerFontPack('regular', { packClass: 'far', iconClassPrefix: 'fa' });
+    this.iconLibraries.registerFontPack('solid', { packClass: 'fas', iconClassPrefix: 'fa' });
+  }
   ngOnInit(): void {
-    this.authService.autoLogin();
+
+
+    //auatologin appel service
+  //  this.authService.autoLogin();
     this.menuService
       .onItemClick()
       .pipe(
