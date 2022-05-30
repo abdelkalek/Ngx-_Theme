@@ -23,8 +23,8 @@
         <nb-tabset>
           <nb-tab tabIcon="person">
             <div class="row text-center justify-content-between">
-            <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
-              Détail</strong>
+              <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
+                Détail</strong>
               <p>
                 software developer with a special focus on Microsoft .NET And Angular
               </p>
@@ -36,24 +36,52 @@
                 Abdelkalek Guedri</p>
             </div>
             <div class="row ">
-              <p >
+              <p>
                 <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
                 abdelkalek@gmail.com</p>
             </div>
             <div class="row ">
-              <p >
+              <p>
                 <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
                 +21650998020</p>
             </div>
 
             <div class="row ">
-              <p >
+              <p>
                 <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
                 Tunisie, Monastir</p>
             </div>
           </nb-tab>
           <nb-tab tabIcon="lock">
-            <p>List of <strong>orders</strong>.</p>
+            <p>Lists des <strong>permissions</strong>.</p>
+
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Module</th>
+                <th scope="col">voir</th>
+                <th scope="col">modifier</th>
+                <th scope="col">supprimer</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Gestion des utilisateur</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+
+              </tbody>
+            </table>
           </nb-tab>
           <nb-tab tabIcon="email-outline">
             <p>List of <strong>transactions</strong>.</p>
@@ -67,10 +95,13 @@
   <div class="card-col">
     <nb-card>
       <nb-tabset fullWidth>
-        <nb-tab tabTitle="Profile">
-          <p>List of <strong>users</strong>.</p>
+        <nb-tab tabTitle="Autres parametres">
+
+          <nb-toggle [checked]="true" status="success"> Compte Activé</nb-toggle>
+          <nb-menu [items]="items" autoCollapse="true">
+          </nb-menu>
         </nb-tab>
-        <nb-tab tabTitle="Setting">
+        <nb-tab tabTitle="Setting et Roles">
           <p>List of <strong>orders</strong>.</p>
         </nb-tab>
       </nb-tabset>

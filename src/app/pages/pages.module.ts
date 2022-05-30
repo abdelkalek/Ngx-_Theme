@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import {
-  NbAccordionModule,
-  NbActionsModule,
-  NbAlertModule, NbButtonModule,
-  NbCardModule, NbDatepickerModule, NbDialogModule,
-  NbIconModule, NbInputModule, NbLayoutModule, NbListModule,
-  NbMenuModule, NbSelectModule,
-  NbStepperModule, NbTableModule, NbTabsetModule, NbTimepickerModule, NbUserModule
+    NbAccordionModule,
+    NbActionsModule,
+    NbAlertModule, NbButtonModule,
+    NbCardModule, NbDatepickerModule, NbDialogModule,
+    NbIconModule, NbInputModule, NbLayoutModule, NbListModule,
+    NbMenuModule, NbSelectModule,
+    NbStepperModule, NbTableModule, NbTabsetModule, NbTimepickerModule, NbToggleModule, NbUserModule
 } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddUsersComponent} from "./add-users/add-users.component";
 import { ConfigusersComponent } from './configusers/configusers.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -74,7 +74,9 @@ import { AccuielComponent } from './accuiel/accuiel.component';
     NbIconModule,
     BreadcrumbModule,
     NbAccordionModule,
-    NbLayoutModule
+    NbLayoutModule,
+    NbToggleModule,
+    FormsModule
   ],
 })
 export class PagesModule {}
