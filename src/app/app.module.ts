@@ -28,7 +28,7 @@ import {HttpClientModule} from "@angular/common/http";
     NbMenuModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

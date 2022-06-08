@@ -32,6 +32,6 @@ export class UsersService {
   }
 
   getUsers() {
-    return this.http.get(`${this.endpoint}/api/RoleManager/GetAllUser`);
+    return this.http.get(`${this.endpoint}/api/User`);
   }
 }

@@ -13,7 +13,7 @@ export class RoleService {
     this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
   }
   getAllRoles(){
-    return this.http.get(`https://localhost:7089/api/RoleManager`)
+    return this.http.get(`https://localhost:7086/api/Role`)
   }
   AddNewRole(RoleName: string){
     return this.http.post(`https://localhost:7089/api/RoleManager`, JSON.stringify(RoleName)

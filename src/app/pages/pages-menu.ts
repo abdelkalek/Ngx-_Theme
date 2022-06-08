@@ -2,16 +2,14 @@ import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
-
-    icon: {icon: 'display', pack: 'solid'},
-
+    title: 'Accueil',
+    icon: {icon: 'monitor-outline'},
     home: true,
     link: '/pages',
   },
   {
-    title: 'Profile',
-    icon: {icon: 'user-tie', pack: 'font-awesome'},
+    title: 'Mon Compte',
+    icon: {icon: 'person-done-outline'},
     badge: {
       text: '30',
       status: 'primary',
@@ -50,8 +48,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
 
   {
-    title: 'User Management',
-    icon: {icon: 'people-group', pack: 'font-awesome'},
+    title: 'Utilisateurs',
+    icon: {icon: 'person-outline'},
     children: [
       {
         title: 'Users',
@@ -93,9 +91,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Manage products',
+    title: 'Produits',
 
-    icon: {icon: 'box', pack: 'font-awesome'},
+    icon: {icon: 'pricetags-outline'},
     link: '/pages/product',
     children: [
       {
@@ -106,7 +104,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Category',
-        link: '/pages/forms/inputs',
+        link: '/pages/product/category',
         icon: {icon: 'sitemap', pack: 'font-awesome'},
       },
       {
