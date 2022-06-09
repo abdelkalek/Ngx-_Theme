@@ -1,0 +1,23 @@
+
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.4rem;
+}
+.card-color{
+ //#0e68ee ;
+  background-color: rgba(14, 104, 238, 0.05);
+}
+.card-color-info{
+  //#0e68ee ;
+  background-color: rgba(137, 219, 255, 0.05);
+}
+.card-color-warning{
+  //#0e68ee ;
+  background-color: rgba(253, 240, 208, 0.05);
+}

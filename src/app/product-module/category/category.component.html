@@ -1,0 +1,86 @@
+<nb-card class="my-1">
+  <nb-card-header class="row">
+    <ng-template #separatorTemplate>
+      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+    </ng-template>
+    <div class="col-md  ">
+      <xng-breadcrumb [separator]="separatorTemplate"
+                      class="myapp-breadcrumb"
+                      id="advancedTemplate2"
+                      [preserveQueryParams]="false">
+      </xng-breadcrumb>
+    </div>
+    <div class=" col-md left col">
+      <nb-icon icon="cubes-stacked" pack="solid" nbTooltip="List View" nbTooltipPlacement="bottom"
+               class="mx-1"></nb-icon>
+    </div>
+  </nb-card-header>
+</nb-card>
+
+<div class="row">
+
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <nb-card accent="primary">
+      <nb-card-header>
+        ajouter nouveau categorie ou sous categorie
+      </nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="addcatform" (ngSubmit)="onsubmit()">
+
+          <nb-alert outline="primary">
+            <nb-toggle status="basic" [(checked)]="isSubCategory">il s'agit d'un sous-catégorie</nb-toggle>
+            <div *ngIf="isSubCategory" class="my-3">
+              <nb-select
+                *ngIf="isSubCategory"
+                placeholder="choisissez une catégorie parent"
+                formControlName="parentId"
+                [status]="addcatform.controls['parentId'].dirty ? (addcatform.controls['parentId'].invalid  ? 'danger' : 'success') : 'basic'"
+                hero status="primary"
+                class="col-8">
+                <nb-option-group *ngFor="let cate of categoryList">
+                  <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>
+                  <nb-option *ngFor="let subcat of cate.subCategory" value="{{subcat.id}}">{{subcat.nom}}</nb-option>
+                </nb-option-group>
+              </nb-select>
+            </div>
+          </nb-alert>
+
+          <div class="mb-3">
+            <label for="exampleInputCategorie" class="form-label">Nom de Categorie</label>
+            <input nbInput fullWidth status="primary" type="text" formControlName="nom" class="form-control"
+                   id="exampleInputCategorie">
+            <div id="emailHelp" class="form-text">Les noms de vos catégories, et par conséquent
+              les titres de vos pages catégories, doivent être simples et brefs.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputdescription" class="form-label">Description </label>
+            <textarea status="primary" formControlName="description" nbInput fullWidth placeholder="Description ..."
+                      rows="4"
+                      class="form-control"
+                      id="exampleInputdescription"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-6  col-md-6  col-sm-12">
+
+        <nb-accordion>
+          <nb-accordion-item *ngFor="let cate of categoryList">
+            <nb-accordion-item-header>
+                <i  class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>
+                <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>
+                {{cate.nom}}
+            </nb-accordion-item-header>
+            <nb-accordion-item-body *ngFor="let subcat of cate.subCategory" >
+              <i  class="fa-regular fa-square-minus ms-3 text-warning" (click)="onsubmit()"></i>
+              <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(subcat.id)"></i>
+                  <strong>{{subcat.nom}}</strong>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+  </div>
+</div>

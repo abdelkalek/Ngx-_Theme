@@ -1,0 +1,127 @@
+<nb-card status="">
+  <nb-card-header class="row">
+    <ng-template #separatorTemplate>
+      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+    </ng-template>
+
+    <div class="col-md  ">
+      <xng-breadcrumb [separator]="separatorTemplate"
+                      class="myapp-breadcrumb"
+                      id="advancedTemplate2"
+                      [preserveQueryParams]="false">
+      </xng-breadcrumb>
+    </div>
+
+    <div class=" col-md left col">
+      <nb-icon icon="more-vertical-outline" [nbContextMenu]="items"></nb-icon>
+    </div>
+  </nb-card-header>
+</nb-card>
+<div *ngIf="this.productDetails">
+  <div class="card-row row">
+    <div class="card-col col-lg-7  ">
+      <nb-card status="primary">
+        <nb-card-header>
+          <div class="row">
+            <div class="col-md ">
+              Details de produit
+            </div>
+            <div class="col-md  left col">
+              <nb-icon icon="more-vertical-outline"></nb-icon>
+            </div>
+          </div>
+
+        </nb-card-header>
+        <nb-card-body>
+
+          <div class="row">
+            <div class="col-lg-4"><img [src]="this.productDetails.urlImage" class="img-fluid"/></div>
+
+            <div class="col-lg-8">
+              <h5>{{this.productDetails.nom }}</h5>
+              <h6> Model : {{this.productDetails.model }}</h6>
+              <div [ngClass]="this.productDetails.typeProd != 'produit fini'  ? 'lead badge bg-primary' : ' lead badge bg-success' " >{{this.productDetails.typeProd }}</div>
+            <br>  <strong class="text-primary">Prix : {{this.productDetails.lastPrix}} Dt</strong> |
+              <strong> coût d'achat :  {{this.productDetails.cout }} Dt</strong><br>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12">
+                  <strong> Code Bare {{this.productDetails.barcode }} | Code Sku {{this.productDetails.sku}}</strong><br>
+                </div>
+              </div>
+              <hr>
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <strong> volume  {{this.productDetails.volume }} | poids {{this.productDetails.poids}}</strong><br>
+                </div>
+              </div>
+              <hr>
+              <button nbButton shape="round" size="small" status="success">mise a jour info</button>
+            </div>
+          </div>
+
+        </nb-card-body>
+      </nb-card>
+
+    </div>
+    <div class="card-col col-lg-5 ">
+
+      <nb-accordion class="mb-2">
+        <nb-accordion-item>
+          <nb-accordion-item-header>
+                Categorie : <strong class="text-primary mx-1">
+                {{ this.productDetails.category.nom }}</strong>
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <b>Description de Categorie</b><br>
+            <p>{{this.productDetails.category.description  }}</p>
+            <button nbButton fullWidth  status="warning">Modifier categorie de produit</button>
+
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+
+      <nb-accordion class="mb-2">
+        <nb-accordion-item>
+          <nb-accordion-item-header>
+            Description de produit
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <p>{{this.productDetails.description }}</p>
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+
+      <nb-accordion class="mb-2">
+        <nb-accordion-item>
+          <nb-accordion-item-header>
+            Variants de produit
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+            Originally, nebula was a name for any diffuse astronomical object,
+            including galaxies beyond the Milky Way.
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+
+
+
+      <nb-accordion class="mb-2">
+        <nb-accordion-item>
+          <nb-accordion-item-header>
+            Variants de produit
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+            Originally, nebula was a name for any diffuse astronomical object,
+            including galaxies beyond the Milky Way.
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+
+    </div>
+  </div>
+
+</div>
