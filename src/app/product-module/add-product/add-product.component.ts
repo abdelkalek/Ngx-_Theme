@@ -42,8 +42,6 @@ categoryList : Category[] = [];
     })}
 
   submit() {
-
-
     this.submitted = true;
     if (!this.prodform.valid) {
       this.showToast("danger", "Champs du formulaire sont vides ou erronés")

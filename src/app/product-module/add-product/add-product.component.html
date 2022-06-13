@@ -1,4 +1,4 @@
-<nb-card >
+<nb-card>
   <nb-card-header class="row">
     <ng-template #separatorTemplate>
       <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
@@ -19,284 +19,302 @@
 
 <form [formGroup]="prodform" (ngSubmit)="submit()">
 
-<nb-card accent="info" class="cardBg">
-  <nb-card-header>
-    <div class="row">
-      <div class="col-lg">
-        Ajouter nouveau Produit
+  <nb-card accent="info" class="cardBg">
+    <nb-card-header>
+      <div class="row">
+        <div class="col-lg">
+          Ajouter nouveau Produit
+        </div>
+        <div class="col-lg left col">
+          <button nbButton status="primary" type="submit" [disabled]="prodform.invalid">Ajouter
+            <i class="fa-solid fa-dolly mx-1"></i>
+          </button>
+          <button nbButton status="danger" type="reset">
+            <i class="fa-solid fa-eraser mx-1"></i>
+          </button>
+          <button nbButton type="button" status="basic" [routerLink]="['../']">
+            <i class="fa-solid fa-list mx-1"></i>
+          </button>
+        </div>
       </div>
-      <div class="col-lg left col">
-        <button nbButton  status="primary" type="submit"  [disabled]="prodform.invalid">Ajouter
-          <i class="fa-solid fa-dolly mx-1"></i>
-        </button>
-        <button nbButton  status="danger" type="reset" >
-          <i class="fa-solid fa-eraser mx-1"></i>
-        </button>
-        <button nbButton type="button"  status="basic" [routerLink]="['../']" >
-          <i class="fa-solid fa-list mx-1"></i>
-        </button>
+    </nb-card-header>
+    <nb-card-body>
+
+      <div class="form-group col-lg-6">
+        <label for="nomp" class="text-lg-start my-1">Nom de Produit</label>
+        <input formControlName="nom"
+               [status]="prodform.controls['nom'].dirty ? (prodform.controls['nom'].invalid  ? 'danger' : 'success') : 'basic'"
+               type="text"
+               nbInput
+               fullWidth
+               fieldSize="large"
+               status="primary"
+               id="nomp"
+               placeholder="Nom de Produt"
+        >
+        <ng-container *ngIf="submitted  && prodform.controls['nom'].invalid && prodform.controls['nom'].dirty">
+          <nb-alert class="my-2" status="danger">
+            Incorrect nom format ...
+          </nb-alert>
+        </ng-container>
+
       </div>
-    </div>
-  </nb-card-header>
-  <nb-card-body>
 
-    <div class="form-group col-lg-6">
-      <label for="nomp" class="text-lg-start my-1">Nom de Produit</label>
-      <input formControlName="nom"
-             [status]="prodform.controls['nom'].dirty ? (prodform.controls['nom'].invalid  ? 'danger' : 'success') : 'basic'"
-             type="text"
-             nbInput
-             fullWidth
-             fieldSize="large"
-             status="primary"
-             id="nomp"
-             placeholder="Nom de Produt"
-      >
-      <ng-container *ngIf="submitted  && prodform.controls['nom'].invalid && prodform.controls['nom'].dirty">
-        <nb-alert class="my-2" status="danger">
-          Incorrect nom format ...
-        </nb-alert>
-      </ng-container>
+      <nb-tabset>
+        <nb-tab tabIcon="attach-outline" tabTitle="Information Générale">
+          <div class="row">
+            <div class="col-lg-6">
+              <nb-card class="mx-0">
+                <nb-card-body>
 
-    </div>
-
-    <nb-tabset>
-      <nb-tab tabIcon="attach-outline" tabTitle="Information Générale">
-        <div class="row">
-          <div class="col-lg-6">
-            <nb-card class="mx-0">
-              <nb-card-body>
-
-                <div class="form-group col-lg-12">
-                  <label for="typearticle" class="col-lg-4 my-1"> Type de Produit</label>
+                  <div class="form-group col-lg-12">
+                    <label for="typearticle" class="col-lg-4 my-1"> Type de Produit</label>
                     <nb-select id="typearticle"
                                class="col-lg-8"
                                status="info"
                                placeholder="choisir Produit"
                                [status]="prodform.controls['typeProd'].dirty ? (prodform.controls['typeProd'].invalid  ? 'danger' : 'success') : 'basic'"
                                formControlName="typeProd">
-                    <nb-option value="produit fini">produit fini</nb-option>
-                    <nb-option value="matières premières">matières premières</nb-option>
-                    <nb-option value="Consommable">Consommable</nb-option>
-                    <nb-option value="Service">Service</nb-option>
-                  </nb-select>
-                  <ng-container *ngIf=" submitted  && prodform.controls['typeProd'].invalid && prodform.controls['typeProd'].dirty">
+                      <nb-option value="produit fini">produit fini</nb-option>
+                      <nb-option value="matières premières">matières premières</nb-option>
+                      <nb-option value="Consommable">Consommable</nb-option>
+                      <nb-option value="Service">Service</nb-option>
+                    </nb-select>
+                    <ng-container
+                      *ngIf=" submitted  && prodform.controls['typeProd'].invalid && prodform.controls['typeProd'].dirty">
+                      <nb-alert class="my-2" status="danger">
+                        Incorrect Types format ...
+                      </nb-alert>
+                    </ng-container>
+                  </div>
+                  <nb-alert accent="info">
+                    Consumables are physical products for which you don't manage the inventory
+                    level: they are always available.
+                  </nb-alert>
+
+                  <textarea status="info"
+                            formControlName="description"
+                            nbInput
+                            fullWidth
+                            [status]="prodform.controls['description'].dirty ? (prodform.controls['description'].invalid  ? 'danger' : 'success') : 'basic'"
+                            placeholder="description de produit ... "></textarea>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['description'].invalid && prodform.controls['description'].dirty">
                     <nb-alert class="my-2" status="danger">
-                      Incorrect Types format ...
+                      Incorrect description format ...
                     </nb-alert>
                   </ng-container>
-                </div>
-                <nb-alert accent="info">
-                  Consumables are physical products for which you don't manage the inventory
-                  level: they are always available.
+
+                </nb-card-body>
+              </nb-card>
+            </div>
+
+            <div class="col-lg-6">
+
+              <nb-card>
+                <nb-card-body>
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">Reference interne</label>
+                    <input
+                      formControlName="ref"
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      [status]="prodform.controls['ref'].dirty ? (prodform.controls['ref'].invalid  ? 'danger' : 'success') : 'basic'"
+                      placeholder="Référence interne">
+                  </div>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['ref'].invalid && prodform.controls['ref'].dirty">
+                    <nb-alert class="my-2" status="danger">
+                      Incorrect Reference format ...
+                    </nb-alert>
+                  </ng-container>
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">catégorie de produit</label>
+                    <nb-select
+                      formControlName="categoryId"
+                      [status]="prodform.controls['categoryId'].dirty ? (prodform.controls['categoryId'].invalid  ? 'danger' : 'success') : 'basic'"
+                      status="info"
+                      fullWidth
+                      selected="1">
+                      <nb-option-group *ngFor="let cate of categoryList">
+                        <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>
+                        <nb-option *ngFor="let subcat of cate.subCategory"
+                                   value="{{subcat.id}}">{{subcat.nom}}</nb-option>
+                      </nb-option-group>
+                    </nb-select>
+
+                  </div>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['categoryId'].invalid && prodform.controls['categoryId'].dirty">
+                    <nb-alert class="my-2" status="danger">
+                      Incorrect category input ...
+                    </nb-alert>
+                  </ng-container>
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1"> Prix de vente</label>
+                    <input
+                      formControlName="lastPrix"
+                      [status]="prodform.controls['lastPrix'].dirty ? (prodform.controls['lastPrix'].invalid  ? 'danger' : 'success') : 'basic'"
+
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      placeholder="Prix de vente">
+
+                  </div>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['lastPrix'].invalid && prodform.controls['lastPrix'].dirty">
+                    <nb-alert class="my-2" status="danger">
+                      le Prix n'es pas vide ou doit etre un nombre décimal
+                    </nb-alert>
+                  </ng-container>
+
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">Coût</label>
+                    <input
+                      formControlName="cout"
+                      [status]="prodform.controls['cout'].dirty ? (prodform.controls['cout'].invalid  ? 'danger' : 'success') : 'basic'"
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      placeholder="Coût d'achat">
+
+                  </div>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['cout'].invalid && prodform.controls['cout'].dirty">
+                    <nb-alert class="my-2" status="danger">
+                      le cout est n'est pas vide ou doit etre un nombre décimal
+                    </nb-alert>
+                  </ng-container>
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">Image Url</label>
+                    <input
+                      formControlName="urlImage"
+                      [status]="prodform.controls['urlImage'].dirty ? (prodform.controls['urlImage'].invalid  ? 'danger' : 'success') : 'basic'"
+
+                      status="info" type="text"
+                      nbInput fullWidth placeholder="Coût d'achat">
+
+                  </div>
+                  <ng-container
+                    *ngIf=" submitted  && prodform.controls['urlImage'].invalid && prodform.controls['urlImage'].dirty">
+                    <nb-alert class="my-2" status="danger">
+                      Insert url image ....
+                    </nb-alert>
+                  </ng-container>
+
+                </nb-card-body>
+              </nb-card>
+
+
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-lg-12">
+              <nb-checkbox (checkedChange)="toggle($event)">Produit avec variants</nb-checkbox>
+              <br>
+              <label>Checked:</label> {{ checked }}
+              <nb-card *ngIf="checked">
+                <nb-card-header>variants de produits</nb-card-header>
+                <nb-card-body>
+
+                </nb-card-body>
+              </nb-card>
+            </div>
+          </div>
+        </nb-tab>
+        <nb-tab tabTitle="Images" tabIcon="image-outline">
+          <h1>Multiple Image</h1>
+          <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>Drag and Drop!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </nb-tab>
+        <nb-tab tabIcon="cube-outline" tabTitle="Stockable"
+                *ngIf="this.prodform.controls['typeProd'].value !=='Service'">
+          <nb-card>
+            <nb-card-body>
+              <div class="full-name-inputs">
+                <label class="col-lg-4 my-1">Poids</label>
+                <input formControlName="poids"
+                       [status]="prodform.controls['poids'].dirty ? (prodform.controls['poids'].invalid  ? 'danger' : 'success') : 'basic'"
+                       status="info"
+                       type="text"
+                       nbInput
+                       fullWidth placeholder="Poids De produit">
+
+              </div>
+              <ng-container
+                *ngIf=" submitted  && prodform.controls['poids'].invalid && prodform.controls['poids'].dirty">
+                <nb-alert class="my-2" status="danger">
+                  le poids n'es pas vide ou doit etre un nombre décimal
                 </nb-alert>
-
-                <textarea status="info"
-                          formControlName="description"
-                          nbInput
-                          fullWidth
-                          [status]="prodform.controls['description'].dirty ? (prodform.controls['description'].invalid  ? 'danger' : 'success') : 'basic'"
-                          placeholder="description de produit ... "></textarea>
-                <ng-container *ngIf=" submitted  && prodform.controls['description'].invalid && prodform.controls['description'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    Incorrect description format ...
-                  </nb-alert>
-                </ng-container>
-
-              </nb-card-body>
-            </nb-card>
-          </div>
-
-          <div class="col-lg-6">
-
-            <nb-card>
-              <nb-card-body>
-                <div class="full-name-inputs">
-                  <label class="col-lg-4 my-1">Reference interne</label>
-                  <input
-                    formControlName="ref"
-                    status="info"
-                    type="text"
-                    nbInput
-                    fullWidth
-                    [status]="prodform.controls['ref'].dirty ? (prodform.controls['ref'].invalid  ? 'danger' : 'success') : 'basic'"
-                    placeholder="Référence interne">
-                </div>
-                <ng-container *ngIf=" submitted  && prodform.controls['ref'].invalid && prodform.controls['ref'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    Incorrect Reference format ...
-                  </nb-alert>
-                </ng-container>
-                <div class="full-name-inputs">
-                  <label class="col-lg-4 my-1">catégorie de produit</label>
-                  <nb-select (selectedChange)="open(dialog)"
-                    formControlName="categoryId"
-                    [status]="prodform.controls['categoryId'].dirty ? (prodform.controls['categoryId'].invalid  ? 'danger' : 'success') : 'basic'"
-                    status="info"
-                    fullWidth
-                    selected="1" >
-                    <nb-option-group *ngFor="let cate of categoryList" >
-                      <nb-option  value="{{cate.id}}"> {{cate.nom}}</nb-option>
-                      <nb-option *ngFor="let subcat of cate.subCategory" value="{{subcat.id}}">{{subcat.nom}}</nb-option>
-                    </nb-option-group>
-                  </nb-select>
-
-                </div>
-                <ng-container *ngIf=" submitted  && prodform.controls['categoryId'].invalid && prodform.controls['categoryId'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    Incorrect category  input ...
-                  </nb-alert>
-                </ng-container>
-                <div class="full-name-inputs">
-                  <label class="col-lg-4 my-1"> Prix de vente</label>
-                  <input
-                    formControlName="lastPrix"
-                    [status]="prodform.controls['lastPrix'].dirty ? (prodform.controls['lastPrix'].invalid  ? 'danger' : 'success') : 'basic'"
-
-                    status="info"
-                    type="text"
-                    nbInput
-                    fullWidth
-                    placeholder="Prix de vente">
-
-                </div>
-                <ng-container *ngIf=" submitted  && prodform.controls['lastPrix'].invalid && prodform.controls['lastPrix'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    le Prix n'es pas vide ou  doit etre  un nombre décimal
-                  </nb-alert>
-                </ng-container>
-
-                <div class="full-name-inputs">
-                  <label class="col-lg-4 my-1">Coût</label>
-                  <input
-                    formControlName="cout"
-                    [status]="prodform.controls['cout'].dirty ? (prodform.controls['cout'].invalid  ? 'danger' : 'success') : 'basic'"
-                    status="info"
-                    type="text"
-                    nbInput
-                    fullWidth
-                    placeholder="Coût d'achat">
-
-                </div>
-                <ng-container *ngIf=" submitted  && prodform.controls['cout'].invalid && prodform.controls['cout'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    le cout est  n'est pas vide ou  doit etre  un nombre décimal
-                  </nb-alert>
-                </ng-container>
-                <div class="full-name-inputs">
-                  <label class="col-lg-4 my-1">Image Url</label>
-                  <input
-                    formControlName="urlImage"
-                    [status]="prodform.controls['urlImage'].dirty ? (prodform.controls['urlImage'].invalid  ? 'danger' : 'success') : 'basic'"
-
-                    status="info" type="text"
-                    nbInput fullWidth placeholder="Coût d'achat">
-
-                </div>
-                <ng-container *ngIf=" submitted  && prodform.controls['urlImage'].invalid && prodform.controls['urlImage'].dirty">
-                  <nb-alert class="my-2" status="danger">
-                    Insert url image ....
-                  </nb-alert>
-                </ng-container>
-
-              </nb-card-body>
-            </nb-card>
+              </ng-container>
+              <div class="full-name-inputs">
+                <label class="col-lg-4 my-1">volume</label>
+                <input
+                  formControlName="volume"
+                  [status]="prodform.controls['volume'].dirty ? (prodform.controls['volume'].invalid  ? 'danger' : 'success') : 'basic'"
+                  status="info" type="text"
+                  nbInput fullWidth
+                  placeholder="volume De produit">
+              </div>
+              <ng-container
+                *ngIf=" submitted  && prodform.controls['volume'].invalid && prodform.controls['volume'].dirty">
+                <nb-alert class="my-2" status="danger">
+                  la volume est un nombre décimal
+                </nb-alert>
+              </ng-container>
+            </nb-card-body>
+          </nb-card>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card-body>
+  </nb-card>
 
 
-          </div>
-        </div>
+  <!--Property+Value-->
 
 
-        <div class="row">
-          <div class="col-lg-12">
-            <nb-checkbox (checkedChange)="toggle($event)">Produit avec variants </nb-checkbox><br>
-            <label>Checked:</label> {{ checked }}
-<nb-card *ngIf="checked">
-  <nb-card-header>variants de produits</nb-card-header>
-  <nb-card-body>
-
-
-  </nb-card-body>
-</nb-card>
-          </div>
-        </div>
-      </nb-tab>
-      <nb-tab tabTitle="Images" tabIcon="image-outline">
-        <h1>Multiple Image</h1>
-        <ngx-dropzone (change)="onSelect($event)">
-          <ngx-dropzone-label>Drag and Drop!</ngx-dropzone-label>
-          <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-          </ngx-dropzone-preview>
-        </ngx-dropzone>
-      </nb-tab>
-      <nb-tab tabIcon="cube-outline" tabTitle="Stockable" *ngIf="this.prodform.controls['typeProd'].value !=='Service'">
-        <nb-card>
-          <nb-card-body>
-            <div class="full-name-inputs">
-              <label class="col-lg-4 my-1">Poids</label>
-              <input formControlName="poids"
-                     [status]="prodform.controls['poids'].dirty ? (prodform.controls['poids'].invalid  ? 'danger' : 'success') : 'basic'"
-                     status="info"
-                     type="text"
-                     nbInput
-                     fullWidth placeholder="Poids De produit">
-
-            </div>
-            <ng-container *ngIf=" submitted  && prodform.controls['poids'].invalid && prodform.controls['poids'].dirty">
-            <nb-alert class="my-2" status="danger">
-              le poids n'es pas vide ou  doit etre  un nombre décimal
-            </nb-alert>
-          </ng-container>
-            <div class="full-name-inputs">
-              <label class="col-lg-4 my-1">volume</label>
-              <input
-                formControlName="volume"
-                [status]="prodform.controls['volume'].dirty ? (prodform.controls['volume'].invalid  ? 'danger' : 'success') : 'basic'"
-                status="info" type="text"
-                nbInput fullWidth
-                placeholder="volume De produit">
-            </div>
-            <ng-container *ngIf=" submitted  && prodform.controls['volume'].invalid && prodform.controls['volume'].dirty">
-              <nb-alert class="my-2" status="danger">
-                 la volume est un nombre décimal
-              </nb-alert>
-            </ng-container>
-          </nb-card-body>
-        </nb-card>
-      </nb-tab>
-    </nb-tabset>
-  </nb-card-body>
-</nb-card>
-
-
-
-
-
-
-
-<!--Property+Value-->
-
-
-
-<ng-template #dialog let-data let-ref="dialogRef">
   <nb-card>
     <nb-card-header>propriétés de produit</nb-card-header>
     <nb-card-body>
 
-<div formArrayName="properties">
-      <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i">
-        <input formControlName="propertyId" placeholder="City">
-      </ng-container>
-
-
-</div>
-      <button (click)="addCity()">+</button>
-      <button (click)="setPreset()">Set preset</button>
     </nb-card-body>
     <nb-card-footer>
-      <button nbButton (click)="ref.close()">Valider</button>
+
+    </nb-card-footer>
+  </nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Template Dialog</nb-card-header>
+    <nb-card-body>
+      {{ data }}
+
+
+      <div formArrayName="properties">
+        <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i">
+          <input formControlName="propertyId" placeholder="City">
+        </ng-container>
+
+      </div>
+      <button (click)="addCity()">+</button>
+
+
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton (click)="ref.close()">Close Dialog</button>
     </nb-card-footer>
   </nb-card>
 </ng-template>
 </form>
+<button nbButton (click)="open(dialog)">Open Dialog</button>

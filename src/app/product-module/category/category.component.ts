@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../category.model";
 import {CategoryService} from "../category.service";
-import {NbMenuItem} from "@nebular/theme";
 
 @Component({
   selector: 'app-category',
@@ -10,8 +9,9 @@ import {NbMenuItem} from "@nebular/theme";
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
+  name = 'Open source: ngx awesome popup';
 
-  constructor(private categoryserv: CategoryService,) {
+  constructor(private categoryserv: CategoryService) {
   }
 
   items = [
@@ -49,6 +49,7 @@ export class CategoryComponent implements OnInit {
     this.categoryserv.addCtegory(this.addcatform.getRawValue()).subscribe({
       next: (res) => {
         console.log("add", res)
+
         this.init();
         this.addcatform.reset()
       }
@@ -63,6 +64,7 @@ export class CategoryComponent implements OnInit {
       next: (res) => {
         console.log(res)
         this.init();
+
       },
       error: (err) => {
         console.log(err)

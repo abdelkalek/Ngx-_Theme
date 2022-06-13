@@ -5,7 +5,7 @@
 @include nb-install() {
   @include nb-theme-global();
 };
-/* You can add global styles to this file, and also import other style files */
+
 
 
 .card-row {
@@ -23,4 +23,9 @@ button{
 .left {
   display: flex;
   justify-content: flex-end;
+}
+:host ::ng-deep .xng-breadcrumb-trail {
+
+  color: #0e68ee;
+
 }

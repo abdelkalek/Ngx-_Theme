@@ -1,28 +1,29 @@
-<nb-card status="">
-  <nb-card-header class="row">
-    <ng-template #separatorTemplate>
-      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-    </ng-template>
 
-    <div class="col-md  ">
-      <xng-breadcrumb [separator]="separatorTemplate"
-                      class="myapp-breadcrumb"
-                      id="advancedTemplate2"
-                      [preserveQueryParams]="false">
-      </xng-breadcrumb>
-    </div>
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
 
-    <div class=" col-md left col">
-      <nb-icon icon="grid-outline" nbTooltip="Grid View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('Grid')"></nb-icon>
-      <nb-icon icon="list" nbTooltip="List View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('List')"></nb-icon>
-      <nb-icon icon="more-vertical-outline" [nbContextMenu]="items"></nb-icon>
-    </div>
-  </nb-card-header>
-</nb-card>
+  <div class="col-md text-primary ">
+    <xng-breadcrumb  [separator]="separatorTemplate"
+                     class="myapp-breadcrumb"
+                     id="advancedTemplate2"
+                     [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+</div>
+
 
 <div class="box" *ngIf="vue === 'Grid'">
   <div class="card1 col-12 col-md-4 col-sm-4 "*ngFor="let p of productTab"  >
     <nb-card accent="info" class="mx-1 my-1"  >
+      <nb-card-header class="row">
+        <div class=" col-md left col">
+          <nb-icon icon="grid-outline" nbTooltip="Grid View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('Grid')"></nb-icon>
+          <nb-icon icon="list" nbTooltip="List View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('List')"></nb-icon>
+          <nb-icon icon="more-vertical-outline" [nbContextMenu]="items"></nb-icon>
+        </div>
+      </nb-card-header>
       <nb-card-body>
         <div class="row">
           <div class="col-lg-4 mx-0 my-0">
@@ -46,6 +47,17 @@
 </div>
 
 <nb-card accent="info"  *ngIf="vue =='List'">
+
+    <nb-card-header class="row">
+      <div class="col-md-3">
+        <strong>List de produits</strong>
+      </div>
+      <div class=" col-md left col">
+        <nb-icon icon="grid-outline" nbTooltip="Grid View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('Grid')"></nb-icon>
+        <nb-icon icon="list" nbTooltip="List View" nbTooltipPlacement="bottom" class="mx-1" (click)="changeVue('List')"></nb-icon>
+        <nb-icon icon="more-vertical-outline" [nbContextMenu]="items"></nb-icon>
+      </div>
+    </nb-card-header>
   <nb-card-body>
     <ng2-smart-table  [settings]="settings" [source]="productTab" (edit)="editFunction($event)" (create)="createNewProd()" (delete)="deleteItem($event)">
     </ng2-smart-table>
