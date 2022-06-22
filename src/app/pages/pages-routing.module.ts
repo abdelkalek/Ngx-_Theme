@@ -41,8 +41,10 @@ const routes: Routes = [
         path: 'product',
         loadChildren: () =>
           import('../product-module/product-module.module').then((m) => m.ProductModuleModule)
-      }
-      ]
+      },
+      { path: '', redirectTo: 'pages', pathMatch: 'full' },
+      { path: '**', redirectTo: 'pages' },
+    ]
   }
 
 

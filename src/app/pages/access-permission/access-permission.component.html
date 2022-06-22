@@ -1,3 +1,19 @@
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+
+  <div class="col-md text-primary ">
+    <xng-breadcrumb  [separator]="separatorTemplate"
+                     class="myapp-breadcrumb"
+                     id="advancedTemplate2"
+                     [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+
+</div>
+
+
 
 
 <nb-card status="primary">

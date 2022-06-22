@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
 export interface  UserModel{
   id: string,
   userName: string,

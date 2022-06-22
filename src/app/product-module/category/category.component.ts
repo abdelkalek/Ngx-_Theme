@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../category.model";
 import {CategoryService} from "../category.service";
+import {NbTagComponent, NbTagInputAddEvent} from "@nebular/theme";
 
 @Component({
   selector: 'app-category',
@@ -71,4 +72,7 @@ export class CategoryComponent implements OnInit {
       }
     })
   }
+
+
+
 }

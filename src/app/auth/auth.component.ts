@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
               <router-outlet></router-outlet>
       </nb-layout-column>
       <nb-layout-footer class="m-0">
-        <label class="subtitle">Xenphone 2022</label><br>
+        <label class="subtitle">
+          Tous droits réservés © 2022  Xenphon </label>
       </nb-layout-footer>
     </nb-layout>
   `,

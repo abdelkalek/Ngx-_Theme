@@ -5,3 +5,10 @@ button{
   display: flex;
   justify-content: flex-end;
 }
+
+
+:host ::ng-deep .xng-breadcrumb-trail {
+
+  color: #0e68ee;
+
+}

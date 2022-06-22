@@ -36,8 +36,10 @@ nb-card-body {
 .demo-items {
   flex: 1 0 33%;
 }
-.cardBg{
-  background-image: url(/assets/bgs/Productpresentation.svg);
-  background-size: 20%;
-  background-repeat: no-repeat;
-  background-position:  top 10% right 100px;}
+
+
+:host ::ng-deep .xng-breadcrumb-trail {
+
+  color: #0e68ee;
+
+}

@@ -1,26 +1,17 @@
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
 
-<nb-card>
-  <nb-card-header>
-    <ng-template #separatorTemplate>
-      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-    </ng-template>
-    <xng-breadcrumb [separator]="separatorTemplate"
-                    class="subtite"
-                    id="advancedTemplate1"
-                    [preserveQueryParams]="false" ></xng-breadcrumb>
-  </nb-card-header>
-  <nb-card-body>
-    <div class="row">
-      <div class="col ">
-        <h4 >Roles</h4>
-      </div>
-      <div class=" left col">
-        <button nbButton  appearance="ghost" ><nb-icon icon="menu-outline"></nb-icon>List View</button>
-        <button nbButton appearance="ghost" > <nb-icon icon="grid"></nb-icon>Grid View</button>
-      </div>
-    </div>
-  </nb-card-body>
-</nb-card>
+  <div class="col-md text-primary ">
+    <xng-breadcrumb  [separator]="separatorTemplate"
+                     class="myapp-breadcrumb"
+                     id="advancedTemplate2"
+                     [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+
+</div>
 
 
 
@@ -31,7 +22,7 @@
         <div class="col-md-4 col-4 col-sm-none">
           <img src="assets/imgs/Role-add.svg" class="img-fluid" style ="max-width: 100%;" /> </div>
         <div class="col-md-8 col-8 col-sm-12">
-          <button nbButton  outline status="primary"   (click)="open()" >Add new role</button>
+          <button nbButton  outline status="primary"   (click)="open()" >Ajouter  role</button>
           <label class="subtitle ">Add role if not exists</label>
         </div>
       </nb-card-body>

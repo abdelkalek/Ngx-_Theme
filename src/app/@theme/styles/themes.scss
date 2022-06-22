@@ -6,7 +6,6 @@
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
 
-
   /*add to theme*/
   menu-item-icon-active-color: rgb(14, 104, 238),
   menu-item-active-text-color: #0250c0,
@@ -34,6 +33,11 @@ $nb-themes: nb-register-theme((
   card-margin-bottom: 1.875rem,
   card-header-with-select-padding-top: 0.5rem,
   card-header-with-select-padding-bottom: 0.5rem,
+  //modifier by me
+  header-height	: 3.25rem,
+  footer-padding :0.5rem,
+  footer-height: 1.1rem,
+    //End modifier by me
 
   select-min-width: 6rem,
 
@@ -44,7 +48,6 @@ $nb-themes: nb-register-theme((
 
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
-
   menu-item-icon-margin: 0 0.5rem 0 0,
 
   card-height-tiny: 13.5rem,
@@ -85,19 +88,19 @@ $nb-themes: nb-register-theme((
 ), corporate, corporate);
 
 $nb-themes: nb-register-theme((
-  layout-padding-top: 2.25rem,
+  layout-padding-top: 2.20rem,
 
   menu-item-icon-margin: 0 0.5rem 0 0,
 
   card-height-tiny: 13.5rem,
   card-height-small: 21.1875rem,
   card-height-medium: 28.875rem,
-  card-height-large: 36.5625rem,
+  card-height-large: 30.5625rem,
   card-height-giant: 44.25rem,
   card-margin-bottom: 1.875rem,
-  card-header-with-select-padding-top: 0.5rem,
-  card-header-with-select-padding-bottom: 0.5rem,
-
+  card-header-with-select-padding-top: 0.4rem,
+  card-header-with-select-padding-bottom: 0.4rem,
+  header-height	: 3.25rem,
   select-min-width: 6rem,
 
   slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),

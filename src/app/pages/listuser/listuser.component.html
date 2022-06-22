@@ -1,27 +1,25 @@
 
 
 
-<nb-card>
-  <nb-card-header>
-  <ng-template #separatorTemplate>
-    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-  </ng-template>
-  <xng-breadcrumb [separator]="separatorTemplate"
-                  class="myapp-breadcrumb"
-                  id="advancedTemplate1"
-                  [preserveQueryParams]="false" ></xng-breadcrumb>
-</nb-card-header>
-  <nb-card-body>
-  <div class="row">
+  <div class="row mb-4 my-auto">
     <div class="col ">
-      <h4 >Users</h4>
+      <ng-template #separatorTemplate>
+        <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+      </ng-template>
+
+      <div class="col-md text-primary ">
+        <xng-breadcrumb  [separator]="separatorTemplate"
+                         class="myapp-breadcrumb"
+                         id="advancedTemplate2"
+                         [preserveQueryParams]="false">
+        </xng-breadcrumb>
+      </div>
     </div>
     <div class=" left col">
       <button nbButton outline status="success" size="medium"><nb-icon icon="person-add-outline"></nb-icon>add Person </button>
     </div>
   </div>
-  </nb-card-body>
-</nb-card>
+
 
 <nb-card  accent="info">
   <nb-card-body>

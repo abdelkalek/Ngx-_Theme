@@ -17,9 +17,10 @@ import {BreadcrumbModule} from "xng-breadcrumb";
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import {NgxDropzoneModule} from "ngx-dropzone";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CategoryComponent } from './category/category.component';
 import { PropertyComponent } from './property/property.component';
+import { ListProductsComponent } from './list-products/list-products.component';
 
 
 @NgModule({
@@ -28,32 +29,34 @@ import { PropertyComponent } from './property/property.component';
     AddProductComponent,
     ProductDetailsComponent,
     CategoryComponent,
-    PropertyComponent
+    PropertyComponent,
+    ListProductsComponent
   ],
-  imports: [
-    CommonModule,
-    ProductModuleRoutingModule,
-    NbCardModule,
-    NbIconModule,
-    BreadcrumbModule,
-    Ng2SmartTableModule,
-    NbButtonModule,
-    NbContextMenuModule,
-    NbCheckboxModule,
-    NbRadioModule,
-    NbInputModule,
-    NbSelectModule,
-    NbTabsetModule,
-    NgxDropzoneModule,
-    NbTagModule,
-    ReactiveFormsModule,
-    NbTooltipModule,
-    NbAlertModule,
-    NbAccordionModule,
-    NbToggleModule,
-    NbMenuModule,
-    NbListModule,
-    NbButtonGroupModule,
-  ]
+    imports: [
+        CommonModule,
+        ProductModuleRoutingModule,
+        NbCardModule,
+        NbIconModule,
+        BreadcrumbModule,
+        Ng2SmartTableModule,
+        NbButtonModule,
+        NbContextMenuModule,
+        NbCheckboxModule,
+        NbRadioModule,
+        NbInputModule,
+        NbSelectModule,
+        NbTabsetModule,
+        NgxDropzoneModule,
+        NbTagModule,
+        ReactiveFormsModule,
+        NbTooltipModule,
+        NbAlertModule,
+        NbAccordionModule,
+        NbToggleModule,
+        NbMenuModule,
+        NbListModule,
+        NbButtonGroupModule,
+        FormsModule
+    ]
 })
 export class ProductModuleModule { }

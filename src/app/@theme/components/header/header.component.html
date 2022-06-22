@@ -32,11 +32,12 @@
 <!--</div>-->
 <div class="header-container">
   <div class="logo-container">
-    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
-      <nb-icon  [icon]="changeIconTogel ? 'arrow-circle-left' : 'arrow-circle-right-outline'" ></nb-icon>
-    </a>
-    <a class="logo" href="#" (click)="navigateHome()"><img src="assets/logo.png" width="25" class="img-fluid"/></a>
+    <a class="logo" href="#" (click)="navigateHome()"><img src="assets/logo.png" width="60" class="img-fluid"/></a>
     <b>XENOPHON</b>
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon   [icon]="changeIconTogel ? 'menu-outline' : 'menu-2-outline'" ></nb-icon>
+    </a>
+
 
 
   </div>

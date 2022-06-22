@@ -1,9 +1,12 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
+import {Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NbComponentStatus, NbDialogService, NbIconConfig, NbToastrService} from "@nebular/theme";
 import {CategoryService} from "../category.service";
 import {Category} from "../category.model";
 import {ProductService} from "../product.service";
+import {PropertyService} from "../property.service";
+import {VariantService} from "../variant.service";
+
 export const NUMERIC_PATTREN = '^-?[0-9]\\d*(\\.\\d{1,3})?$'; //accepts only 3 places after the point
 
 @Component({
@@ -11,35 +14,47 @@ export const NUMERIC_PATTREN = '^-?[0-9]\\d*(\\.\\d{1,3})?$'; //accepts only 3 p
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
-  submitted : boolean = false;
+export class AddProductComponent implements OnInit  {
+  submitted: boolean = false;
   checked = false;
 
   prodform = new FormGroup({
-    nom: new FormControl('', [Validators.required,Validators.minLength(9)]),
-    ref: new FormControl('', [Validators.required,Validators.minLength(5)]),
+    nom: new FormControl('', [Validators.required, Validators.minLength(9)]),
+    ref: new FormControl('', [Validators.required, Validators.minLength(5)]),
     description: new FormControl('', [Validators.required]),
     urlImage: new FormControl('', [Validators.required]),
-    cout: new FormControl('', [Validators.required,Validators.pattern(NUMERIC_PATTREN)]),
-    poids: new FormControl('', [Validators.required,Validators.pattern(NUMERIC_PATTREN)]),
-    volume: new FormControl('', [Validators.required,Validators.pattern(NUMERIC_PATTREN)]),
-    lastPrix: new FormControl('', [Validators.required,Validators.pattern(NUMERIC_PATTREN)]),
+    cout: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
+    poids: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
+    volume: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
+    lastPrix: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
     typeProd: new FormControl('', [Validators.required]),
+    model: new FormControl('', [Validators.required]),
+    sku: new FormControl('', [Validators.required]),
+    barcode:new FormControl('', [Validators.required]),
     categoryId: new FormControl('', [Validators.required]),
-    properties : new FormArray([  new FormGroup({
+    properties: new FormArray([new FormGroup({
       propertyId: new FormControl(''),
-      value : new FormControl('')
+      value: new FormControl('')
     })])
   });
-categoryList : Category[] = [];
-  constructor(private dialogService: NbDialogService , private toastrService: NbToastrService, private categoryserv : CategoryService, private prodserv: ProductService) {
+  categoryList: Category[] = [];
+
+  constructor(private dialogService: NbDialogService,
+              private toastrService: NbToastrService,
+              private categoryserv: CategoryService,
+              private prodserv: ProductService,
+              private propertyser: PropertyService,
+              private variantService : VariantService
+  ) {
   }
+
 
   ngOnInit(): void {
     this.categoryserv.getAllCategory().subscribe(
-   (res) => {
+      (res) => {
         this.categoryList = res;
-    })}
+      })
+  }
 
   submit() {
     this.submitted = true;
@@ -48,21 +63,35 @@ categoryList : Category[] = [];
       return
     }
     console.log(this.prodform.getRawValue())
-   this.prodserv.saveNewProduct(this.prodform.getRawValue()).subscribe({
-     next: (res) => {
-    console.log(res)
-    const iconConfig: NbIconConfig = {icon: 'checkmark-outline', pack: 'eva', status:"success"};
-    this.toastrService.show('produit ajouté avec succès dans la liste des produits', `Produit ajouté`, iconConfig)
 
-  },
-  error: (err: any) => {
-    console.log(err)
-    this.toastrService.show('message d\erreur :' +err.message, `Produit est ne pas Ajouté`, {status:'danger'})
+    this.variantService.AddNewVariant(this.prodform.getRawValue()).subscribe({
+      next : (res) =>{
+        const iconConfig: NbIconConfig = {icon: 'checkmark-outline', pack: 'eva', status: "success"};
+        this.toastrService.show('produit ajouté avec succès dans la liste des produits', `Produit ajouté`, iconConfig)
+        console.log(res)
+      }, error: (error) =>{
+        this.toastrService.show('message d\erreur :' + error.message, `Produit est ne pas Ajouté`, {status: 'danger'})
 
-  },
-  complete: () => {},
-});
-      this.prodform.reset();
+      }
+    })
+
+
+ /*   this.prodserv.saveNewProduct(this.prodform.getRawValue()).subscribe({
+      next: (res) => {
+        console.log(res)
+        const iconConfig: NbIconConfig = {icon: 'checkmark-outline', pack: 'eva', status: "success"};
+        this.toastrService.show('produit ajouté avec succès dans la liste des produits', `Produit ajouté`, iconConfig)
+
+      },
+      error: (err: any) => {
+        console.log(err)
+        this.toastrService.show('message d\erreur :' + err.message, `Produit est ne pas Ajouté`, {status: 'danger'})
+
+      },
+      complete: () => {
+      },
+    });*/
+    this.prodform.reset();
   }
 
   showToast(status: NbComponentStatus, message: any) {
@@ -77,38 +106,55 @@ categoryList : Category[] = [];
     console.log(event);
     this.files.push(...event.addedFiles);
   }
+
   onRemove(event: any) {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
+
   toggle(checked: boolean) {
     this.checked = checked;
   }
+
   open(dialog: TemplateRef<any>) {
-    this.dialogService.open(dialog, { context: 'this is some additional data passed to dialog' });
+
+
+    this.properties.removeAt(0);
+    this.propertyser.getPropertysOfCategory(this.prodform.controls['categoryId'].value).subscribe({
+      next: (res) => {
+        console.log(res)
+        if (res.length == 0) {
+          this.dialogService.open(dialog);
+        }
+
+        for (let i = 0; i < res.length; i++) {
+
+         // res[i].name;
+          this.properties.push(new FormGroup({
+            propertyId: new FormControl(res[i].propertyId),
+            value: new FormControl('')
+          }));
+        }
+        this.dialogService.open(dialog);
+
+      }, error: (erro) => {
+        console.log("Error", erro.message)
+      }
+    })
   }
-
-
 
   get properties(): FormArray {
     return this.prodform.get('properties') as FormArray;
   }
 
-  addCity() {
-    this.properties.push(  new FormGroup({
-      propertyId: new FormControl(''),
-      value : new FormControl('')
-    }));
-  }
 
   onSubmit() {
+
     console.log(this.properties.value);  // ['SF', 'NY']
     console.log(this.prodform.value);    // { cities: ['SF', 'NY'] }
   }
 
-  setPreset() {
-    this.properties.patchValue(['LA', 'MTV']);
-  }
+
 
 
 }

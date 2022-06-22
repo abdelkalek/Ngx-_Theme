@@ -1,9 +1,33 @@
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+
+  <div class="col-md text-primary ">
+    <xng-breadcrumb  [separator]="separatorTemplate"
+                     class="myapp-breadcrumb"
+                     id="advancedTemplate2"
+                     [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+
+</div>
+
+
+
+
+
 <div class="card-row">
   <div class="card-col">
     <nb-card status="primary" class="mt-0">
       <nb-card-header>
+        <div class="row my-0">
+          <div class="col-md">
+            <p class="text-light  subtitle" >Profile Utilisateur</p>
+          </div>
         <div class=" col-md left col">
           <nb-icon icon="more-vertical-outline"></nb-icon>
+        </div>
         </div>
       </nb-card-header>
       <nb-card-body>

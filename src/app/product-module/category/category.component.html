@@ -1,28 +1,25 @@
-<nb-card class="my-1">
-  <nb-card-header class="row">
-    <ng-template #separatorTemplate>
-      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-    </ng-template>
-    <div class="col-md  ">
-      <xng-breadcrumb [separator]="separatorTemplate"
-                      class="myapp-breadcrumb"
-                      id="advancedTemplate2"
-                      [preserveQueryParams]="false">
-      </xng-breadcrumb>
-    </div>
-    <div class=" col-md left col">
-      <nb-icon icon="cubes-stacked" pack="solid" nbTooltip="List View" nbTooltipPlacement="bottom"
-               class="mx-1"></nb-icon>
-    </div>
-  </nb-card-header>
-</nb-card>
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+
+  <div class="col-md text-primary ">
+    <xng-breadcrumb [separator]="separatorTemplate"
+                    class="myapp-breadcrumb"
+                    id="advancedTemplate2"
+                    [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+</div>
 
 <div class="row">
 
   <div class="col-lg-6 col-md-6 col-sm-12">
     <nb-card accent="primary">
       <nb-card-header>
-        ajouter nouveau categorie ou sous categorie
+        <b>
+          Ajouter Categorie ou sous Categorie
+        </b>
       </nb-card-header>
       <nb-card-body>
         <form [formGroup]="addcatform" (ngSubmit)="onsubmit()">
@@ -39,12 +36,11 @@
                 class="col-8">
                 <nb-option-group *ngFor="let cate of categoryList">
                   <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>
-                  <nb-option *ngFor="let subcat of cate.subCategory" value="{{subcat.id}}">{{subcat.nom}}</nb-option>
+                  <nb-option *ngFor="let subcat of cate.subCategory" value="{{subcat.id}}"> {{subcat.nom}}</nb-option>
                 </nb-option-group>
               </nb-select>
             </div>
           </nb-alert>
-
           <div class="mb-3">
             <label for="exampleInputCategorie" class="form-label">Nom de Categorie</label>
             <input nbInput fullWidth status="primary" type="text" formControlName="nom" class="form-control"
@@ -60,6 +56,11 @@
                       class="form-control"
                       id="exampleInputdescription"></textarea>
           </div>
+          <div class="mb-3">
+            <label for="exampleInputdescription" class="form-label">Ajouter des proprietes </label>
+
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
@@ -68,19 +69,21 @@
   </div>
   <div class="col-lg-6  col-md-6  col-sm-12">
 
-        <nb-accordion>
-          <nb-accordion-item *ngFor="let cate of categoryList">
-            <nb-accordion-item-header>
-                <i  class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>
-                <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>
-                {{cate.nom}}
-            </nb-accordion-item-header>
-            <nb-accordion-item-body *ngFor="let subcat of cate.subCategory" >
-              <i  class="fa-regular fa-square-minus ms-3 text-warning" (click)="onsubmit()"></i>
-              <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(subcat.id)"></i>
-                  <strong>{{subcat.nom}}</strong>
-            </nb-accordion-item-body>
-          </nb-accordion-item>
-        </nb-accordion>
+    <nb-accordion>
+      <nb-accordion-item *ngFor="let cate of categoryList">
+        <nb-accordion-item-header>
+          <i class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>
+          <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>
+          {{cate.nom}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body *ngFor="let subcat of cate.subCategory">
+          &nbsp;&nbsp;
+          <i class="fa-regular fa-square-minus ms-3 text-primary" (click)="onsubmit()"></i>
+          <i class="fa-regular fa-trash-can mx-4 text-danger" (click)="deletecategories(subcat.id)">
+          </i>
+          <strong>{{subcat.nom}}</strong>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
   </div>
 </div>

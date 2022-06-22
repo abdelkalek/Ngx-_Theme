@@ -1,22 +1,18 @@
-<nb-card>
-  <nb-card-header class="row">
-    <ng-template #separatorTemplate>
-      <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-    </ng-template>
-    <div class="col-md  ">
-      <xng-breadcrumb [separator]="separatorTemplate"
-                      class="myapp-breadcrumb"
-                      id="advancedTemplate2"
-                      [preserveQueryParams]="false">
-      </xng-breadcrumb>
-    </div>
-    <div class=" col-md left col">
-      <nb-icon icon="more-vertical-outline"></nb-icon>
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
 
-    </div>
-  </nb-card-header>
-</nb-card>
+  <div class="col-md text-primary ">
+    <xng-breadcrumb  [separator]="separatorTemplate"
+                     class="myapp-breadcrumb"
+                     id="advancedTemplate2"
+                     [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+</div>
 
+<!--
 <form [formGroup]="prodform" (ngSubmit)="submit()">
 
   <nb-card accent="info" class="cardBg">
@@ -27,10 +23,9 @@
         </div>
         <div class="col-lg left col">
           <button nbButton status="primary" type="submit" [disabled]="prodform.invalid">Ajouter
-            <i class="fa-solid fa-dolly mx-1"></i>
           </button>
           <button nbButton status="danger" type="reset">
-            <i class="fa-solid fa-eraser mx-1"></i>
+            <i class="fa-solid fa-trash mx-1"></i>
           </button>
           <button nbButton type="button" status="basic" [routerLink]="['../']">
             <i class="fa-solid fa-list mx-1"></i>
@@ -124,6 +119,41 @@
                       [status]="prodform.controls['ref'].dirty ? (prodform.controls['ref'].invalid  ? 'danger' : 'success') : 'basic'"
                       placeholder="Référence interne">
                   </div>
+
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">Model</label>
+                    <input
+                      formControlName="model"
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      [status]="prodform.controls['model'].dirty ? (prodform.controls['model'].invalid  ? 'danger' : 'success') : 'basic'"
+                      placeholder="Model ">
+                  </div>
+
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">sku</label>
+                    <input
+                      formControlName="sku"
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      [status]="prodform.controls['sku'].dirty ? (prodform.controls['sku'].invalid  ? 'danger' : 'success') : 'basic'"
+                      placeholder="SkU">
+                  </div>
+                  <div class="full-name-inputs">
+                    <label class="col-lg-4 my-1">barcode</label>
+                    <input
+                      formControlName="barcode"
+                      status="info"
+                      type="text"
+                      nbInput
+                      fullWidth
+                      [status]="prodform.controls['barcode'].dirty ? (prodform.controls['barcode'].invalid  ? 'danger' : 'success') : 'basic'"
+                      placeholder="code barre De Produit">
+                  </div>
                   <ng-container
                     *ngIf=" submitted  && prodform.controls['ref'].invalid && prodform.controls['ref'].dirty">
                     <nb-alert class="my-2" status="danger">
@@ -131,13 +161,13 @@
                     </nb-alert>
                   </ng-container>
                   <div class="full-name-inputs">
-                    <label class="col-lg-4 my-1">catégorie de produit</label>
-                    <nb-select
-                      formControlName="categoryId"
-                      [status]="prodform.controls['categoryId'].dirty ? (prodform.controls['categoryId'].invalid  ? 'danger' : 'success') : 'basic'"
-                      status="info"
-                      fullWidth
-                      selected="1">
+                    <label class="col-lg-4 my-1">Catégorie </label>
+                    <nb-select  (selectedChange)="open(dialog)"
+                               formControlName="categoryId"
+                               [status]="prodform.controls['categoryId'].dirty ? (prodform.controls['categoryId'].invalid  ? 'danger' : 'success') : 'basic'"
+                               status="info"
+                               fullWidth
+                               selected="1">
                       <nb-option-group *ngFor="let cate of categoryList">
                         <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>
                         <nb-option *ngFor="let subcat of cate.subCategory"
@@ -195,10 +225,8 @@
                     <input
                       formControlName="urlImage"
                       [status]="prodform.controls['urlImage'].dirty ? (prodform.controls['urlImage'].invalid  ? 'danger' : 'success') : 'basic'"
-
                       status="info" type="text"
                       nbInput fullWidth placeholder="Coût d'achat">
-
                   </div>
                   <ng-container
                     *ngIf=" submitted  && prodform.controls['urlImage'].invalid && prodform.controls['urlImage'].dirty">
@@ -219,8 +247,7 @@
             <div class="col-lg-12">
               <nb-checkbox (checkedChange)="toggle($event)">Produit avec variants</nb-checkbox>
               <br>
-              <label>Checked:</label> {{ checked }}
-              <nb-card *ngIf="checked">
+              <nb-card *ngIf="checked" accent="primary">
                 <nb-card-header>variants de produits</nb-card-header>
                 <nb-card-body>
 
@@ -281,7 +308,7 @@
   </nb-card>
 
 
-  <!--Property+Value-->
+  &lt;!&ndash;Property+Value&ndash;&gt;
 
 
   <nb-card>
@@ -294,27 +321,120 @@
     </nb-card-footer>
   </nb-card>
 
-<ng-template #dialog let-data let-ref="dialogRef">
-  <nb-card>
-    <nb-card-header>Template Dialog</nb-card-header>
-    <nb-card-body>
-      {{ data }}
+  <ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+      <nb-card-header>proprietes de categorie</nb-card-header>
+      <nb-card-body>
+<div *ngIf="data==null" >
+  <nb-alert accent="warning"  size="medium">
+    <div class=" row  my-auto">
+      <div class="col-2 "> <i class="fa-solid fa-triangle-exclamation display-6">
+      </i></div>
+      <div class="col-10">
+        Cette categorie ne contient pas des proprietes
+</div>
+    </div>
+  </nb-alert>
+  <a class="btn-link link-primary" routerLink="/add">Ajouter  Properties</a>
+</div>
+        <div formArrayName="properties">
+          <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i" >
+            <div class="row my-2"  >
+              <div class="col-md-6">
+                <label class="form-control text-primary display-6 "> {{ data}}</label>
+              </div>
+              <div class="col-md-6"  >
+                <input
+                  formControlName="value"
+                  status="info"
+                  type="text"
+                  nbInput
+                  fullWidth
+                  placeholder="Value">
+              </div>
+            </div>
+          </ng-container>
 
+        </div>
+        <button nbButton (click)="ref.close()">Retour</button>
+      </nb-card-body>
+    </nb-card>
+  </ng-template>
+</form>-->
 
-      <div formArrayName="properties">
-        <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i">
-          <input formControlName="propertyId" placeholder="City">
-        </ng-container>
+<div>
+  <button nbButton outline status="basic"  class="mx-2"> <nb-icon icon="arrow-back-outline"></nb-icon>
+  </button> <strong>Ajouter Produit</strong>
+</div>
+<div class="row mt-2">
+  <div class="col-7">
+    <nb-card  >
+      <nb-card-body class="row mb-0 ">
+        <div class="row ">
+          <div class="form-group ">
+            <label for="nomp" class="text-lg-start my-1">Titre</label>
+            <input formControlName="nom"
+                   [status]="prodform.controls['nom'].dirty ? (prodform.controls['nom'].invalid  ? 'danger' : 'success') : 'basic'"
+                   type="text"
+                   nbInput
+                   fullWidth
+                   fieldSize="large"
+                   status="primary"
+                   id="nomp"
+                   placeholder="t-shirt à manches courtes"
+            >
+            <ng-container *ngIf="submitted  && prodform.controls['nom'].invalid && prodform.controls['nom'].dirty">
+              <nb-alert class="my-2" status="danger">
+                Incorrect nom format ...
+              </nb-alert>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="form-group ">
+            <label  class="text-lg-start my-1">Description</label>
 
-      </div>
-      <button (click)="addCity()">+</button>
-
-
-    </nb-card-body>
-    <nb-card-footer>
-      <button nbButton (click)="ref.close()">Close Dialog</button>
-    </nb-card-footer>
-  </nb-card>
-</ng-template>
-</form>
-<button nbButton (click)="open(dialog)">Open Dialog</button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-5">
+    <nb-card size="tiny">
+      <nb-card-body class="row">
+        <div class="col-lg-1">
+          <nb-icon icon="star"></nb-icon>
+        </div>
+        <div class="col-lg-11 text-center">
+          <b>Production Notification</b>
+        </div>
+        <div class="row ">
+          <div >Be sure to have your pages set
+            up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag
+            for proper responsive behaviors. Put it all together and your pages should look like this:</div>
+          <div class="col-lg-6">
+            <button nbButton status="primary"><nb-icon icon="shield-outline"></nb-icon>Manage this notice</button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny" accent="info" class="card-color">
+      <nb-card-body class="row d-flex justify-content-start">
+        <div class="col-lg-1">
+          <nb-icon icon="star"></nb-icon>
+        </div>
+        <div class="col-lg-11 text-center">
+          <b>Machine Notification</b>
+        </div>
+        <div class="row ">
+          <div >Curious which components explicitly require our JavaScript and Popper? Click the show components link below.
+            If you’re at all unsure about the
+            general page structure, keep reading for an example page template.</div>
+          <div class="col-lg-6">
+            <button nbButton status="info"><nb-icon icon="shield-outline"></nb-icon>Manage this notice</button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

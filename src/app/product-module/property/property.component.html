@@ -1,1 +1,110 @@
-<p>property works!</p>
+<div class="mb-4">
+  <ng-template #separatorTemplate>
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </ng-template>
+  <div class="col-md text-primary ">
+    <xng-breadcrumb [separator]="separatorTemplate"
+                    class="myapp-breadcrumb"
+                    id="advancedTemplate2"
+                    [preserveQueryParams]="false">
+    </xng-breadcrumb>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <nb-card accent="primary">
+      <nb-card-body class="row">
+        <div class="col-lg-1">
+          <nb-icon icon="attach-outline"></nb-icon>
+        </div>
+        <div class="col-lg-11 text-center">
+          <b style="text-transform: uppercase;"> Ajouter propriete </b>
+        </div>
+        <form [formGroup]="propertyForm" (ngSubmit)="submit()">
+          <div class="row ">
+            <div class="my-3 ">
+              <label for="Propetie" class="form-label subtitle ">Nom </label>
+              <input formControlName="name" type="text" class="form-control" id="Propetie" required
+                     placeholder="Nom de propertie  ">
+            </div>
+            <div class="my-3 ">
+              <label for="unite" class="form-label subtitle ">Unité</label>
+              <input formControlName="unite" type="text" class="form-control" id="unite" required
+                     placeholder="Unité de propertie">
+            </div>
+            <div class="mb-3 ">
+              <label for="description" class="form-label subtitle">Description </label>
+              <textarea formControlName="description" id="description" nbInput fullWidth
+                        placeholder="Description de Propertie .... " size="4"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="proprieteid" class="form-label">valeurs par defaut </label>
+              <nb-tag-list id="proprieteid" (tagRemove)="onTagRemove($event)">
+                <nb-tag *ngFor="let tree of trees" [text]="tree" removable></nb-tag>
+                <input type="text" nbTagInput (tagAdd)="onTagAdd($event)" fullWidth>
+              </nb-tag-list>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <button nbButton status="primary">Ajouter
+              <nb-icon icon="plus"></nb-icon>
+            </button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-8">
+    <nb-card>
+      <nb-card-body>
+        <nb-tabset>
+
+          <nb-tab tabTitle="List Des Poperties">
+            <ng2-smart-table [settings]="settings" [source]=" ListProperty" (deleteConfirm)="onDeleteConfirm($event)"
+                             (userRowSelect)="onRowSelect($event)"> >
+            </ng2-smart-table>
+          </nb-tab>
+          <nb-tab tabTitle="lier  Properties a une categorie">
+            <div class="row">
+              <div class="col-md-12 justify-content-center ">
+                <!--                          formControlName="categoryId"-->
+                <form [formGroup]="bindForm" (ngSubmit)="bindTocatgorie()">
+                  <nb-select placeholder="Choisir Categorie" status="info" formControlName="categoryId">
+                    <nb-option-group *ngFor="let cate of categoryList">
+                      <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>
+                      <nb-option *ngFor="let subcat of cate.subCategory"
+                                 value="{{subcat.id}}">{{subcat.nom}}</nb-option>
+                    </nb-option-group>
+                  </nb-select>
+                  <nb-select class="mx-1" placeholder="Choisir propertie" formControlName="propertyId">
+                    <nb-option-group *ngFor="let p of ListProperty">
+                      <nb-option value="{{p.propertyId}}">{{p.name}}</nb-option>
+                    </nb-option-group>
+                  </nb-select>
+                  <button type="submit" class="mx-1" nbButton status="success">Lier
+                    <nb-icon icon="link-2-outline"></nb-icon>
+                  </button>
+                </form>
+              </div>
+
+            </div>
+            <div class="row">
+              <strong>List des Properties : </strong>
+              <nb-card>
+              <nb-card-body>
+              <div *ngFor="let c of ListpropertyofCategory ; let index = index ">
+                <p> {{index +1 }} -{{c.name}}</p>
+              </div>
+              </nb-card-body>
+              </nb-card>
+            </div>
+
+          </nb-tab>
+        </nb-tabset>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

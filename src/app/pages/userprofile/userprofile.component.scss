@@ -38,3 +38,10 @@ button{
   align-content: center;
   vertical-align: middle;
 }
+
+
+:host ::ng-deep .xng-breadcrumb-trail {
+
+  color: #0e68ee;
+
+}

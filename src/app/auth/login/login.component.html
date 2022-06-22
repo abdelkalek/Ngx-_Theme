@@ -3,23 +3,23 @@
     <div class="">
       <img src="assets/Xenophon-IT-Logo.png" width="180"/>
     </div>
-    <img class="img-fluid" src="assets/LoginForm.svg"/>
+    <img class="img-fluid " src="assets/LoginForm.svg" />
   </div>
-  <div class="col-md-5 ">
+  <div class="col-md  ">
   <nb-alert accent="danger" role="alert" *ngIf="false">
     Error message
   </nb-alert>
   <!--<div class="row justify-content-center">-->
-  <nb-card accent="danger" [nbSpinner]="isLoadingMode" nbSpinnerStatus="danger" nbSpinnerSize="giant">
+  <nb-card accent="info" [nbSpinner]="isLoadingMode" nbSpinnerStatus="danger" nbSpinnerSize="giant">
     <nb-card-header class="text-center">
       <img src="../../../assets/logo.png" width="30em">
     </nb-card-header>
     <nb-card-body>
-      <h6> Sign in to you account</h6>
+      <h6> Connectez-vous </h6>
       <nb-alert accent="success">
         <nb-action size="large" class="col-md-12">
           <nb-icon status="warning" icon="bulb-outline" class="mx-3"></nb-icon>
-          don't have a account ? connect the administration
+          vous devez avoir déjà un compte
         </nb-action>
       </nb-alert>
       <form [formGroup]="loginform" (ngSubmit)="loginEmail()">
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="mb-1 row">
-          <label for="input-password" class="col-sm-3 col-form-label subtitle">Password</label>
+          <label for="input-password" class="col-sm-3 col-form-label subtitle">Mot de Passe</label>
           <div class="col-sm-9">
             <nb-form-field>
               <input
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="mb-1 row">
-          <nb-checkbox status="danger">Save Connection Parameters</nb-checkbox>
+          <nb-checkbox status="danger">Enregistrer les paramètres de connexion</nb-checkbox>
         </div>
         <div class="mb-1 m-auto row justify-content-center ">
           <button
@@ -92,16 +92,16 @@
             size="large"
             hero
             type="submit"
-          >Connect
+          >Connecte
           </button>
           <!--                [disabled]="loginform.invalid"-->
         </div>
         <nb-alert accent="warning" class="row">
           <nb-action size="Medium" class="col-md-12">
             <nb-icon icon="info-outline" ></nb-icon>
-            Reset or change your password ?
-            <a class="text-link "
-               routerLink="../request-password"> Click here</a>
+            Mot de passe oublié
+            <a class="text-link mx-2 "
+               routerLink="../request-password"> Cliquez ici</a>
           </nb-action>
         </nb-alert>
       </form>

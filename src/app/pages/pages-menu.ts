@@ -10,16 +10,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Mon Compte',
     icon: {icon: 'person-done-outline'},
-    badge: {
-      text: '30',
-      status: 'primary',
-    },
+
     children: [
       {
         title: 'Profile',
-        icon: 'person-done-outline',
+        icon: 'person-outline',
         link: '/pages/profile',
-      },
+      }/*,
       {
         title: 'Messages',
         icon: 'message-circle-outline',
@@ -43,28 +40,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
           text: 'new',
           status: 'success',
         },
-      },
+      },*/
     ],
   },
 
   {
     title: 'Utilisateurs',
-    icon: {icon: 'person-outline'},
+    icon: {icon: 'people-outline'},
     children: [
       {
-        title: 'Users',
+        title: 'Gérer les utilisateurs',
         link: '/pages/users',
-        icon: 'people-outline'
+        icon: 'list-outline'
 
       },
       {
-        title: 'Add User',
+        title: 'Ajouter des utilisateurs',
         link: '/pages/adduser',
         icon: 'person-add-outline'
 
       },
       {
-        title: 'Roles & Permission',
+        title: 'Rôles et permissions',
         link: '',
         icon: 'shield-outline',
         children: [
@@ -92,37 +89,40 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Produits',
-
     icon: {icon: 'pricetags-outline'},
-    link: '/pages/product',
     children: [
       {
-        title: 'Products  ',
+        title: 'Produits  ',
         link: '/pages/product',
+        icon: {icon: 'pricetags'},
+      },
+      {
+        title: 'List des Produits  ',
+        link: '/pages/product/list',
         icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
         title: 'Category',
         link: '/pages/product/category',
-        icon: {icon: 'sitemap', pack: 'font-awesome'},
+        icon: {icon: 'pantone-outline'},
       },
       {
         title: 'Property',
-        link: '/pages/forms/inputs',
-        icon: {icon: 'chart-bar', pack: 'font-awesome'},
+        link: '/pages/product/property',
+        icon: {icon: 'attach-outline'},
       }
 
     ],
   },
   {
-    title: 'Category management',
-    icon: 'pantone-outline',
+    title: 'Machines',
+    icon: 'options-outline',
 
     children: [
       {
-        title: 'Add Category',
+        title: 'Ajouter Machine',
         link: '/pages/forms/inputs',
-        icon: 'clipboard-outline'
+        icon: 'plus-circle-outline'
 
       },
       {
@@ -130,11 +130,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/forms/layouts',
         icon: 'list-outline'
       }
-    ],
-  },
+    ]},
+
 
   {
-    title: 'Config production lines',
+    title: 'Surveillance',
     icon: 'activity-outline',
     children: [
       {
@@ -144,64 +144,64 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ],
 
-  },
+  }
+ ,
+   {
+     title: 'statistique',
+     icon: 'pie-chart-outline',
+     children: [
+       {
+         title: 'Add products',
+         link: '/pages/forms/inputs',
+         icon: 'shopping-bag-outline'
 
-  {
-    title: 'Config of expense items',
-    icon: 'monitor-outline',
-    children: [
-      {
-        title: 'Add products',
-        link: '/pages/forms/inputs',
-        icon: 'shopping-bag-outline'
+       },
+       {
+         title: 'Products List ',
+         link: '/pages/forms/layouts',
+         icon: 'list-outline'
+       }
+     ],
 
-      },
-      {
-        title: 'Products List ',
-        link: '/pages/forms/layouts',
-        icon: 'list-outline'
-      }
-    ],
+   },/*
 
-  },
+   {
+     title: 'Resource management',
+     // icon: { icon: 'trending-up-outline', pack: 'font-awesome' },
+     icon: 'trending-up-outline',
+     children: [
+       {
+         title: 'Config ',
+         link: '/pages/forms/inputs',
+         icon: 'start'
 
-  {
-    title: 'Resource management',
-    // icon: { icon: 'trending-up-outline', pack: 'font-awesome' },
-    icon: 'trending-up-outline',
-    children: [
-      {
-        title: 'Config ',
-        link: '/pages/forms/inputs',
-        icon: 'start'
+       },
+       {
+         title: 'Products List ',
+         link: '/pages/forms/layouts',
+         icon: 'list-outline'
+       }
+     ],
 
-      },
-      {
-        title: 'Products List ',
-        link: '/pages/forms/layouts',
-        icon: 'list-outline'
-      }
-    ],
+   },
 
-  },
+   {
+     title: 'Produ order management',
+     icon: 'layers-outline',
+     children: [
+       {
+         title: 'Config',
+         link: '/pages/forms/inputs',
+         icon: 'shopping-bag-outline'
 
-  {
-    title: 'Produ order management',
-    icon: 'layers-outline',
-    children: [
-      {
-        title: 'Config',
-        link: '/pages/forms/inputs',
-        icon: 'shopping-bag-outline'
+       },
+       {
+         title: 'Products List ',
+         link: '/pages/forms/layouts',
+         icon: 'list-outline'
+       }
+     ],
 
-      },
-      {
-        title: 'Products List ',
-        link: '/pages/forms/layouts',
-        icon: 'list-outline'
-      }
-    ],
-
-  },
+   },*/
 
 ];

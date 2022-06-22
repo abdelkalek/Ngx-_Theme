@@ -34,6 +34,7 @@
     "ng2-completer": "^9.0.1",
     "ng2-smart-table": "^1.7.2",
     "ngx-dropzone": "^3.1.0",
+    "ngx-quill": "^17.0.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.8",
     "tslib": "^2.3.0",
