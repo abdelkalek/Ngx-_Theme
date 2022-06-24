@@ -37,6 +37,10 @@ $nb-themes: nb-register-theme((
   header-height	: 3.25rem,
   footer-padding :0.5rem,
   footer-height: 1.1rem,
+  card-border-radius :0.50rem,
+  input-basic-background-color : #ffffff,
+  input-basic-hover-background-color: #ffff,
+  input-success-background-color:rgba(0, 214, 143, 0.07),
     //End modifier by me
 
   select-min-width: 6rem,

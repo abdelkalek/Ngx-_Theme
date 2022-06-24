@@ -2,6 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    /**add byuser ediot */
+  "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    /**add byuser ediot */
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

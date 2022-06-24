@@ -21,6 +21,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CategoryComponent } from './category/category.component';
 import { PropertyComponent } from './property/property.component';
 import { ListProductsComponent } from './list-products/list-products.component';
+import {NgxEditorModule} from "ngx-editor";
+import {NgxSelectModule} from "ngx-select-ex";
 
 
 @NgModule({
@@ -56,7 +58,17 @@ import { ListProductsComponent } from './list-products/list-products.component';
         NbMenuModule,
         NbListModule,
         NbButtonGroupModule,
-        FormsModule
+        FormsModule,
+      NgxSelectModule,
+      NgxEditorModule.forRoot({
+        locals: {
+          bold: 'Bold',
+          italic: 'Italic',
+          code: 'Code',
+          underline: 'Underline',
+
+        },
+      })
     ]
 })
 export class ProductModuleModule { }
