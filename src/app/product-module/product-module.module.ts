@@ -23,6 +23,7 @@ import { PropertyComponent } from './property/property.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import {NgxEditorModule} from "ngx-editor";
 import {NgxSelectModule} from "ngx-select-ex";
+import {TagInputModule} from "ngx-chips";
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import {NgxSelectModule} from "ngx-select-ex";
         NbButtonGroupModule,
         FormsModule,
       NgxSelectModule,
+      TagInputModule,
       NgxEditorModule.forRoot({
         locals: {
           bold: 'Bold',

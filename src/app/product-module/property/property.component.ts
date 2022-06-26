@@ -186,7 +186,7 @@ export class PropertyComponent implements OnInit {
     })
       this.propertService.getPropertysOfCategory(this.bindForm.controls['categoryId'].value).subscribe({
         next:(data)=> {
-          console.log(data)
+          console.log("ddazdza",data)
           this.ListpropertyofCategory = data ;
         }, error : (resError) =>{
           console.log(resError.message)
@@ -196,16 +196,16 @@ export class PropertyComponent implements OnInit {
 
 
 ///*tags info////
-  trees: Set<string> = new Set(['Red','blue']);
+  trees: any[]= ['Red','blue'];
 
-  onTagRemove(tagToRemove: NbTagComponent): void {
-    this.trees.delete(tagToRemove.text);
-  }
-
-  onTagAdd({ value, input }: NbTagInputAddEvent): void {
-    if (value) {
-      this.trees.add(value)
-    }
-    input.nativeElement.value = '';
-  }
+  // onTagRemove(tagToRemove: NbTagComponent): void {
+  //   this.trees.delete(tagToRemove.text);
+  // }
+  //
+  // onTagAdd({ value, input }: NbTagInputAddEvent): void {
+  //   if (value) {
+  //     this.trees.add(value)
+  //   }
+  //   input.nativeElement.value = '';
+  // }
 }

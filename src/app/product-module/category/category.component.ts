@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../category.model";
 import {CategoryService} from "../category.service";
 import {NbTagComponent, NbTagInputAddEvent} from "@nebular/theme";
+import {PropertyService} from "../property.service";
+import {Property} from "../property.model";
 
 @Component({
   selector: 'app-category',
@@ -12,7 +14,7 @@ import {NbTagComponent, NbTagInputAddEvent} from "@nebular/theme";
 export class CategoryComponent implements OnInit {
   name = 'Open source: ngx awesome popup';
 
-  constructor(private categoryserv: CategoryService) {
+  constructor(private categoryserv: CategoryService, private propertysService: PropertyService) {
   }
 
   items = [
@@ -24,15 +26,22 @@ export class CategoryComponent implements OnInit {
   addcatform = new FormGroup({
     nom: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    parentId: new FormControl('', [Validators.required])
+    parentId: new FormControl('', [Validators.required]),
+    lista: new FormControl('', [Validators.required])
   });
 
   isSubCategory!: boolean;
   categoryList: Category[] = [];
-
-
+  propertysList: Property[] = [];
   ngOnInit(): void {
     this.init();
+    this.propertysService.getPropertys().subscribe({
+      next: (data)=>{
+        this.propertysList = data
+        console.log(this.propertysList)
+     //   this.propertysList.push(...data.map((one)=>{return one.name}))
+      }
+    })
 
   }
 
@@ -44,6 +53,8 @@ export class CategoryComponent implements OnInit {
   }
 
   onsubmit() {
+    console.log(this.addcatform.getRawValue())
+    return;
     if (!this.isSubCategory) {
       this.addcatform.controls['parentId'].setValue(null);
     }

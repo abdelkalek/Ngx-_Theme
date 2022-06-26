@@ -59,6 +59,18 @@
           <div class="mb-3">
             <label for="exampleInputdescription" class="form-label">Ajouter des proprietes </label>
 
+            <tag-input formControlName="lista"
+                       [secondaryPlaceholder]="'Ajouter des proprietes ...'"
+                       [onlyFromAutocomplete]="true">
+              <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                  [dynamicUpdate]="false"
+                                  [focusFirstElement]="true"
+                                  [displayBy]="'name'"
+                                  [identifyBy]="'name'"
+                                  [autocompleteItems]="propertysList">
+
+              </tag-input-dropdown>
+            </tag-input>
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>

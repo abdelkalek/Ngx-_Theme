@@ -94,22 +94,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Produits  ',
         link: '/pages/product',
-        icon: {icon: 'pricetags'},
+    //    icon: {icon: 'pricetags'},
       },
       {
         title: 'List des Produits  ',
         link: '/pages/product/list',
-        icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
+     //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
         title: 'Category',
         link: '/pages/product/category',
-        icon: {icon: 'pantone-outline'},
+   //     icon: {icon: 'pantone-outline'},
       },
       {
         title: 'Property',
         link: '/pages/product/property',
-        icon: {icon: 'attach-outline'},
+ //       icon: {icon: 'attach-outline'},
       }
 
     ],
@@ -122,13 +122,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Ajouter Machine',
         link: '/pages/forms/inputs',
-        icon: 'plus-circle-outline'
+     //   icon: 'plus-circle-outline'
 
       },
       {
         title: 'Category List ',
         link: '/pages/forms/layouts',
-        icon: 'list-outline'
+     //   icon: 'list-outline'
       }
     ]},
 

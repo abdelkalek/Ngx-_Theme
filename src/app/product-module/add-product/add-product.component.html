@@ -10,99 +10,24 @@
     </xng-breadcrumb>
   </div>
 </div>
-
-<!--
-
-
-
-
-
-
-              <nb-checkbox (checkedChange)="toggle($event)">Produit avec variants</nb-checkbox>
-              <br>
-              <nb-card *ngIf="checked" accent="primary">
-                <nb-card-header>variants de produits</nb-card-header>
-
-
-        <nb-tab tabIcon="cube-outline" tabTitle="Stockable"
-                *ngIf="this.prodform.controls['typeProd'].value !=='Service'">
-          <nb-card>
-            <nb-card-body>
-
-            </nb-card-body>
-          </nb-card>
-        </nb-tab>
-      </nb-tabset>
-    </nb-card-body>
-  </nb-card>
-
-
-  &lt;!&ndash;Property+Value&ndash;&gt;
-
-
-  <nb-card>
-    <nb-card-header>propriétés de produit</nb-card-header>
-    <nb-card-body>
-
-    </nb-card-body>
-    <nb-card-footer>
-
-    </nb-card-footer>
-  </nb-card>
-
-  <ng-template #dialog let-data let-ref="dialogRef">
-    <nb-card>
-      <nb-card-header>proprietes de categorie</nb-card-header>
-      <nb-card-body>
-<div *ngIf="data==null" >
-  <nb-alert accent="warning"  size="medium">
-    <div class=" row  my-auto">
-      <div class="col-2 "> <i class="fa-solid fa-triangle-exclamation display-6">
-      </i></div>
-      <div class="col-10">
-        Cette categorie ne contient pas des proprietes
-</div>
-    </div>
-  </nb-alert>
-  <a class="btn-link link-primary" routerLink="/add">Ajouter  Properties</a>
-</div>
-        <div formArrayName="properties">
-          <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i" >
-            <div class="row my-2"  >
-              <div class="col-md-6">
-                <label class="form-control text-primary display-6 "> {{ data}}</label>
-              </div>
-              <div class="col-md-6"  >
-                <input
-                  formControlName="value"
-                  status="info"
-                  type="text"
-                  nbInput
-                  fullWidth
-                  placeholder="Value">
-              </div>
-            </div>
-          </ng-container>
-
-        </div>
-        <button nbButton (click)="ref.close()">Retour</button>
-      </nb-card-body>
-    </nb-card>
-  </ng-template>
-</form>-->
 <form [formGroup]="prodform" (ngSubmit)="submit()">
-
-  <div>
-    <button nbButton outline status="basic" class="mx-2">
-      <nb-icon icon="arrow-back-outline"></nb-icon>
-    </button>
-    <strong>Ajouter Produit</strong>
+  <div class="row">
+    <div class="col">
+      <button nbButton outline status="basic" class="mx-2" routerLink="../">
+        <nb-icon icon="arrow-back-outline"></nb-icon>
+      </button>
+      <strong>Ajouter Produit</strong>
+    </div>
+    <div class=" left col">
+      <button class="btn btn-light" routerLink="../list" style="cursor: pointer;" nbTooltip=" List produits ">
+        <i class="fa-solid fa-list me-1 "></i>
+      </button>
+    </div>
   </div>
   <div class="row mt-2">
     <div class="col-md-7">
       <nb-card>
         <nb-card-body class="row mb-0 ">
-
           <div class="row ">
             <div class="form-group ">
               <label for="nomp" class="text-lg-start my-1">Titre</label>
@@ -154,7 +79,6 @@
           </div>
         </nb-card-body>
       </nb-card>
-
       <nb-card>
         <nb-card-body class="row">
           <strong><i class="fa-solid fa-coins text-warning"></i> Tarification des prix</strong>
@@ -201,7 +125,6 @@
 
         </nb-card-body>
       </nb-card>
-
       <nb-card>
         <nb-card-body class="row ">
           <strong><i class="fa-solid fa-fingerprint mx-1"></i>Inventaire</strong>
@@ -256,6 +179,45 @@
         </nb-card-body>
       </nb-card>
 
+      <nb-card>
+        <nb-card-body class="row ">
+          <strong><i class="fa-brands fa-cloudsmith me-1"></i>Options</strong>
+          <div class="form-group">
+            <label class="col-lg-4 my-1">Reference interne</label>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <label class="col-lg-4 my-1">sku</label>
+                <p class="caption"> (Stock Keeping Unit)</p>
+                <input
+                  formControlName="sku"
+                  status="info"
+                  type="text"
+                  nbInput
+                  fullWidth
+                  [status]="prodform.controls['sku'].dirty ? (prodform.controls['sku'].invalid  ? 'danger' : 'success') : 'basic'"
+                  placeholder="SkU">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-lg-4 my-1">barcode</label>
+                <p class="caption"> (ISBN, UPC, GTIN, etc.)</p>
+                <input
+                  formControlName="barcode"
+                  status="info"
+                  type="text"
+                  nbInput
+                  fullWidth
+                  [status]="prodform.controls['barcode'].dirty ? (prodform.controls['barcode'].invalid  ? 'danger' : 'success') : 'basic'"
+                  placeholder="code barre De Produit">
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
 
     </div>
 
@@ -310,32 +272,16 @@
                 <ngx-select [allowClear]="true"
                             [items]="items"
                             formControlName="categoryId"
+                            (select)="open()"
                             optionValueField="id" optionTextField="text"
                             optGroupLabelField="text" optGroupOptionsField="children"
                             placeholder="pas de categorie sélectionnée">
                 </ngx-select>
-                <nb-alert>
-                  <pre>{{prodform.controls['categoryId'].value}}</pre>
-                </nb-alert>
 
                 <div>
 
                 </div>
               </div>
-
-              <!--              <nb-select-->
-              <!--                formControlName="categoryId"-->
-              <!--                [status]="prodform.controls['categoryId'].dirty ? (prodform.controls['categoryId'].invalid  ? 'danger' : 'success') : 'basic'"-->
-              <!--                status="info"-->
-              <!--                fullWidth-->
-              <!--                selected="1">-->
-              <!--                <nb-option-group *ngFor="let cate of categoryList">-->
-              <!--                  <nb-option value="{{cate.id}}"> {{cate.nom}}</nb-option>-->
-              <!--                  <nb-option *ngFor="let subcat of cate.subCategory"-->
-              <!--                             value="{{subcat.id}}">{{subcat.nom}}</nb-option>-->
-              <!--                </nb-option-group>-->
-              <!--              </nb-select>-->
-
             </div>
             <ng-container
               *ngIf=" submitted  && prodform.controls['categoryId'].invalid && prodform.controls['categoryId'].dirty">
@@ -407,7 +353,27 @@
           </ng-container>
         </nb-card-body>
       </nb-card>
+      <ng-container *ngIf="prpertynameTab.length > 0">
 
+        <nb-card>
+          <nb-card-header>Proprietes</nb-card-header>
+          <nb-card-body>
+            <div formArrayName="properties">
+              <ng-container *ngFor="let p of properties.controls; index as i" [formGroupName]="i">
+                <div class="row">
+                  <label class="form-group mb-2">{{prpertynameTab[i]}}</label>
+                  <input
+                    formControlName="value"
+                    status="info"
+                    type="text"
+                    nbInput
+                    placeholder="{{prpertynameTab[i]}}">
+                </div>
+              </ng-container>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </ng-container>
     </div>
   </div>
 
@@ -416,11 +382,29 @@
   <div class="col-lg left col">
     <button nbButton status="primary" type="submit" [disabled]="prodform.invalid">Ajouter
     </button>
-    <button nbButton type="reset">
+    <button nbButton outline status="warning" type="reset">
       <i class="fa-solid fa-trash mx-1"></i>
     </button>
-    <button nbButton type="button" status="basic" [routerLink]="['../']">
-      <i class="fa-solid fa-list mx-1"></i>
-    </button>
+
   </div>
 </form>
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>proprietes</nb-card-header>
+    <nb-card-body>
+
+      <div>
+        <nb-alert accent="warning" size="medium">
+          <div class=" row  my-auto">
+            <div class="col-2 "><i class="fa-solid fa-triangle-exclamation display-6">
+            </i></div>
+            <div class="col-10">
+              Cette categorie ne contient pas des proprietes
+            </div>
+          </div>
+        </nb-alert>
+        <a class="btn-link link-primary" routerLink="/add">Ajouter Properties</a>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

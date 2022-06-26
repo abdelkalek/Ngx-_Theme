@@ -33,6 +33,7 @@
     "nebular-icons": "^1.1.0",
     "ng2-completer": "^9.0.1",
     "ng2-smart-table": "^1.7.2",
+    "ngx-chips": "^3.0.0",
     "ngx-dropzone": "^3.1.0",
     "ngx-editor": "^13.0.0",
     "ngx-select-ex": "^8.0.1",

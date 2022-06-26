@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Product} from "./product.model";
 import {Category} from "./category.model";
-import {catchError, Observable, throwError} from "rxjs";
+import {catchError, map, Observable, throwError} from "rxjs";
 import {Property} from "./property.model";
 import {environment} from "../../environments/environment";
 
@@ -16,7 +16,9 @@ export class CategoryService {
   }
 
   getAllCategory() {
-    return this.http.get<Category[]>(this.endpoint + '/Category');
+
+    return this.http.get<Category[]>(this.endpoint + '/Category')
+
   }
 
   addCtegory(category: any) {
