@@ -73,29 +73,36 @@
             </tag-input>
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="col-lg-6">
+            <button type="submit" nbButton status="primary">Ajouter
+              <nb-icon icon="plus"></nb-icon>
+            </button>
+          </div>
         </form>
 
       </nb-card-body>
     </nb-card>
   </div>
   <div class="col-lg-6  col-md-6  col-sm-12">
+    <nb-card>
+      <nb-menu [items]="it"></nb-menu>
+    </nb-card>
 
-    <nb-accordion>
-      <nb-accordion-item *ngFor="let cate of categoryList">
-        <nb-accordion-item-header>
-          <i class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>
-          <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>
-          {{cate.nom}}
-        </nb-accordion-item-header>
-        <nb-accordion-item-body *ngFor="let subcat of cate.subCategory">
-          &nbsp;&nbsp;
-          <i class="fa-regular fa-square-minus ms-3 text-primary" (click)="onsubmit()"></i>
-          <i class="fa-regular fa-trash-can mx-4 text-danger" (click)="deletecategories(subcat.id)">
-          </i>
-          <strong>{{subcat.nom}}</strong>
-        </nb-accordion-item-body>
-      </nb-accordion-item>
-    </nb-accordion>
+<!--    <nb-accordion>-->
+<!--      <nb-accordion-item *ngFor="let cate of categoryList">-->
+<!--        <nb-accordion-item-header>-->
+<!--          <i class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>-->
+<!--          <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>-->
+<!--          {{cate.nom}}-->
+<!--        </nb-accordion-item-header>-->
+<!--        <nb-accordion-item-body *ngFor="let subcat of cate.subCategory">-->
+<!--          &nbsp;&nbsp;-->
+<!--          <i class="fa-regular fa-square-minus ms-3 text-primary" (click)="onsubmit()"></i>-->
+<!--          <i class="fa-regular fa-trash-can mx-4 text-danger" (click)="deletecategories(subcat.id)">-->
+<!--          </i>-->
+<!--          <strong>{{subcat.nom}}</strong>-->
+<!--        </nb-accordion-item-body>-->
+<!--      </nb-accordion-item>-->
+<!--    </nb-accordion>-->
   </div>
 </div>

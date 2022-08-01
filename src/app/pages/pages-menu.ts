@@ -92,25 +92,41 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: {icon: 'pricetags-outline'},
     children: [
       {
-        title: 'Produits  ',
-        link: '/pages/product',
-    //    icon: {icon: 'pricetags'},
+        title: 'Ajouter Produit  ',
+        link: '/pages/produits/Ajouter',
+        //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
-        title: 'List des Produits  ',
-        link: '/pages/product/list',
+        title: 'Produits  ',
+        link: '/pages/produits',
      //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
-        title: 'Category',
-        link: '/pages/product/category',
+        title: 'Catégories',
+        link: '/pages/produits/Catégorie',
    //     icon: {icon: 'pantone-outline'},
       },
       {
-        title: 'Property',
-        link: '/pages/product/property',
+        title: 'Propriétés',
+        link: '/pages/produits/Propriété',
  //       icon: {icon: 'attach-outline'},
-      }
+      },
+      {
+        title: 'Fournisseurs',
+        link: '/pages/produits/fournisseur',
+        //    icon: {icon: 'pricetags'},
+      },
+      {
+        title: 'Lot',
+        link: '/pages/product',
+        //    icon: {icon: 'pricetags'},
+      },
+
+      {
+        title: 'Factures',
+        link: '/pages/product',
+        //    icon: {icon: 'pricetags'},
+      },
 
     ],
   },

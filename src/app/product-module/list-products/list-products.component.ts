@@ -161,7 +161,7 @@ export class ListProductsComponent implements OnInit {
   }
   createNewProd() {
     console.log('Add New Item')
-    this.router.navigate(['../add'], {relativeTo: this.route});
+    this.router.navigate(['./Ajouter'], {relativeTo: this.route});
 
   }
   changeVue(veuType: string) {

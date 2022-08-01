@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../category.model";
 import {CategoryService} from "../category.service";
-import {NbTagComponent, NbTagInputAddEvent} from "@nebular/theme";
+import {NbMenuItem, NbTagComponent, NbTagInputAddEvent} from "@nebular/theme";
 import {PropertyService} from "../property.service";
 import {Property} from "../property.model";
 
@@ -49,7 +49,21 @@ export class CategoryComponent implements OnInit {
     this.categoryserv.getAllCategory().subscribe(
       (res) => {
         this.categoryList = res;
-      })
+        console.log(res)
+res.forEach((d)=>{
+  if(d.subCategory.length > 0){
+    this.it.push({
+      title: d.nom,
+      icon: 'plus-outline',
+      children: d.subCategory.map((d)=>{return {title :d.nom  } })
+    })
+  }
+  if(d.subCategory.length == 0){
+    this.it.push({
+      title: d.nom,
+    })
+  }
+});})
   }
 
   onsubmit() {
@@ -85,5 +99,6 @@ export class CategoryComponent implements OnInit {
   }
 
 
+  it: NbMenuItem[] = [];
 
 }

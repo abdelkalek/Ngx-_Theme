@@ -126,7 +126,7 @@
         </nb-card-body>
       </nb-card>
       <nb-card>
-        <nb-card-body class="row ">
+        <nb-card-body class="row">
           <strong><i class="fa-solid fa-fingerprint mx-1"></i>Inventaire</strong>
           <div class="form-group">
             <label class="col-lg-4 my-1">Reference interne</label>
@@ -178,49 +178,18 @@
           </div>
         </nb-card-body>
       </nb-card>
-
       <nb-card>
-        <nb-card-body class="row ">
-          <strong><i class="fa-brands fa-cloudsmith me-1"></i>Options</strong>
-          <div class="form-group">
-            <label class="col-lg-4 my-1">Reference interne</label>
-          </div>
+        <nb-card-body class="row">
+          <strong><i class="fa-brands fa-cloudsmith  me-1"></i>Variants</strong>
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-
-                <label class="col-lg-4 my-1">sku</label>
-                <p class="caption"> (Stock Keeping Unit)</p>
-                <input
-                  formControlName="sku"
-                  status="info"
-                  type="text"
-                  nbInput
-                  fullWidth
-                  [status]="prodform.controls['sku'].dirty ? (prodform.controls['sku'].invalid  ? 'danger' : 'success') : 'basic'"
-                  placeholder="SkU">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="col-lg-4 my-1">barcode</label>
-                <p class="caption"> (ISBN, UPC, GTIN, etc.)</p>
-                <input
-                  formControlName="barcode"
-                  status="info"
-                  type="text"
-                  nbInput
-                  fullWidth
-                  [status]="prodform.controls['barcode'].dirty ? (prodform.controls['barcode'].invalid  ? 'danger' : 'success') : 'basic'"
-                  placeholder="code barre De Produit">
-              </div>
-            </div>
+            <nb-checkbox (checkedChange)="isChaked()" status="success">Ajouter des Variants</nb-checkbox>
+          </div>
+          <div class="row" *ngIf="isChaked()">
+            List des properties
           </div>
         </nb-card-body>
       </nb-card>
-
     </div>
-
     <div class="col-md-5">
       <nb-card>
         <nb-card-body class="row">
@@ -299,12 +268,12 @@
           <div class="row ">
 
             <div class="full-name-inputs">
-              <label class="col-lg-4 my-1">Image Url</label>
+              <label class="col-lg-4 my-1">Image</label>
               <input
                 formControlName="urlImage"
                 [status]="prodform.controls['urlImage'].dirty ? (prodform.controls['urlImage'].invalid  ? 'danger' : 'success') : 'basic'"
                 status="info" type="text"
-                nbInput fullWidth placeholder="Coût d'achat">
+                nbInput fullWidth placeholder="Url d'image">
             </div>
             <ng-container
               *ngIf=" submitted  && prodform.controls['urlImage'].invalid && prodform.controls['urlImage'].dirty">

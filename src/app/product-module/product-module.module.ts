@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductModuleRoutingModule } from './product-module-routing.module';
-import { AccueilporductComponent } from './accueilporduct/accueilporduct.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import {
   NbAccordionModule,
@@ -24,16 +23,22 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import {NgxEditorModule} from "ngx-editor";
 import {NgxSelectModule} from "ngx-select-ex";
 import {TagInputModule} from "ngx-chips";
+import { FournisseurComponent } from './fournisseur/fournisseur.component';
+import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
+import { UpdateFrsComponent } from './update-frs/update-frs.component';
 
 
 @NgModule({
   declarations: [
-    AccueilporductComponent,
+
     AddProductComponent,
     ProductDetailsComponent,
     CategoryComponent,
     PropertyComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    FournisseurComponent,
+    AddFournisseurComponent,
+    UpdateFrsComponent
   ],
     imports: [
         CommonModule,

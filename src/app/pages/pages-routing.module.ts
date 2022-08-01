@@ -38,7 +38,7 @@ const routes: Routes = [
         component: AccessPermissionComponent
       },
       {
-        path: 'product',
+        path: 'produits',
         loadChildren: () =>
           import('../product-module/product-module.module').then((m) => m.ProductModuleModule)
       },

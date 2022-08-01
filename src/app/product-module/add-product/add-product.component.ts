@@ -166,7 +166,12 @@ export class AddProductComponent implements OnInit, OnDestroy {
     console.log(this.prodform.value);    // { cities: ['SF', 'NY'] }
   }
 
+  istrue : boolean = true
 
+  isChaked() {
+    this.istrue = ! this.istrue
+    return this.istrue
+  }
   ngOnDestroy(): void {
     //  this.editor.destroy();
   }
