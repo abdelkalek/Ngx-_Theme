@@ -28,16 +28,19 @@
           <nb-alert accent="success">
             <nb-action size="large" class="col-md-12">
               <nb-icon status="warning" icon="bulb-outline" class="mx-3"></nb-icon>
-              don't have a account ? connect the administration
             </nb-action>
           </nb-alert>
           <div class="mb-3 col-md-6">
-            <label for="FirstName" class="form-label h5">First Name </label>
-            <input type="text" class="form-control" id="FirstName"  required   formControlName="nom"  placeholder="First Name  ">
+            <label for="userName" class="form-label h5">Nom d'utilisateur unique  </label>
+            <input type="text" class="form-control" id="userName"  required   formControlName="userName"  placeholder="Nom d'utilisateur">
           </div>
           <div class="mb-3 col-md-6">
-            <label for="FamilyName" class="form-label h5">Family Name </label>
-            <input type="text" class="form-control"  required formControlName="prenom" id="FamilyName" placeholder="Family Name ">
+            <label for="FirstName" class="form-label h5"> Nom </label>
+            <input type="text" class="form-control" id="FirstName"  required   formControlName="nom"  placeholder="Nom ">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="FamilyName" class="form-label h5">Prenom </label>
+            <input type="text" class="form-control"  required formControlName="prenom" id="FamilyName" placeholder="Prenom  ">
           </div>
           <div class="mb-3 col-md-6">
             <label for="input-email" class="form-label h5">Email address</label>
@@ -54,15 +57,44 @@
               [status]="addform.controls['email'].dirty ? (addform.controls['email'].invalid  ? 'danger' : 'success') : 'basic'"
             />
           </div>
-            <div class="mb-3 col-md-6">
-            <label for="passwordIn" class="form-label h5">Password</label>
-            <input type="password" required class="form-control" id="passwordIn"  formControlName="password" placeholder="name@example.com">
+          <div class="mb-3 col-md-6">
+            <label for="passwordIn" class="form-label h5">Mot de passe</label>
+            <input type="password" required class="form-control" id="passwordIn"  formControlName="password" placeholder="Mot de pass">
           </div>
           <div class="mb-3 col-md-6">
-            <label for="birthdate" class="form-label h5">Birth date</label>
-            <input id="birthdate" fullWidth nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker">
+            <label for="confirmPassword" class="form-label h5">Mot de passe</label>
+            <input type="password" required class="form-control" id="confirmPassword"  formControlName="confirmPassword" placeholder="confirmation de mot de pass">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="datedeNaissance" class="form-label h5">Date de Naissance</label>
+            <input id="datedeNaissance" fullWidth nbInput placeholder="Date de Naissance"  formControlName="datedeNaissance" [nbDatepicker]="dateTimePicker">
             <nb-datepicker #dateTimePicker></nb-datepicker>
           </div>
+          <div class="mb-3 col-md-6">
+            <label for="cin" class="form-label h5"> Cin </label>
+            <input type="text" class="form-control" id="cin"  required   formControlName="cin"  placeholder="Cin">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="matricule" class="form-label h5">Matricule </label>
+            <input type="text" class="form-control"  required formControlName="matricule" id="matricule" placeholder="matricule  ">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="adress" class="form-label h5">Adress</label>
+            <input type="text" class="form-control"  required formControlName="Adress" id="Adress" placeholder="Adress  ">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="ville" class="form-label h5">ville</label>
+            <input type="text" class="form-control"  required formControlName="ville" id="ville" placeholder="ville  ">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="codePostal" class="form-label h5">Code Postal</label>
+            <input type="text" required class="form-control" id="codePostal"  formControlName="codePostal" placeholder="Code Postal">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="genre" class="form-label h5">Genre</label>
+            <input type="text" required class="form-control" id="genre"  formControlName="genre" placeholder="genre">
+          </div>
+
         </div>
 <button type="submit">Save</button>
         <button nbButton disabled status="primary" nbStepperNext class="mx-2" type="submit"><nb-icon icon="arrow-ios-back-outline"></nb-icon>prev</button>

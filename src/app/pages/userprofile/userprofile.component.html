@@ -31,49 +31,75 @@
         </div>
       </nb-card-header>
       <nb-card-body>
+        <div *ngIf="!!thisUser">
+
+
         <div class="row justify-content-center text-center">
           <img class="roundedImage shadow p-0 mb-1 bg-body " src="https://avatars.githubusercontent.com/u/10207039?v=4"
                alt="photo de profile"/>
         </div>
+
+
         <div class="row text-center">
           <strong>
-            Abdelkhalek Guedri</strong>
+            {{thisUser.userName}}</strong>
         </div>
         <div class="row  text-center justify-content-center ">
           <p class="subtitle-2">
             <img class="iconProfile" src="assets/profileimgs/a-01.svg"/>
-            Ingenieur en Informatique</p>
+            {{thisUser.poste}}</p>
         </div>
         <nb-tabset>
           <nb-tab tabIcon="person">
             <div class="row text-center justify-content-between">
               <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
-                Détail</strong>
+                Matricule </strong>
               <p>
-                software developer with a special focus on Microsoft .NET And Angular
+                {{thisUser.matricule}}
               </p>
             </div>
 
             <div class="row ">
               <p>
                 <img for="staticEmail" class="iconProfile" src="assets/profileimgs/a-02.svg"/>
-                Abdelkalek Guedri</p>
+                 {{thisUser.nom +" "+ thisUser.prenom}}</p>
             </div>
             <div class="row ">
               <p>
                 <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
-                abdelkalek@gmail.com</p>
+                {{thisUser.email}}</p>
             </div>
             <div class="row ">
               <p>
                 <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
-                +21650998020</p>
+                {{thisUser.phoneNumber}}</p>
             </div>
 
             <div class="row ">
               <p>
                 <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
-                Tunisie, Monastir</p>
+                {{thisUser.ville +" , "+thisUser.adress}}</p>
+            </div>
+            <div class="row ">
+              <p>
+                <img class="iconProfile" src="assets/profileimgs/a-12.svg"/>
+                {{thisUser.poste }}</p>
+            </div>
+            <div class="row ">
+              <p>
+                <img class="iconProfile" src="assets/profileimgs/a-11.svg"/>
+                Code postale :
+                {{thisUser.codePostal}}</p>
+            </div>
+            <div class="row ">
+              <p>
+                <img class="iconProfile" src="assets/profileimgs/a-06.svg"/>
+                {{thisUser.genre }}</p>
+            </div>
+            <div class="row ">
+              <p>
+                <img class="iconProfile" src="assets/profileimgs/a-13.svg"/>
+                {{thisUser.datedeNaissance | date}}</p>
             </div>
           </nb-tab>
           <nb-tab tabIcon="lock">
@@ -111,6 +137,7 @@
             <p>List of <strong>transactions</strong>.</p>
           </nb-tab>
         </nb-tabset>
+        </div>
       </nb-card-body>
     </nb-card>
 

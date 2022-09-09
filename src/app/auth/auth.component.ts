@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       </nb-layout-column>
       <nb-layout-footer class="m-0">
         <label class="subtitle">
-          Tous droits réservés © 2022  Xenphon </label>
+          Tous droits réservés © 2022  Xenophon-It </label>
       </nb-layout-footer>
     </nb-layout>
   `,

@@ -25,11 +25,14 @@ interface UserModelPage {
   providedIn: 'root'
 })
 export class UsersService {
-  private endpoint = environment.endPoint;
+  private endpoint = environment.endPointAuth;
   constructor(private http: HttpClient,) {
   }
 
   getUsers() {
-    return this.http.get(`${this.endpoint}/api/User`);
+    return this.http.get(`${this.endpoint}/users`);
+  }
+  deleteUserByid(id: any) {
+    return this.http.delete(`${this.endpoint}/users/DeleteUser/${id}`)
   }
 }

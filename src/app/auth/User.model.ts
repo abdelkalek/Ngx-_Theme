@@ -1,8 +1,19 @@
 export class User {
   constructor(
-    private Id: string,
+    public id: string,
+    public cin: string,
+    public matricule :string,
     public email: string,
-    private role: string,
+    public nom: string,
+    public prenom: string,
+    public  codePostal: string,
+    public adress: string,
+    public ville: string,
+    public  poste: string,
+    public genre: string,
+    public phoneNumber: string,
+    public userName: string,
+    public datedeNaissance: string,
     private _token: string,
     private _tokenExpirationDate: Date) {
   }
@@ -13,7 +24,5 @@ export class User {
     }
     return this._token;
   }
-  get roleuser() {
-    return this.role
-  }
+
 }

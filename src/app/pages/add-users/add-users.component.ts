@@ -11,11 +11,23 @@ import {NbComponentStatus, NbToastrService} from "@nebular/theme";
 export class AddUsersComponent implements OnInit {
 
   addform = new FormGroup({
-    nom: new FormControl('',[ Validators.required]),
-    prenom: new FormControl('',[ Validators.required]),
-    email: new FormControl('',[Validators.email, Validators.required]),
+    cin:  new FormControl('',[ Validators.required]),
+    matricule:  new FormControl('',[ Validators.required]),
+    email:  new FormControl('',[ Validators.required]),
+    nom:  new FormControl('',[ Validators.required]),
+    prenom:  new FormControl('',[ Validators.required]),
+    codePostal: new FormControl('',[ Validators.required]),
+    Adress:  new FormControl('',[ Validators.required]),
+    ville: new FormControl('',[ Validators.required]),
+    poste:  new FormControl('',[ Validators.required]),
+    genre:  new FormControl('',[ Validators.required]),
+    phoneNumber: new FormControl('',[ Validators.required]),
+    userName: new FormControl('',[ Validators.required]),
     password: new FormControl('',[ Validators.required]),
-    passwordConfirme: new FormControl('')
+    confirmPassword: new FormControl('',[ Validators.required]),
+    datedeNaissance:  new FormControl('',[ Validators.required]),
+
+
   });
 
   constructor(private userService: UsersService,  private toastrService: NbToastrService,) {

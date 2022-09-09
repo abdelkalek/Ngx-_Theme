@@ -23,7 +23,7 @@
 
 <nb-card  accent="info">
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="users" (deleteConfirm)="onDeleteConfirm($event)"  (userRowSelect)="onRowSelect($event)"> >
+    <ng2-smart-table  [settings]="settings" [source]="users" (edit)="editUser($event)" (create)="createNewUser()" (delete)="deleteUser($event)">
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>

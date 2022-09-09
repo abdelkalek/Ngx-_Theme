@@ -48,13 +48,6 @@ export class ListProductsComponent implements OnInit {
     },
 
     columns: {
-      /*  urlImage: {
-          title: 'Image',
-          type: 'html',
-          valuePrepareFunction: (urlImage:string) =>
-          {
-            return`<img width="50px" src="${urlImage}" />`; },
-        },*/
       ref: {
         title: 'Reference',
         type: 'string',

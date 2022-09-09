@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
 
     //auatologin appel service
-  //  this.authService.autoLogin();
+   this.authService.autoLogin();
     this.menuService
       .onItemClick()
       .pipe(

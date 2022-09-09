@@ -6,8 +6,7 @@ import {NgxEditorModule} from "ngx-editor";
 
 const routes: Routes = [
   {
-    path: 'pages',
-    //path: 'pages', canLoad: [AuthGuard],
+    path: 'pages', canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule ),
   },

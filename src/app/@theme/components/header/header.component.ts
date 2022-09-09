@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private userSub: Subscription | undefined;
   private isAuthenticated = false
   email: string | undefined;
-  role: string | undefined;
+  poste: string | undefined;
  changeIconTogel = true;
   changetheme = false;
   items: NbMenuItem[] = [
@@ -87,7 +87,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       //this.isAuthenticated = !user ? false: true;
       this.isAuthenticated = !!user;
       this.email = user?.email;
-      this.role = user?.roleuser;
+      this.poste = user?.poste;
     });
 
     this.currentTheme = this.themeService.currentTheme;

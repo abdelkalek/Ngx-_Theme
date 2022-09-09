@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel, UsersService} from "../users.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-listuser',
@@ -16,79 +17,52 @@ export class ListuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userservice.getUsers().subscribe((res) => {
-      console.log(res);
       this.users = res;
       console.log(this.users)
     })
   }
-
   settings = {
-    // mode: "external",
-    actions: {
-      // custom: [
-      //   {
-      //     name: 'edit',
-      //     title: '<i class="nb-heart" title="YourAction"></i>'
-      //   }],
-      add: false,
-      // edit: false,
-      // delete: false,
-      position: 'right',
+    tableProps :"{  striped: true, responsive: true }",
 
+    mode: "external",
+    actions: {
+      add: true,
+      position: 'right',
     },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
     },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      editButtonContent: '<i class="nb-gear"></i>',
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
     },
+
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      userName: {
-        title: 'Username',
+      cin: {
+        title: 'Cin',
+        type: 'string',
+      }, matricule: {
+        title: 'Matricule',
         type: 'string',
       },
       email: {
-        title: 'E-mail',
+        title: 'Email',
+        type: 'string',
+      },
+      nom: {
+        title: 'Nom',
+        type: 'string',
+      },
+
+      prenom: {
+        title: 'Prenom',
+        type: 'string',
+      },   poste: {
+        title: 'Post',
         type: 'string',
       }
-    },
-  };
-
-
-  settings1 = {
-    selectMode: 'multi',
-    delete: {
-      confirmDelete: true,
-      deleteButtonContent: '<i class="nb-trash"></i>'
-    },
-    add: {
-      confirmCreate: true,
-    },
-    edit: {
-      confirmSave: true,
-    },
-    columns: {
-      id: {
-        title: 'ID',
-      },
-      username: {
-        title: 'UserName',
-      },
-      email: {
-        title: 'email',
-      },
     },
   };
 
@@ -96,6 +70,7 @@ export class ListuserComponent implements OnInit {
   // UserRowSelected Event handler
   onRowSelect(event:any) {
     this.selectedRows = event.selected;
+    console.log("selected row",event)
   }
 
   // Get Selected button click handler
@@ -126,4 +101,48 @@ export class ListuserComponent implements OnInit {
   }
 
 
+  editUser($event: any) {
+
+  }
+
+  createNewUser() {
+
+  }
+
+  deleteUser($event: any) {
+    console.log('Delete Item', $event.data.id);
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: "Vous ne pourrez pas revenir en arrière !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimez-le !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userservice.deleteUserByid($event.data.id).subscribe({
+          next : (res) =>{
+            console.log(res)
+           this.ngOnInit();
+            Swal.fire(
+              'Supprimé !',
+              'l\'utilisateur  a été supprimé.',
+              'success'
+            )
+          }, error : (err) =>{
+            console.log(err)
+
+            Swal.fire(
+              'Erreur ',
+              'Erreur lors de la suppression de produit',
+              'error'
+            )
+          }
+        })
+
+      }
+    })
+
+  }
 }

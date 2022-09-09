@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 import {JWTTokenService} from "./jwttoken.service";
 
 export interface authResponsData {
-  token: string,
+  accessToken: string,
   refreshToken: string,
   success: boolean,
   errors: string[]
@@ -19,7 +19,7 @@ export interface authResponsData {
 })
 export class AuthService {
 
-  private endpoint = environment.endPoint;
+  private endpoint = environment.endPointAuth;
   private headers: HttpHeaders;
   //Behavior Subject Observable that you can get next value or privious values also :) Nice Yeah
   userAuth = new BehaviorSubject<User | null>(null);
@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   login(loginForm: any) {
-    return this.http.post<authResponsData>(`${this.endpoint}/api/AuthManagment/Login`, {
+    return this.http.post<authResponsData>(`${this.endpoint}/Users/Login`, {
       email: loginForm.email,
       password: loginForm.password
     }, {headers: this.headers}).pipe(catchError(errorRes => {
@@ -50,27 +50,45 @@ export class AuthService {
       }
     }), tap(
       resData => {
-        console.log("token " + resData.token + " Refresh Token " + resData.refreshToken)
+        console.log("token " + resData.accessToken + " Refresh Token " + resData.refreshToken)
         this.isLoggedIn = true;
-        var userCodee = this.jwtokenservice.getToken(resData.token);
+        var userCodee = this.jwtokenservice.getToken(resData.accessToken);
         const expirationDate = new Date(+userCodee.exp * 1000);
-        const user = new User(userCodee.Id,userCodee.email,userCodee.role,resData.token,expirationDate);
-        this.tokenStorageToken.saveToken(resData.token, resData.refreshToken)
-       // resData.token, resData.refreshToken, resData.success, resData.errors
-        this.userAuth.next(user);
-        localStorage.setItem('resData', JSON.stringify(user));
+        this.http.get<User>(`${this.endpoint}/Users/${userCodee.id}`).subscribe(
+          {
+            next:(res)=>{
+              const user = new User(res.id,res.cin,res.matricule,res.email,res.nom,res.prenom, res.codePostal,res.adress,res.ville,res.poste,res.genre,res.phoneNumber,res.userName,res.datedeNaissance, resData.accessToken, expirationDate);
+              this.userAuth.next(user);
+              console.log("this user ", user);
+              localStorage.setItem('resData', JSON.stringify(user));
+            }
+          }
+        )
+        this.tokenStorageToken.saveToken(resData.accessToken, resData.refreshToken)
       }
     ));
   }
   autoLogin() {
 
     var userLoded  = JSON.parse(localStorage.getItem('resData')!);
-    const expirationDate = new Date(+userLoded.exp * 1000);
-    if (!userLoded) {
-      return;
+    if(!!userLoded){
+      const expirationDate = new Date(+userLoded.exp * 1000);
+      if (!userLoded) {
+        return;
+      }
+
+      this.http.get<User>(`${this.endpoint}/Users/${userLoded.id}`).subscribe(
+        {
+          next:(res)=>{
+            const loadedUser = new User(res.id,res.cin,res.matricule,res.email,res.nom,res.prenom, res.codePostal,res.adress,res.ville,res.poste,res.genre,res.phoneNumber,res.userName,res.datedeNaissance, userLoded.accessToken, expirationDate);
+            this.userAuth.next(loadedUser);
+            console.log("this user ", loadedUser);
+          }
+        }
+      )
+
     }
-    const loadedUser = new User(userLoded.id,userLoded.email,userLoded.role,userLoded.token,expirationDate);
-  this.userAuth.next(loadedUser)
+
   }
   logout() {
     this.userAuth.next(null);
