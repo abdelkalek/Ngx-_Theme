@@ -13,6 +13,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import {HttpClientModule} from "@angular/common/http";
+import {NgxEditorModule} from "ngx-editor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import {HttpClientModule} from "@angular/common/http";
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     HttpClientModule,
-
+    NgxEditorModule,
+    NbEvaIconsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

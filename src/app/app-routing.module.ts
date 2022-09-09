@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import {AuthGuard} from "./auth/auth.guard";
 import {AppComponent} from "./app.component";
+import {NgxEditorModule} from "ngx-editor";
 
 const routes: Routes = [
   {

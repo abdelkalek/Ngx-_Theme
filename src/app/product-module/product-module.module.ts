@@ -23,10 +23,11 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import {NgxEditorModule} from "ngx-editor";
 import {NgxSelectModule} from "ngx-select-ex";
 import {TagInputModule} from "ngx-chips";
+/*
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
 import { UpdateFrsComponent } from './update-frs/update-frs.component';
-
+*/
 
 @NgModule({
   declarations: [
@@ -36,9 +37,9 @@ import { UpdateFrsComponent } from './update-frs/update-frs.component';
     CategoryComponent,
     PropertyComponent,
     ListProductsComponent,
-    FournisseurComponent,
+   /* FournisseurComponent,
     AddFournisseurComponent,
-    UpdateFrsComponent
+    UpdateFrsComponent*/
   ],
     imports: [
         CommonModule,
