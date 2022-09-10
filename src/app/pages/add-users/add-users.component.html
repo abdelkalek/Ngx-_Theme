@@ -22,28 +22,45 @@
     <form [formGroup]="addform" (ngSubmit)="submit()">
     <nb-stepper orientation="horizontal">
       <nb-step [label]="labelOne">
-        <ng-template #labelOne>First step</ng-template>
-        <h4>Informations professionnelles</h4>
+        <ng-template #labelOne>Premier pas</ng-template>
+        <h4>Informations générales </h4>
         <div class="mb-3 row">
-          <nb-alert accent="success">
-            <nb-action size="large" class="col-md-12">
-              <nb-icon status="warning" icon="bulb-outline" class="mx-3"></nb-icon>
-            </nb-action>
-          </nb-alert>
           <div class="mb-3 col-md-6">
-            <label for="userName" class="form-label h5">Nom d'utilisateur unique  </label>
-            <input type="text" class="form-control" id="userName"  required   formControlName="userName"  placeholder="Nom d'utilisateur">
+            <label class="subtitle">Nom</label>
+            <input formControlName="nom"
+                   [status]="addform.controls['nom'].dirty ? (addform.controls['nom'].invalid  ? 'danger' : 'success') : 'basic'"
+                   type="text"
+                   nbInput
+                   fullWidth
+                   status="primary"
+                   id="nomp"
+                   placeholder="Nom d'utilisateur"
+            >
+            <ng-container *ngIf=" addform.controls['nom'].invalid && addform.controls['nom'].dirty">
+              <nb-alert class="my-2" status="danger">
+                longueur de champ supérieur ou egale a 4 lettres
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="FirstName" class="form-label h5"> Nom </label>
-            <input type="text" class="form-control" id="FirstName"  required   formControlName="nom"  placeholder="Nom ">
+            <label for="prenom" class="subtitle">Prenom </label>
+            <input formControlName="prenom"
+                   [status]="addform.controls['prenom'].dirty ? (addform.controls['prenom'].invalid  ? 'danger' : 'success') : 'basic'"
+                   type="text"
+                   nbInput
+                   fullWidth
+                   status="primary"
+                   id="prenom"
+                   placeholder="Nom d'utilisateur"
+            >
+            <ng-container *ngIf=" addform.controls['prenom'].invalid && addform.controls['prenom'].dirty">
+              <nb-alert class="my-2" status="danger">
+                longueur de champ supérieur ou egale a 4 lettres
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="FamilyName" class="form-label h5">Prenom </label>
-            <input type="text" class="form-control"  required formControlName="prenom" id="FamilyName" placeholder="Prenom  ">
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="input-email" class="form-label h5">Email address</label>
+            <label for="input-email" class="subtitle">Email address</label>
             <input
               nbInput
               fullWidth
@@ -53,85 +70,208 @@
               id="input-email"
               pattern=".+@.+\..+"
               placeholder="Email"
-              fieldSize="large"
               [status]="addform.controls['email'].dirty ? (addform.controls['email'].invalid  ? 'danger' : 'success') : 'basic'"
             />
+            <ng-container *ngIf=" addform.controls['email'].invalid && addform.controls['email'].dirty">
+              <nb-alert class="my-2" status="danger">
+              Email invalid
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="passwordIn" class="form-label h5">Mot de passe</label>
-            <input type="password" required class="form-control" id="passwordIn"  formControlName="password" placeholder="Mot de pass">
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="confirmPassword" class="form-label h5">Mot de passe</label>
-            <input type="password" required class="form-control" id="confirmPassword"  formControlName="confirmPassword" placeholder="confirmation de mot de pass">
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="datedeNaissance" class="form-label h5">Date de Naissance</label>
+            <label for="datedeNaissance" class="subtitle">Date de Naissance</label>
             <input id="datedeNaissance" fullWidth nbInput placeholder="Date de Naissance"  formControlName="datedeNaissance" [nbDatepicker]="dateTimePicker">
             <nb-datepicker #dateTimePicker></nb-datepicker>
+            <ng-container *ngIf=" addform.controls['datedeNaissance'].invalid && addform.controls['datedeNaissance'].dirty">
+              <nb-alert class="my-2" status="danger">
+                Date Incorrect ou champ vide
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="cin" class="form-label h5"> Cin </label>
-            <input type="text" class="form-control" id="cin"  required   formControlName="cin"  placeholder="Cin">
+            <label for="input-tel" class="subtitle">Telephone</label>
+            <input
+              nbInput
+              fullWidth
+              formControlName="phoneNumber"
+              class="form-control"
+              name="phoneNumber"
+              id="input-tel"
+              placeholder="Numero de Telephone"
+              [status]="addform.controls['phoneNumber'].dirty ? (addform.controls['phoneNumber'].invalid  ? 'danger' : 'success') : 'basic'"
+            />
+            <ng-container *ngIf=" addform.controls['phoneNumber'].invalid && addform.controls['phoneNumber'].dirty">
+              <nb-alert class="my-2" status="danger">
+                Numero de telephone Invalid
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="matricule" class="form-label h5">Matricule </label>
-            <input type="text" class="form-control"  required formControlName="matricule" id="matricule" placeholder="matricule  ">
+            <label for="poste" class="subtitle">Poste Occupé</label>
+            <input id="poste" type="Text" fullWidth nbInput placeholder="Poste Occupé"  formControlName="poste">
+            <ng-container *ngIf=" addform.controls['poste'].invalid && addform.controls['poste'].dirty">
+              <nb-alert class="my-2" status="danger">
+                poste  ou champ vide
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="adress" class="form-label h5">Adress</label>
-            <input type="text" class="form-control"  required formControlName="Adress" id="Adress" placeholder="Adress  ">
+            <label for="cin" class="subtitle"> Cin /passport </label>
+            <input formControlName="cin"
+                   [status]="addform.controls['cin'].dirty ? (addform.controls['cin'].invalid  ? 'danger' : 'success') : 'basic'"
+                   type="text"
+                   nbInput
+                   fullWidth
+                   status="primary"
+                   id="cin"
+                   placeholder="cin /passport"
+            >
+            <ng-container *ngIf=" addform.controls['cin'].invalid && addform.controls['cin'].dirty">
+              <nb-alert class="my-2" status="danger">
+                champ numérique uniquement de longueur supérieure ou egale a 8 digit
+              </nb-alert>
+            </ng-container>
           </div>
           <div class="mb-3 col-md-6">
-            <label for="ville" class="form-label h5">ville</label>
-            <input type="text" class="form-control"  required formControlName="ville" id="ville" placeholder="ville  ">
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="codePostal" class="form-label h5">Code Postal</label>
-            <input type="text" required class="form-control" id="codePostal"  formControlName="codePostal" placeholder="Code Postal">
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="genre" class="form-label h5">Genre</label>
-            <input type="text" required class="form-control" id="genre"  formControlName="genre" placeholder="genre">
-          </div>
+            <label for="matricule" class="subtitle">Matricule </label>
 
+            <input formControlName="matricule"
+                   [status]="addform.controls['matricule'].dirty ? (addform.controls['matricule'].invalid  ? 'danger' : 'success') : 'basic'"
+                   type="text"
+                   nbInput
+                   fullWidth
+                   status="primary"
+                   id="matricule"
+                   placeholder="matricule"
+            >
+            <ng-container *ngIf=" addform.controls['matricule'].invalid && addform.controls['matricule'].dirty">
+              <nb-alert class="my-2" status="danger">
+                longueur supérieure ou egale a 4
+              </nb-alert>
+            </ng-container>
+
+
+                     </div>
+          <div class="mb-3 col-md-6">
+            <label  class="subtitle">Genre</label>
+            <nb-select placeholder="Select Gender" fullWidth [(selected)]="selectedItem" formControlName="genre">
+              <nb-option value="Homme">Homme</nb-option>
+              <nb-option value="Femme">Femme</nb-option>
+            </nb-select>
+          </div>
         </div>
-<button type="submit">Save</button>
-        <button nbButton disabled status="primary" nbStepperNext class="mx-2" type="submit"><nb-icon icon="arrow-ios-back-outline"></nb-icon>prev</button>
-        <button nbButton status="success" nbStepperNext class="mx-2" type="submit" >Next Step<nb-icon icon="arrow-ios-forward-outline"></nb-icon></button>
+        <button nbButton status="success" nbStepperNext class="mx-2" type="submit" >suivant<nb-icon icon="arrow-ios-forward-outline"></nb-icon></button>
 
       </nb-step>
       <nb-step [label]="labelTwo">
-        <ng-template #labelTwo>Second step</ng-template>
-        <h4>Informations personnelles</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
-        <button nbButton nbStepperPrevious class="mx-1">prev</button>
-        <button nbButton nbStepperNext class="mx-1">next</button>
+        <ng-template #labelTwo>Deuxième étape</ng-template>
+        <h4>information supplémentaire </h4>
+        <div class="mb-3 row">
+        <div class="mb-3 col-md-6">
+          <label for="adress" class="subtitle">Adress</label>
+          <input formControlName="adress"
+                 [status]="addform.controls['adress'].dirty ? (addform.controls['adress'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="text"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="adress"
+                 placeholder="adress d'utilisateur"
+          >
+          <ng-container *ngIf=" addform.controls['adress'].invalid && addform.controls['adress'].dirty">
+            <nb-alert class="my-2" status="danger">
+              longueur de champ invalid
+            </nb-alert>
+          </ng-container>        </div>
+        <div class="mb-3 col-md-6">
+          <label for="ville" class="subtitle">ville</label>
+          <input formControlName="ville"
+                 [status]="addform.controls['ville'].dirty ? (addform.controls['ville'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="text"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="ville"
+                 placeholder="ville "
+          >
+          <ng-container *ngIf=" addform.controls['ville'].invalid && addform.controls['ville'].dirty">
+            <nb-alert class="my-2" status="danger">
+              longueur de champ invalid
+            </nb-alert>
+          </ng-container>              </div>
+        <div class="mb-3 col-md-6">
+          <label for="codePostal" class="subtitle">Code Postal</label>
+          <input formControlName="codePostal"
+                 [status]="addform.controls['codePostal'].dirty ? (addform.controls['codePostal'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="text"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="codePostal"
+                 placeholder="Code Postal"
+          >
+          <ng-container *ngIf=" addform.controls['codePostal'].invalid && addform.controls['codePostal'].dirty">
+            <nb-alert class="my-2" status="danger">
+              champ numérique uniquement de longueur supérieure ou egale a 4 digit
+            </nb-alert>
+          </ng-container>
+        </div>
+        </div>
+        <button nbButton nbStepperPrevious class="mx-1">précédente</button>
+        <button nbButton nbStepperNext class="mx-1">suivant</button>
       </nb-step>
-      <nb-step label="Third step">
-        <h4>Step content #3</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
-      </nb-step>
-      <nb-step [label]="labelFour">
-        <ng-template #labelFour>Final step</ng-template>
-        <h4>Step content #4</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton disabled nbStepperNext>next</button>
+      <nb-step label="dernière étape">
+        <h4>Paramètres de connexion </h4>
+        <div class="mb-3 col-md-10">
+          <label for="userName" class="subtitle">Nom d'utilisateur unique  </label>
+          <input formControlName="userName"
+                 [status]="addform.controls['userName'].dirty ? (addform.controls['userName'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="text"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="userName"
+                 placeholder="Code Postal"
+          >
+          <ng-container *ngIf=" addform.controls['userName'].invalid && addform.controls['userName'].dirty">
+            <nb-alert class="my-2" status="danger">
+              longueur de champ invalid
+            </nb-alert>
+          </ng-container>        </div>
+        <div class="mb-3 col-md-10">
+          <label for="passwordIn" class="subtitle">Mot de passe</label>
+          <input formControlName="password"
+                 [status]="addform.controls['password'].dirty ? (addform.controls['password'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="password"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="passwordIn"
+          >
+          <ng-container *ngIf=" addform.controls['password'].invalid && addform.controls['password'].dirty">
+            <nb-alert class="my-2" status="danger">
+             champ Mot de passe invalid
+            </nb-alert>
+          </ng-container>
+        </div>
+        <div class="mb-3 col-md-10">
+          <label for="confirmPassword" class="subtitle">confirmation de mot de passe</label>
+          <input formControlName="confirmPassword"
+                 [status]="addform.controls['confirmPassword'].dirty ? (addform.controls['confirmPassword'].invalid  ? 'danger' : 'success') : 'basic'"
+                 type="password"
+                 nbInput
+                 fullWidth
+                 status="primary"
+                 id="confirmPassword"
+                 placeholder="Code Postal"
+          >
+          <ng-container *ngIf=" addform.controls['confirmPassword'].invalid && addform.controls['confirmPassword'].dirty">
+            <nb-alert class="my-2" status="danger">
+              champ Mot de passe invalid
+            </nb-alert>
+          </ng-container>             </div>
+        <button nbButton nbStepperPrevious>Précédente</button>
+        <button nbButton type="submit" status="success" [disabled]="addform.invalid">Enregistrer</button>
       </nb-step>
     </nb-stepper>
     </form>

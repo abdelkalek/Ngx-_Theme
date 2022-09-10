@@ -10,6 +10,7 @@ import {User} from "../../auth/User.model";
   templateUrl: './userprofile.component.html',
   styleUrls: ['./userprofile.component.scss']
 })
+
 export class UserprofileComponent implements OnInit {
 
   private userSub: Subscription | undefined;
