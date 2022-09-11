@@ -49,7 +49,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: {icon: 'people-outline'},
     children: [
       {
-        title: 'Gérer les utilisateurs',
+        title: 'Consulter les utilisateurs',
         link: '/pages/users',
         icon: 'list-outline'
 
@@ -92,14 +92,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: {icon: 'pricetags-outline'},
     children: [
       {
-        title: 'Ajouter Produit  ',
-        link: '/pages/produits/Ajouter',
+        title: 'Consulter les Produits  ',
+        link: '/pages/produits',
         //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
-        title: 'Produits  ',
-        link: '/pages/produits',
-     //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
+        title: 'Ajouter Produit  ',
+        link: '/pages/produits/Ajouter',
+        //   icon: {icon: 'boxes-stacked', pack: 'font-awesome'},
       },
       {
         title: 'Catégories',

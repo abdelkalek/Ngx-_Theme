@@ -1,13 +1,13 @@
 <nb-card status="success">
-  <nb-card-header>Update New Role</nb-card-header>
+  <nb-card-header>Mettre à jour</nb-card-header>
   <nb-card-body>
     <div class="row my-1">
-      <div class="col-md-auto"><label class="subtitle">Role Name </label>
+      <div class="col-md-auto"><label class="subtitle">Mettre à jour le nom  </label>
       </div>
       <div class="col-md-auto">
-        <input type="text" #rolename [value]="roleName"    name="rolename" nbInput><br>
+        <input type="text" #rolename [value]="RoleObject.data.name"    name="rolename" nbInput><br>
       </div>
     </div>
-    <button nbButton outline status="success" (click)="dismiss(rolename.value)">Update this role</button>
+    <button nbButton outline status="success" (click)="dismiss(rolename.value)">valider la Mettre à jour</button>
   </nb-card-body>
 </nb-card>

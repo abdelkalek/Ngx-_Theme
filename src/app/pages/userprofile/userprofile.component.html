@@ -1,24 +1,6 @@
-<div class="mb-4">
-  <ng-template #separatorTemplate>
-    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-  </ng-template>
 
-  <div class="col-md text-primary ">
-    <xng-breadcrumb  [separator]="separatorTemplate"
-                     class="myapp-breadcrumb"
-                     id="advancedTemplate2"
-                     [preserveQueryParams]="false">
-    </xng-breadcrumb>
-  </div>
-
-</div>
-
-
-
-
-
-<div class="card-row">
-  <div class="card-col">
+<div class="row justify-content-center">
+  <div class="col-md-6">
     <nb-card status="primary" class="mt-0">
       <nb-card-header>
         <div class="row my-0">
@@ -32,21 +14,17 @@
       </nb-card-header>
       <nb-card-body>
         <div *ngIf="!!thisUser">
-
-
         <div class="row justify-content-center text-center">
-          <img class="roundedImage shadow p-0 mb-1 bg-body " src="https://avatars.githubusercontent.com/u/10207039?v=4"
+          <img class="roundedImage shadow p-0 bg-body " src="assets/Users/avatar.webp"
                alt="photo de profile"/>
         </div>
-
-
         <div class="row text-center">
           <strong>
             {{thisUser.userName}}</strong>
         </div>
         <div class="row  text-center justify-content-center ">
           <p class="subtitle-2">
-            <img class="iconProfile" src="assets/profileimgs/a-01.svg"/>
+            <img alt="image de profile" class="iconProfile" src="assets/profileimgs/a-01.svg"/>
             {{thisUser.poste}}</p>
         </div>
         <nb-tabset>
@@ -142,21 +120,6 @@
     </nb-card>
 
 
-  </div>
-  <div class="card-col">
-    <nb-card>
-      <nb-tabset fullWidth>
-        <nb-tab tabTitle="Autres parametres">
-
-          <nb-toggle [checked]="true" status="success"> Compte Activé</nb-toggle>
-          <nb-menu [items]="items" autoCollapse="true">
-          </nb-menu>
-        </nb-tab>
-        <nb-tab tabTitle="Setting et Roles">
-          <p>List of <strong>orders</strong>.</p>
-        </nb-tab>
-      </nb-tabset>
-    </nb-card>
   </div>
 </div>
 

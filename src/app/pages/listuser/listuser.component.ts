@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserModel, UsersService} from "../users.service";
+import { UsersService} from "../users.service";
 import Swal from "sweetalert2";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-listuser',
@@ -10,7 +11,7 @@ import Swal from "sweetalert2";
 export class ListuserComponent implements OnInit {
   users: any = [];
 
-  constructor(private userservice: UsersService) {
+  constructor(private userservice: UsersService, private router: Router, private route: ActivatedRoute) {
   }
 
   selectedRows: any;
@@ -33,13 +34,28 @@ export class ListuserComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
     },
     edit: {
-      editButtonContent: '<i class="nb-gear"></i>',
+       editButtonContent: '<img alt="view" src="assets/profileimgs/see.png" width="20" height="20" >',
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
     },
+    handel : {
+      handelButtonContent :'<i class="nb-trash"></i>'
+    },
 
     columns: {
+      genre: {
+        title: 'Profile Image',
+        type: 'html',
+        valuePrepareFunction: (genre:string) => {
+          if(genre==="Femme"){ return `<img   src="assets/Users/avatarf.svg" width="42" height="42">`; }
+          else {
+            return `<img   src="assets/Users/avatarh.svg" width="42" height="42">`;
+          }
+
+        },
+        filter: false
+      },
       cin: {
         title: 'Cin',
         type: 'string',
@@ -59,10 +75,22 @@ export class ListuserComponent implements OnInit {
       prenom: {
         title: 'Prenom',
         type: 'string',
-      },   poste: {
-        title: 'Post',
-        type: 'string',
-      }
+      },
+        poste: {
+        title: 'Poste',
+        type: 'html',
+        valuePrepareFunction: (poste:string) =>
+        {
+          if(poste=="Ingenieur"){
+            return`<span class="badge bg-success">${poste}</span>`;
+          }else
+          if (poste=="Technicien")
+          {
+            return`<span class="badge bg-primary">${poste}</span>`;
+          }
+          return`<span class="lead badge bg-secondary">${poste}</span>`;
+        },
+      },
     },
   };
 
@@ -79,34 +107,15 @@ export class ListuserComponent implements OnInit {
     console.log(this.selectedRows);
   }
 
-  onDeleteConfirm(event:any) {
-    console.log("Delete Event In Console")
-    console.log(event);
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
-
-  onCreateConfirm(event:any) {
-    console.log("Create Event In Console")
-    console.log(event);
-
-  }
-
-  onSaveConfirm(event:any) {
-    console.log("Edit Event In Console")
-    console.log(event);
-  }
-
 
   editUser($event: any) {
+    console.log('Edit  Item', $event.data.id);
+    this.router.navigate(['../DetailsUtilisateur',$event.data.id], {relativeTo: this.route});
 
   }
 
   createNewUser() {
-
+    this.router.navigate(['../adduser'], {relativeTo: this.route});
   }
 
   deleteUser($event: any) {

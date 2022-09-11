@@ -7,6 +7,8 @@ import {ListuserComponent} from "./listuser/listuser.component";
 import {AccessRolesComponent} from "./access-roles/access-roles.component";
 import {AccessPermissionComponent} from "./access-permission/access-permission.component";
 import {AccuielComponent} from "./accuiel/accuiel.component";
+import {DetailsUtilisateurComponent} from "./details-utilisateur/details-utilisateur.component";
+import {ModifierUtilisateurComponent} from "./modifier-utilisateur/modifier-utilisateur.component";
 
 const routes: Routes = [
   {
@@ -28,6 +30,13 @@ const routes: Routes = [
       {
         path: 'users',
         component: ListuserComponent
+      }, {
+        path: 'DetailsUtilisateur/:id',
+        component: DetailsUtilisateurComponent
+      }
+      , {
+        path: 'ModifierUtilisateur/:id',
+        component: ModifierUtilisateurComponent
       },
       {
         path: 'Roles',

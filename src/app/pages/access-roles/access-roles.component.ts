@@ -22,27 +22,58 @@ export class AccessRolesComponent implements OnInit {
   rolesTab: any = [];
   ngOnInit(): void {
     this.roleService.getAllRoles().subscribe((res) => {
-      console.log(res);
       this.rolesTab = res;
-      console.log(this.rolesTab)
     })
 
   }
 
+  settings = {
+    tableProps :"{  striped: true, responsive: true }",
+
+    mode: "external",
+    actions: {
+      add: false,
+      position: 'right',
+    },
+    edit: {
+      editButtonContent: '<i class="nb-edit"></i>',
+    },
+    delete: {
+      deleteButtonContent: '<i class="nb-trash"></i>',
+    },
+
+    columns: {
+      name: {
+        title: 'Role',
+        type: 'string',
+      }
+    },
+  };
+
+
+
+
+
+
+
 
   open() {
-    this.dialogService.open(AddRoleComponent).onClose.subscribe( res =>{
-      this.roleService.getAllRoles().subscribe((res) => {
-        console.log(res);
-        this.rolesTab = res;
-        console.log(this.rolesTab)
-      })
-    });
+    this.dialogService.open(AddRoleComponent).onClose.subscribe({
+      next: (res) => {
+      }, error: (er) => {
+        console.log(er)
+      }, complete: () =>
+    {
+      this.ngOnInit();
+
+    }
+  }
+    );
 
   }
 
-  deleteRole(id: string) {
-
+  deleteRole(role: any) {
+    console.log(role.data.id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -53,7 +84,7 @@ export class AccessRolesComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.roleService.deleteRole(id).subscribe(resdel => {
+        this.roleService.deleteRole(role.data.id).subscribe(resdel => {
           console.log(resdel)
           this.ngOnInit();
         });
@@ -67,14 +98,14 @@ export class AccessRolesComponent implements OnInit {
     })
   }
 
-  editRole(name: string, idR: string) {
-      this.dialogService.open(UpdateRoleComponent, { context: {roleName: name, idrole: idR} }).onClose.subscribe( res =>{
+  editrole($event: any) {
+      this.dialogService.open(UpdateRoleComponent, { context: {RoleObject: $event} }).onClose.subscribe( res =>{
         this.roleService.getAllRoles().subscribe((res) => {
-          console.log(res);
           this.rolesTab = res;
-          console.log(this.rolesTab)
+          this.ngOnInit()
         })
       });
-
   }
+
+
 }

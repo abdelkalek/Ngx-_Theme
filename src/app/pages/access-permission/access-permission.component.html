@@ -13,35 +13,22 @@
 
 </div>
 
-
-
-
-<nb-card status="primary">
-  <nb-card-header>   Permissions List</nb-card-header>
-  <nb-card-body>
+<nb-card status="primary" class="col-md-8">
+  <nb-card-header>   les permissions d'un rôle</nb-card-header>
+  <nb-card-body>   <form>
     <label class="subtitle mx-1">
-    Each category includes the predefined roles shown in list .</label>
-    <nb-select class="mx-1" placeholder="Select Role" status="primary"  >
-      <nb-option [value]="r.id" *ngFor="let  r of roles">{{r.name}}</nb-option>
-    </nb-select>
-    <button nbButton outline status="primary" class="mx-1" >Get All Permission</button>
-    <button nbButton outline status="success" class="mx-1" (click)="open()">Add New Permission</button>
+      Sélectionner un rôle.</label>
+      <nb-select class="mx-1" placeholder="List des rôles" status="primary" (selectedChange)="getRolefromSelect($event)" >
+        <nb-option [value]="r.id" *ngFor="let  r of roles" >{{r.name}}</nb-option>
+      </nb-select>
+    <button nbButton outline status="success" type="button" class="mx-1" (click)="open()">Affecter une permission</button>
+  </form>
   </nb-card-body>
 </nb-card>
 <nb-card>
   <nb-card-body>
-<table class="table">
-  <thead>
-  <tr>
-    <th class="subtitle-2">#</th>
-    <th class="subtitle-2" >Type</th>
-    <th class="subtitle-2" >Value</th>
-    <th class="subtitle-2" >Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+    <ng2-smart-table  [settings]="settings" [source]="permissionTab"  (delete)="deletePermission($event)">
+    </ng2-smart-table>
 
   </nb-card-body>
 </nb-card>

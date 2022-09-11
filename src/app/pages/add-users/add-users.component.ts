@@ -3,6 +3,7 @@ import { UsersService} from "./users.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NbComponentStatus, NbIconConfig, NbToastrService} from "@nebular/theme";
 import {NUMERIC_PATTREN} from "../../product-module/add-product/add-product.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-users',
@@ -32,7 +33,7 @@ export class AddUsersComponent implements OnInit {
   });
   selectedItem: any;
 
-  constructor(private userService: UsersService,  private toastrService: NbToastrService,) {
+  constructor(private userService: UsersService,  private toastrService: NbToastrService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ if(this.addform.controls["password"].value !== this.addform.controls["confirmPas
         const iconConfig: NbIconConfig = {icon: 'checkmark-outline', pack: 'eva', status: "success"};
         this.toastrService.show('l\'utilisateur a été ajouté avec succès ', `Utilisateur ajouté`, iconConfig)
         console.log(value)
+        this.router.navigate(['../users'], {relativeTo: this.route});
       } ,
       error: err => {
         console.error(err)

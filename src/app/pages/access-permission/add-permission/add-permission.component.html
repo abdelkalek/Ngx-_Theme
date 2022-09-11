@@ -1,22 +1,68 @@
 <nb-card status="primary">
-  <nb-card-header>Add Permission to role</nb-card-header>
-  <nb-card-body>
-    <label class="subtitle">Role Selected : role</label>
+  <nb-card-header>Ajouter autorisation au rôle {{roleName}}</nb-card-header>
+  <nb-card-body class="row">
     <div class="row my-1">
-      <div class="col-md-auto"><label class="subtitle">Permission Type </label>
+      <div class="col-md-auto mb-2">
+        <label class="subtitle"> sélectionné un Permission </label>
       </div>
-      <div class="col-md-auto">
-        <input type="text" #perType   name="perType" nbInput placeholder=" Type"><br>
+      <nb-select class="mx-1" placeholder="List des rôles" status="primary"
+                 (selectedChange)="selectedPermission($event)">
+        <nb-option-group title="Utilisateurs">
+          <nb-option value="1">Consulter la liste des utilisateurs</nb-option>
+          <nb-option value="2">Ajouter un utilisateur</nb-option>
+          <nb-option value="3">Modifier un utilisateur</nb-option>
+          <nb-option value="4">Supprimer un utlisateur</nb-option>
+        </nb-option-group>
+        <!--   	Magasinier-->
+        <nb-option-group title="Gérer les produits">
+
+          <nb-option value="1"> Consulter la liste des produits</nb-option>
+          <nb-option value="1"> Créer un produit</nb-option>
+          <nb-option value="1"> Modifier un produit</nb-option>
+          <nb-option value="1"> Supprimer un produitv</nb-option>
+        </nb-option-group>
+        <nb-option-group title="Gérer les catégories">
+          <nb-option value="1"> Consulter la liste des catégories</nb-option>
+          <nb-option value="1">Créer une catégorie</nb-option>
+          <nb-option value="1"> Modifier une catégorie</nb-option>
+          <nb-option value="1">Supprimer une catégorie</nb-option>
+        </nb-option-group>
+
+        <nb-option-group title="	Gérer les propriétés">
+          <nb-option value="1"> Consulter la liste des propriétés</nb-option>
+          <nb-option value="1">Créer une propriété</nb-option>
+          <nb-option value="1"> Modifier une propriété</nb-option>
+          <nb-option value="1"> Supprimer une propriété</nb-option>
+        </nb-option-group>
+
+        <nb-option-group title="	Gérer les lots">
+          <nb-option value="1"> Consulter la liste des lots</nb-option>
+          <nb-option value="1"> Créer un lot</nb-option>
+          <nb-option value="1"> Modifier un lot</nb-option>
+          <nb-option value="1"> Supprimer un lot</nb-option>
+        </nb-option-group>
+
+        <nb-option-group title="Gérer les fournisseurs">
+          <nb-option value="1"> Consulter la liste des fournisseurs</nb-option>
+          <nb-option value="1">Créer un fournisseur</nb-option>
+          <nb-option value="1"> Modifier un fournisseur</nb-option>
+          <nb-option value="1"> Supprimer un fournisseur</nb-option>
+        </nb-option-group>
+
+        <nb-option-group title="Gérer les factures">
+          <nb-option value="1"> Consulter la liste des factures</nb-option>
+          <nb-option value="1"> Créer une facture</nb-option>
+          <nb-option value="1"> Modifier une facture</nb-option>
+          <nb-option value="1"> Supprimer une facture</nb-option>
+        </nb-option-group>
+        <!--  fin permission 	Magasinier-->
+      </nb-select>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-md-6 mt-1">
+        <button nbButton  status="success" (click)="dismiss()"><nb-icon icon="save-outline"></nb-icon>Effectuer le changement</button>
       </div>
     </div>
-    <div class="row my-1">
-      <div class="col-md-auto"><label class="subtitle">Permission Value </label>
-      </div>
-      <div class="col-md-auto">
-        <input type="text" #permValue   name="perValue" nbInput placeholder=" Value"><br>
-      </div>
-    </div>
-    <button nbButton outline status="primary" (click)="dismiss(permValue.value)">Oky!Send</button>
   </nb-card-body>
   <nb-card-footer></nb-card-footer>
 </nb-card>

@@ -7,16 +7,18 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbToastrModule,
-  NbMenuModule,
+  NbMenuModule, NbIconModule, NbCardModule, NbTabsetModule, NbToggleModule, NbButtonModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import {HttpClientModule} from "@angular/common/http";
 import {NgxEditorModule} from "ngx-editor";
+import { DetailsUtilisateurComponent } from './pages/details-utilisateur/details-utilisateur.component';
+import {BreadcrumbModule} from "xng-breadcrumb";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DetailsUtilisateurComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +32,13 @@ import {NgxEditorModule} from "ngx-editor";
     ThemeModule.forRoot(),
     HttpClientModule,
     NgxEditorModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NbIconModule,
+    BreadcrumbModule,
+    NbCardModule,
+    NbTabsetModule,
+    NbToggleModule,
+    NbButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

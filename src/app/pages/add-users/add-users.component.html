@@ -1,17 +1,11 @@
 <div class="mb-4">
-  <ng-template #separatorTemplate>
-    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-  </ng-template>
+  <div class="row ">
+    <div class="col-md-12">
+      Pages  <nb-icon icon="arrow-ios-forward-outline"></nb-icon> Ajouter un nouvel d'utlisateur</div>
 
-  <div class="col-md text-primary ">
-    <xng-breadcrumb  [separator]="separatorTemplate"
-                     class="myapp-breadcrumb"
-                     id="advancedTemplate2"
-                     [preserveQueryParams]="false">
-    </xng-breadcrumb>
   </div>
-
 </div>
+
 
 
 
@@ -231,7 +225,7 @@
                  fullWidth
                  status="primary"
                  id="userName"
-                 placeholder="Code Postal"
+                 placeholder="Nom d'utilisateur"
           >
           <ng-container *ngIf=" addform.controls['userName'].invalid && addform.controls['userName'].dirty">
             <nb-alert class="my-2" status="danger">
@@ -245,6 +239,7 @@
                  type="password"
                  nbInput
                  fullWidth
+                 placeHolder="password"
                  status="primary"
                  id="passwordIn"
           >
@@ -263,7 +258,7 @@
                  fullWidth
                  status="primary"
                  id="confirmPassword"
-                 placeholder="Code Postal"
+                 placeholder="confirmation de mot de passe"
           >
           <ng-container *ngIf=" addform.controls['confirmPassword'].invalid && addform.controls['confirmPassword'].dirty">
             <nb-alert class="my-2" status="danger">

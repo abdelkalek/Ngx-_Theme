@@ -27,6 +27,7 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
 import {NbEvaIconsModule} from "@nebular/eva-icons";
 import {BreadcrumbModule} from "xng-breadcrumb";
 import { AccuielComponent } from './accuiel/accuiel.component';
+import { ModifierUtilisateurComponent } from './modifier-utilisateur/modifier-utilisateur.component';
 
 @NgModule({
   declarations: [PagesComponent,
@@ -40,8 +41,7 @@ import { AccuielComponent } from './accuiel/accuiel.component';
     UpdateRoleComponent,
     AddPermissionComponent,
     AccuielComponent,
-
-
+    ModifierUtilisateurComponent,
   ],
   imports: [
     CommonModule,

@@ -1,22 +1,16 @@
 
 
 
-  <div class="row mb-4 my-auto">
-    <div class="col ">
-      <ng-template #separatorTemplate>
-        <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
-      </ng-template>
+<div class="mb-4">
+  <div class="row ">
+    <div class="col-md-12">
+      Pages  <nb-icon icon="arrow-ios-forward-outline"></nb-icon> List des utilisateurs</div>
 
-      <div class="col-md text-primary ">
-        <xng-breadcrumb  [separator]="separatorTemplate"
-                         class="myapp-breadcrumb"
-                         id="advancedTemplate2"
-                         [preserveQueryParams]="false">
-        </xng-breadcrumb>
-      </div>
-    </div>
+  </div>
+
+
     <div class=" left col">
-      <button nbButton outline status="success" size="medium"><nb-icon icon="person-add-outline"></nb-icon>add Person </button>
+      <button nbButton outline status="success" size="medium" [routerLink]="['../adduser']"><nb-icon icon="person-add-outline"></nb-icon>Ajouter nouvel utilisateur</button>
     </div>
   </div>
 

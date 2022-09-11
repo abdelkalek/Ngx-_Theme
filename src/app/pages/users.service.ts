@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {User} from "../auth/User.model";
 export interface  UserModel{
   id: string,
   userName: string,
@@ -18,9 +19,7 @@ export interface  UserModel{
   lockoutEnabled: string,
   accessFailedCount: 0
 }
-interface UserModelPage {
-  data: UserModel[]
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +33,14 @@ export class UsersService {
   }
   deleteUserByid(id: any) {
     return this.http.delete(`${this.endpoint}/users/DeleteUser/${id}`)
+  }
+
+  GetUserByid(id: any) {
+    return this.http.get<User>(`${this.endpoint}/users/${id}`)
+  }
+
+  UpdateUser(rawValue: any,id: string) {
+    return this.http.put(`${this.endpoint}/users/EditUser/${id}`,rawValue)
+
   }
 }

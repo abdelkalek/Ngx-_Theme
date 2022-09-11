@@ -18,7 +18,7 @@ export class ListProductsComponent implements OnInit {
     {title: 'Ajouter Variant'},
   ];
   vue = "List"
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute,) {
+  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) {
   }
 
   selectedRows: any;

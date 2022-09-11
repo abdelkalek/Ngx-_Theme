@@ -8,8 +8,7 @@ import {NbComponentStatus, NbDialogRef, NbToastrService} from "@nebular/theme";
   styleUrls: ['./update-role.component.scss']
 })
 export class UpdateRoleComponent implements OnInit {
-  @Input() roleName: string | undefined;
-  @Input() idrole: string | undefined;
+  @Input() RoleObject: any;
 
   constructor(protected ref: NbDialogRef<UpdateRoleComponent>,private roleService: RoleService,private toastrService: NbToastrService,) {
   }
@@ -18,7 +17,9 @@ export class UpdateRoleComponent implements OnInit {
   }
 
   dismiss(roleName: string) {
-    this.roleService.updatRole(this.idrole, roleName).subscribe(
+    console.log("RoleObject",this.RoleObject)
+    console.log("role name",roleName)
+    this.roleService.updatRole(this.RoleObject.data.id,roleName).subscribe(
       res => {
         console.log(res)
         this.showToast("info","Updated" )

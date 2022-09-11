@@ -1,9 +1,8 @@
 export class Role {
   constructor(
-    private Id: string,
+    private id: string,
     public name: string,
-    private normalizedName: string,
-    private concurrencyStamp: string
+
   ) {
   }
 }
