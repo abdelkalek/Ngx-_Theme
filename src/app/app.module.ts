@@ -16,30 +16,32 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgxEditorModule} from "ngx-editor";
 import { DetailsUtilisateurComponent } from './pages/details-utilisateur/details-utilisateur.component';
 import {BreadcrumbModule} from "xng-breadcrumb";
+import {Ng2SmartTableModule} from "ng2-smart-table";
 
 @NgModule({
   declarations: [AppComponent, DetailsUtilisateurComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NbSidebarModule.forRoot(),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbToastrModule.forRoot(),
-    NbMenuModule.forRoot(),
-    CoreModule.forRoot(),
-    ThemeModule.forRoot(),
-    HttpClientModule,
-    NgxEditorModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    BreadcrumbModule,
-    NbCardModule,
-    NbTabsetModule,
-    NbToggleModule,
-    NbButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NbSidebarModule.forRoot(),
+        NbLayoutModule,
+        NbEvaIconsModule,
+        NbToastrModule.forRoot(),
+        NbMenuModule.forRoot(),
+        CoreModule.forRoot(),
+        ThemeModule.forRoot(),
+        HttpClientModule,
+        NgxEditorModule,
+        NbEvaIconsModule,
+        NbIconModule,
+        BreadcrumbModule,
+        NbCardModule,
+        NbTabsetModule,
+        NbToggleModule,
+        NbButtonModule,
+        Ng2SmartTableModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

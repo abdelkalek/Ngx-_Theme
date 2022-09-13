@@ -1,125 +1,93 @@
 
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <nb-card status="primary" class="mt-0">
+<div class="row  justify-content-center">
+  <div class="col-7">
+    <nb-card status="primary">
       <nb-card-header>
         <div class="row my-0">
           <div class="col-md">
             <p class="text-light  subtitle" >Profile Utilisateur</p>
           </div>
-        <div class=" col-md left col">
-          <nb-icon icon="more-vertical-outline"></nb-icon>
-        </div>
+          <div class=" col-md left col">
+            <nb-icon icon="more-vertical-outline"></nb-icon>
+          </div>
         </div>
       </nb-card-header>
       <nb-card-body>
         <div *ngIf="!!thisUser">
-        <div class="row justify-content-center text-center">
-          <img class="roundedImage shadow p-0 bg-body " src="assets/Users/avatar.webp"
-               alt="photo de profile"/>
-        </div>
-        <div class="row text-center">
-          <strong>
-            {{thisUser.userName}}</strong>
-        </div>
-        <div class="row  text-center justify-content-center ">
-          <p class="subtitle-2">
-            <img alt="image de profile" class="iconProfile" src="assets/profileimgs/a-01.svg"/>
-            {{thisUser.poste}}</p>
-        </div>
-        <nb-tabset>
-          <nb-tab tabIcon="person">
-            <div class="row text-center justify-content-between">
-              <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
-                Matricule </strong>
-              <p>
-                {{thisUser.matricule}}
-              </p>
-            </div>
+          <div class="row justify-content-center text-center">
+            <img class="roundedImage shadow p-0 bg-body " src="assets/Users/avatar.webp"
+                 alt="photo de profile"/>
+          </div>
+          <div class="row text-center">
+            <strong class="h6">
+              {{thisUser.userName}}</strong>
+          </div>
+          <div class="row  text-center justify-content-center ">
+            <p class="subtitle-2">
+              <img alt="image de profile" class="iconProfile" src="assets/profileimgs/a-01.svg"/>
+              {{thisUser.poste}}</p>
+          </div>
+          <nb-tabset>
+            <nb-tab tabIcon="person">
+              <div class="row ">
+                <div class="col-6">
+                  <div class="row  ">
+                    <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
+                      Matricule </strong>
+                    <p>
+                      {{thisUser.matricule}}
+                    </p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img for="staticEmail" class="iconProfile" src="assets/profileimgs/a-02.svg"/>
+                      {{thisUser.nom +" "+ thisUser.prenom}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
+                      {{thisUser.email}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
+                      {{thisUser.phoneNumber}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
+                      {{thisUser.ville +" , "+thisUser.adress}}</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-12.svg"/>
+                      {{thisUser.poste }}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-11.svg"/>
+                      Code postale :
+                      {{thisUser.codePostal}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-06.svg"/>
+                      {{thisUser.genre }}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-13.svg"/>
+                      {{thisUser.datedeNaissance | date}}</p>
+                  </div>
+                </div>
+              </div>
+            </nb-tab>
 
-            <div class="row ">
-              <p>
-                <img for="staticEmail" class="iconProfile" src="assets/profileimgs/a-02.svg"/>
-                 {{thisUser.nom +" "+ thisUser.prenom}}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
-                {{thisUser.email}}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
-                {{thisUser.phoneNumber}}</p>
-            </div>
-
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
-                {{thisUser.ville +" , "+thisUser.adress}}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-12.svg"/>
-                {{thisUser.poste }}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-11.svg"/>
-                Code postale :
-                {{thisUser.codePostal}}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-06.svg"/>
-                {{thisUser.genre }}</p>
-            </div>
-            <div class="row ">
-              <p>
-                <img class="iconProfile" src="assets/profileimgs/a-13.svg"/>
-                {{thisUser.datedeNaissance | date}}</p>
-            </div>
-          </nb-tab>
-          <nb-tab tabIcon="lock">
-            <p>Lists des <strong>permissions</strong>.</p>
-
-            <table class="table">
-              <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Module</th>
-                <th scope="col">voir</th>
-                <th scope="col">modifier</th>
-                <th scope="col">supprimer</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Gestion des utilisateur</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-
-              </tbody>
-            </table>
-          </nb-tab>
-          <nb-tab tabIcon="email-outline">
-            <p>List of <strong>transactions</strong>.</p>
-          </nb-tab>
-        </nb-tabset>
+          </nb-tabset>
         </div>
       </nb-card-body>
     </nb-card>
-
-
   </div>
 </div>
-

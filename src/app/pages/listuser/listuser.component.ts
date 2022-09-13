@@ -44,7 +44,8 @@ export class ListuserComponent implements OnInit {
     },
 
     columns: {
-      genre: {
+
+        genre: {
         title: 'Profile Image',
         type: 'html',
         valuePrepareFunction: (genre:string) => {
@@ -60,9 +61,13 @@ export class ListuserComponent implements OnInit {
         title: 'Cin',
         type: 'string',
       }, matricule: {
-        title: 'Matricule',
-        type: 'string',
-      },
+          title: 'matricule',
+          type: 'html',
+          valuePrepareFunction: (matricule:string) =>{
+            return `<label  class="badge  label text-light   bg-warning" >${matricule}</label>`;
+
+         },
+        },
       email: {
         title: 'Email',
         type: 'string',
@@ -82,13 +87,13 @@ export class ListuserComponent implements OnInit {
         valuePrepareFunction: (poste:string) =>
         {
           if(poste=="Ingenieur"){
-            return`<span class="badge bg-success">${poste}</span>`;
+            return`<span class="badge label text-light  bg-success">${poste}</span>`;
           }else
           if (poste=="Technicien")
           {
-            return`<span class="badge bg-primary">${poste}</span>`;
+            return`<span class="badge label text-light  bg-primary">${poste}</span>`;
           }
-          return`<span class="lead badge bg-secondary">${poste}</span>`;
+          return`<span class="label text-light  badge bg-secondary">${poste}</span>`;
         },
       },
     },

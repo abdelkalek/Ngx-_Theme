@@ -39,7 +39,7 @@ export class AccessRolesComponent implements OnInit {
       editButtonContent: '<i class="nb-edit"></i>',
     },
     delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
+      deleteButtonContent: '<i  class="task  nb-trash"></i>',
     },
 
     columns: {

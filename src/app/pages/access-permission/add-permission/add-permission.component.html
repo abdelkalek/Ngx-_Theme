@@ -1,68 +1,125 @@
 <nb-card status="primary">
   <nb-card-header>Ajouter autorisation au rôle {{roleName}}</nb-card-header>
-  <nb-card-body class="row">
+
+  <nb-card-body class="">
+    <form class="row" [formGroup]="addform" (ngSubmit)="submit()">
+
     <div class="row my-1">
       <div class="col-md-auto mb-2">
         <label class="subtitle"> sélectionné un Permission </label>
       </div>
       <nb-select class="mx-1" placeholder="List des rôles" status="primary"
-                 (selectedChange)="selectedPermission($event)">
-        <nb-option-group title="Utilisateurs">
-          <nb-option value="1">Consulter la liste des utilisateurs</nb-option>
-          <nb-option value="2">Ajouter un utilisateur</nb-option>
-          <nb-option value="3">Modifier un utilisateur</nb-option>
-          <nb-option value="4">Supprimer un utlisateur</nb-option>
-        </nb-option-group>
+                 (selectedChange)="selectedPermission($event)" formControlName="claimValue">
         <!--   	Magasinier-->
         <nb-option-group title="Gérer les produits">
-
-          <nb-option value="1"> Consulter la liste des produits</nb-option>
-          <nb-option value="1"> Créer un produit</nb-option>
-          <nb-option value="1"> Modifier un produit</nb-option>
-          <nb-option value="1"> Supprimer un produitv</nb-option>
+          <nb-option value="Consulter la liste des produits"> Consulter la liste des produits</nb-option>
+          <nb-option value="Créer un produit"> Créer un produit</nb-option>
+          <nb-option value="Modifier un produit"> Modifier un produit</nb-option>
+          <nb-option value="Supprimer un produit"> Supprimer un produit</nb-option>
         </nb-option-group>
         <nb-option-group title="Gérer les catégories">
-          <nb-option value="1"> Consulter la liste des catégories</nb-option>
-          <nb-option value="1">Créer une catégorie</nb-option>
-          <nb-option value="1"> Modifier une catégorie</nb-option>
-          <nb-option value="1">Supprimer une catégorie</nb-option>
+          <nb-option value="Consulter la liste des catégories"> Consulter la liste des catégories</nb-option>
+          <nb-option value="Créer une catégorie">Créer une catégorie</nb-option>
+          <nb-option value="Modifier une catégorie"> Modifier une catégorie</nb-option>
+          <nb-option value="Supprimer une catégorie">Supprimer une catégorie</nb-option>
         </nb-option-group>
 
         <nb-option-group title="	Gérer les propriétés">
-          <nb-option value="1"> Consulter la liste des propriétés</nb-option>
-          <nb-option value="1">Créer une propriété</nb-option>
-          <nb-option value="1"> Modifier une propriété</nb-option>
-          <nb-option value="1"> Supprimer une propriété</nb-option>
+          <nb-option value="Consulter la liste des propriétés"> Consulter la liste des propriétés</nb-option>
+          <nb-option value="Créer une propriété">Créer une propriété</nb-option>
+          <nb-option value="Modifier une propriété"> Modifier une propriété</nb-option>
+          <nb-option value="Supprimer une propriété"> Supprimer une propriété</nb-option>
         </nb-option-group>
 
         <nb-option-group title="	Gérer les lots">
-          <nb-option value="1"> Consulter la liste des lots</nb-option>
-          <nb-option value="1"> Créer un lot</nb-option>
-          <nb-option value="1"> Modifier un lot</nb-option>
-          <nb-option value="1"> Supprimer un lot</nb-option>
+          <nb-option value="Consulter la liste des lots"> Consulter la liste des lots</nb-option>
+          <nb-option value="Créer un lot"> Créer un lot</nb-option>
+          <nb-option value="Modifier un lot"> Modifier un lot</nb-option>
+          <nb-option value="Supprimer un lot"> Supprimer un lot</nb-option>
         </nb-option-group>
 
         <nb-option-group title="Gérer les fournisseurs">
-          <nb-option value="1"> Consulter la liste des fournisseurs</nb-option>
-          <nb-option value="1">Créer un fournisseur</nb-option>
-          <nb-option value="1"> Modifier un fournisseur</nb-option>
-          <nb-option value="1"> Supprimer un fournisseur</nb-option>
+          <nb-option value="Consulter la liste des fournisseurs"> Consulter la liste des fournisseurs</nb-option>
+          <nb-option value="Créer un fournisseur">Créer un fournisseur</nb-option>
+          <nb-option value="Modifier un fournisseur"> Modifier un fournisseur</nb-option>
+          <nb-option value="Supprimer un fournisseur"> Supprimer un fournisseur</nb-option>
         </nb-option-group>
 
         <nb-option-group title="Gérer les factures">
-          <nb-option value="1"> Consulter la liste des factures</nb-option>
-          <nb-option value="1"> Créer une facture</nb-option>
-          <nb-option value="1"> Modifier une facture</nb-option>
-          <nb-option value="1"> Supprimer une facture</nb-option>
+          <nb-option value="Consulter la liste des factures"> Consulter la liste des factures</nb-option>
+          <nb-option value="Créer une facture"> Créer une facture</nb-option>
+          <nb-option value="Modifier une facture"> Modifier une facture</nb-option>
+          <nb-option value="Supprimer une facture"> Supprimer une facture</nb-option>
         </nb-option-group>
         <!--  fin permission 	Magasinier-->
+        <!--     permission Méthodiste-->
+        <nb-option-group title="Gérer opérations">
+          <nb-option value="Consulter la liste des opérations"> Consulter la liste des opérations</nb-option>
+          <nb-option value="Créer une opération"> Créer une opération</nb-option>
+          <nb-option value="Modifier une opération"> Modifier une opération</nb-option>
+          <nb-option value="Supprimer une opération"> Supprimer une opération</nb-option>
+        </nb-option-group>
+        <nb-option-group title="Gérer machines">
+          <nb-option value="Consulter la liste des machines"> Consulter la liste des machines</nb-option>
+          <nb-option value="Créer une machine"> Créer une machine</nb-option>
+          <nb-option value="Modifier une machine"> Modifier une machine</nb-option>
+          <nb-option value="Supprimer une machine"> Supprimer une machine</nb-option>
+        </nb-option-group>
+        <!--fin permission Méthodiste-->
+        <!-- permission 	Chef de Production-->
+        <nb-option-group title="Gérer les Ordre de fabrication">
+          <nb-option value="Consulter la liste des factures"> Consulter la liste des factures</nb-option>
+          <nb-option value="Créer une Ordre de fabrication">Créer une Ordre de fabrication</nb-option>
+          <nb-option value="Modifier une Ordre de fabrication"> Modifier une Ordre de fabrication</nb-option>
+          <nb-option value="Supprimer une Ordre de fabrication"> Supprimer une Ordre de fabrication</nb-option>
+        </nb-option-group>
+        <nb-option-group title="Gérer les FicheOF">
+          <nb-option value="Consulter la liste des FicheOF"> Consulter la liste des FicheOF</nb-option>
+          <nb-option value="Créer une FicheOF"> Créer une FicheOF</nb-option>
+          <nb-option value="Modifier une FicheOF"> Modifier une FicheOF</nb-option>
+          <nb-option value="Supprimer une FicheOF">Supprimer une FicheOF</nb-option>
+        </nb-option-group>
+        <!-- fin permission	Chef de Production-->
+        <!--  permission	Administrateurn-->
+        <nb-option-group title="Gérer les utilisateurs">
+          <nb-option value="Consulter la liste des utilisateurs"> Consulter la liste des utilisateurs</nb-option>
+          <nb-option value="Ajouter des utilisateurs"> Ajouter des utilisateurs</nb-option>
+          <nb-option value="Changer les données d’un utilisateur"> Changer les données d’un utilisateur</nb-option>
+          <nb-option value="Supprimer un utilisateur"> Supprimer un utilisateur</nb-option>
+        </nb-option-group>
+        <nb-option-group title="Gérer les rôles">
+          <nb-option value="Consulter la liste des rôles"> Consulter la liste des rôles</nb-option>
+          <nb-option value="Créer un rôle"> Créer un rôle</nb-option>
+          <nb-option value="Modifier un rôle"> Modifier un rôle</nb-option>
+          <nb-option value="Supprimer un rôle"> Supprimer un rôle</nb-option>
+          <nb-option value="Associer un rôle à un utilisateur"> Associer un rôle à un utilisateur</nb-option>
+        </nb-option-group>
+        <nb-option-group title="Gérer les permissions">
+          <nb-option value="Consulter la liste des permissions"> Consulter la liste des permissions</nb-option>
+          <nb-option value="Créer une permission"> Créer une permission</nb-option>
+          <nb-option value="Modifier une permission"> Modifier une permission</nb-option>
+          <nb-option value="Supprimer une permission"> Supprimer une permission</nb-option>
+          <nb-option value="Associer une permission a un utilisateur"> Associer une permission a un utilisateur
+          </nb-option>
+          <nb-option value="Associer une permission a un rôle"> Associer une permission a un rôle</nb-option>
+        </nb-option-group>
+        <!--  permission	Administrateurn-->
       </nb-select>
     </div>
     <div class="row justify-content-end">
       <div class="col-md-6 mt-1">
-        <button nbButton  status="success" (click)="dismiss()"><nb-icon icon="save-outline"></nb-icon>Effectuer le changement</button>
+        <button nbButton status="success" (click)="Addpermission()">
+          <nb-icon icon="save-outline"></nb-icon>
+          Effectuer le changement
+        </button>
+      </div>
+      <div class="col-md-6 mt-1">
+        <button nbButton status="warning" (click)="dismiss()">
+          Fermer
+        </button>
       </div>
     </div>
+    </form>
   </nb-card-body>
   <nb-card-footer></nb-card-footer>
 </nb-card>

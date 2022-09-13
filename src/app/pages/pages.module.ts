@@ -28,6 +28,7 @@ import {NbEvaIconsModule} from "@nebular/eva-icons";
 import {BreadcrumbModule} from "xng-breadcrumb";
 import { AccuielComponent } from './accuiel/accuiel.component';
 import { ModifierUtilisateurComponent } from './modifier-utilisateur/modifier-utilisateur.component';
+import { AddRoleUserComponent } from './details-utilisateur/add-role-user/add-role-user.component';
 
 @NgModule({
   declarations: [PagesComponent,
@@ -42,6 +43,7 @@ import { ModifierUtilisateurComponent } from './modifier-utilisateur/modifier-ut
     AddPermissionComponent,
     AccuielComponent,
     ModifierUtilisateurComponent,
+    AddRoleUserComponent,
   ],
   imports: [
     CommonModule,

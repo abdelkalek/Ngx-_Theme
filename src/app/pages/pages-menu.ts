@@ -72,19 +72,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
           },
           {
-            title: 'Permission ',
+            title: 'Perso.. du rôle',
             link: '/pages/AccessPermission',
-            icon: 'keypad-outline'
+            icon: 'settings-2-outline'
           }
         ]
       }
-      ,
-      {
-        title: 'Config',
-        pathMatch: 'prefix',
-        link: '/pages/layout/tabs',
-        icon: 'settings-2-outline'
-      },
+
     ],
   },
   {
@@ -150,7 +144,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
 
   {
-    title: 'Surveillance',
+    title: 'Fabrication',
     icon: 'activity-outline',
     children: [
       {

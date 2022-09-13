@@ -24,22 +24,18 @@ button{
     flex: 1 1 auto;
   }
 }
-
 .roundedImage{
  overflow:hidden;
  -webkit-border-radius:100px;
   -moz-border-radius:100px;
   border-radius:100%;
-  max-width: 7em;
-
+  max-width: 8em;
 }
 .iconProfile{
   max-width: 1.7em;
   align-content: center;
   vertical-align: middle;
 }
-
-
 :host ::ng-deep .xng-breadcrumb-trail {
 
   color: #0e68ee;

@@ -19,7 +19,7 @@
     <label class="subtitle mx-1">
       Sélectionner un rôle.</label>
       <nb-select class="mx-1" placeholder="List des rôles" status="primary" (selectedChange)="getRolefromSelect($event)" >
-        <nb-option [value]="r.id" *ngFor="let  r of roles" >{{r.name}}</nb-option>
+        <nb-option [value]="r.id" *ngFor="let  r of roles"  >{{r.name}}</nb-option>
       </nb-select>
     <button nbButton outline status="success" type="button" class="mx-1" (click)="open()">Affecter une permission</button>
   </form>

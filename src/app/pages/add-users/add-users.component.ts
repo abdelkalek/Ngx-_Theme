@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NbComponentStatus, NbIconConfig, NbToastrService} from "@nebular/theme";
 import {NUMERIC_PATTREN} from "../../product-module/add-product/add-product.component";
 import {ActivatedRoute, Router} from "@angular/router";
+import {RoleService} from "../access-roles/role.service";
 
 @Component({
   selector: 'app-add-users',
@@ -28,15 +29,19 @@ export class AddUsersComponent implements OnInit {
     password: new FormControl('',[Validators.minLength(6),  Validators.required]),
     confirmPassword: new FormControl('',[ Validators.minLength(6), Validators.required]),
     datedeNaissance:  new FormControl('',[  Validators.required]),
+    rolename:  new FormControl('',[  Validators.required]),
 
 
   });
   selectedItem: any;
-
-  constructor(private userService: UsersService,  private toastrService: NbToastrService, private router: Router, private route: ActivatedRoute) {
+  rolesTab : any;
+  constructor(private roleService: RoleService,private userService: UsersService,  private toastrService: NbToastrService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.roleService.getAllRoles().subscribe((res) => {
+      this.rolesTab = res;
+    });
   }
 
   submit() {
