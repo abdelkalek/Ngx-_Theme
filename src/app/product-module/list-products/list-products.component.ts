@@ -41,7 +41,7 @@ export class ListProductsComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
     },
     edit: {
-      editButtonContent: '<i class="nb-gear"></i>',
+      editButtonContent: '<img alt="view" class="text-success" src="assets/icons/view.svg" width="30" height="30" >',
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -62,14 +62,19 @@ export class ListProductsComponent implements OnInit {
         valuePrepareFunction: (typeProd:string) =>
         {
           if(typeProd=="produit fini"){
-            return`<span class="badge bg-success">${typeProd}</span>`;
+            return`<span class="badge  label  text-light bg-info">${typeProd}</span>`;
           }else
           if (typeProd=="matières premières")
           {
-            return`<span class="badge bg-primary">${typeProd}</span>`;
+            return`<span class="badge label text-light bg-primary">${typeProd}</span>`;
+
+          }else
+          if (typeProd=="Consommable")
+          {
+            return`<span class="badge label text-light  bg-warning">${typeProd}</span>`;
 
           }
-          return`<span class="lead badge bg-secondary">${typeProd}</span>`;
+          return`<span class=" badge label text-light bg-secondary">${typeProd}</span>`;
 
         },
       },
@@ -104,7 +109,7 @@ export class ListProductsComponent implements OnInit {
 
   editFunction($event: any) {
     console.log('Edit Item', $event.data.id)
-    this.router.navigate(['../details'], {relativeTo: this.route}) .then(nav => {
+    this.router.navigate(['./details'], {relativeTo: this.route}) .then(nav => {
       console.log(nav); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
@@ -159,5 +164,9 @@ export class ListProductsComponent implements OnInit {
   }
   changeVue(veuType: string) {
     this.vue = veuType;
+  }
+
+  onSearch(value: string) {
+
   }
 }

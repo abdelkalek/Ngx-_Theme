@@ -1,0 +1,189 @@
+<div class="mb-4">
+  <div class="row ">
+    <div class="col-md-12">
+      Pages  <nb-icon icon="arrow-ios-forward-outline"></nb-icon> Ajouter une Machine</div>
+
+  </div>
+</div>
+<nb-card>
+  <nb-card-body>
+    <form [formGroup]="ajouterMachine" (ngSubmit)="submit()">
+      <nb-stepper orientation="horizontal">
+        <nb-step [label]="labelOne">
+          <ng-template #labelOne>Premier pas</ng-template>
+          <h6 lass="text-secondary"> Informations générales </h6>
+          <div class="mb-3 row">
+            <div class="col-md-6">
+              <div class="mb-3">
+              <label class="subtitle">Nom de Machine</label>
+              <input formControlName="nom"
+                     [status]="ajouterMachine.controls['nom'].dirty ? (ajouterMachine.controls['nom'].invalid  ? 'danger' : 'success') : 'basic'"
+                     type="text"
+                     nbInput
+                     fullWidth
+                     status="primary"
+                     id="nomp"
+                     placeholder="Nom de Machine"
+              >
+              <ng-container *ngIf=" ajouterMachine.controls['nom'].invalid && ajouterMachine.controls['nom'].dirty">
+                <nb-alert class="my-2" status="danger">
+                  longueur de champ supérieur ou egale a 4 lettres
+                </nb-alert>
+              </ng-container>
+            </div>
+              <div class="mb-3">
+                <label for="reference" class="subtitle">Reference  </label>
+                <input formControlName="reference"
+                       [status]="ajouterMachine.controls['reference'].dirty ? (ajouterMachine.controls['reference'].invalid  ? 'danger' : 'success') : 'basic'"
+                       type="text"
+                       nbInput
+                       fullWidth
+                       status="primary"
+                       id="reference"
+                       placeholder="Reference de machine"
+                >
+                <ng-container *ngIf=" ajouterMachine.controls['reference'].invalid && ajouterMachine.controls['reference'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    longueur de champ invalid
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="subtitle">description </label>
+                <input formControlName="description"
+                       [status]="ajouterMachine.controls['description'].dirty ? (ajouterMachine.controls['description'].invalid  ? 'danger' : 'success') : 'basic'"
+                       type="text"
+                       nbInput
+                       fullWidth
+                       status="primary"
+                       id="description"
+                       placeholder="Description de machine"
+                >
+                <ng-container *ngIf=" ajouterMachine.controls['description'].invalid && ajouterMachine.controls['description'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    longueur de champ supérieur ou egale a 4 lettres
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3">
+                <label for="input-prix" class="subtitle">Prix</label>
+                <input
+                  nbInput
+                  fullWidth
+                  formControlName="prix"
+                  class="form-control"
+                  name="prix"
+                  id="input-prix"
+                  placeholder="Prix"
+                  [status]="ajouterMachine.controls['prix'].dirty ? (ajouterMachine.controls['prix'].invalid  ? 'danger' : 'success') : 'basic'"
+                />
+                <ng-container *ngIf=" ajouterMachine.controls['prix'].invalid && ajouterMachine.controls['prix'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    prix invalid
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3">
+                <label for="date_panne" class="subtitle">date de panne</label>
+                <input id="date_panne" fullWidth nbInput placeholder="date  de panne"  formControlName="date_panne" [nbDatepicker]="dateTimePicker">
+                <nb-datepicker #dateTimePicker></nb-datepicker>
+                <ng-container *ngIf=" ajouterMachine.controls['date_panne'].invalid && ajouterMachine.controls['date_panne'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    Date Incorrect ou champ vide
+                  </nb-alert>
+                </ng-container>
+              </div></div>
+            <div class="col-md-6">
+              <img src="/assets/bgs/machine1.gif" width="100%" alt="">
+            </div>
+
+          </div>
+          <button nbButton status="success" nbStepperNext class="mx-2" type="submit" >suivant<nb-icon icon="arrow-ios-forward-outline"></nb-icon></button>
+        </nb-step>
+        <nb-step [label]="labelTwo">
+          <ng-template #labelTwo>Deuxième étape</ng-template>
+          <h4>information supplémentaire </h4>
+          <div class="mb-3 row">
+            <div class="col-md-6">
+              <img src="/assets/bgs/machine2.gif" width="100%" alt="">
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="input-tel" class="subtitle">Taux d'amortissement</label>
+                <input
+                  nbInput
+                  fullWidth
+                  formControlName="taux_am"
+                  class="form-control"
+                  name="taux_am"
+                  id="input-tel"
+                  placeholder="Taux d'amortissement"
+                  [status]="ajouterMachine.controls['taux_am'].dirty ? (ajouterMachine.controls['taux_am'].invalid  ? 'danger' : 'success') : 'basic'"
+                />
+                <ng-container *ngIf=" ajouterMachine.controls['taux_am'].invalid && ajouterMachine.controls['taux_am'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    taux d'ammortisement Invalid
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3 ">
+                <label for="nb_anne_am" class="subtitle">nombre d'année d'amortissement</label>
+                <input id="nb_anne_am"
+                       [status]="ajouterMachine.controls['nb_anne_am'].dirty ? (ajouterMachine.controls['nb_anne_am'].invalid  ? 'danger' : 'success') : 'basic'"
+                       type="Text"
+                       fullWidth
+                       nbInput placeholder="nombre d'année d'amortissement"  formControlName="nb_anne_am">
+                <ng-container *ngIf=" ajouterMachine.controls['nb_anne_am'].invalid && ajouterMachine.controls['nb_anne_am'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    nb_anne_am erroné  ou champ vide
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3 ">
+                <label for="cout_font" class="subtitle">Coût de fonctionnement</label>
+                <input formControlName="cout_font"
+                       [status]="ajouterMachine.controls['cout_font'].dirty ? (ajouterMachine.controls['cout_font'].invalid  ? 'danger' : 'success') : 'basic'"
+                       type="text"
+                       nbInput
+                       fullWidth
+                       status="primary"
+                       id="cout_font"
+                       placeholder="Coût de fonctionnement"
+                >
+                <ng-container *ngIf=" ajouterMachine.controls['cout_font'].invalid && ajouterMachine.controls['cout_font'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    champ numérique uniquement de longueur supérieure ou egale a 8 digit
+                  </nb-alert>
+                </ng-container>
+              </div>
+              <div class="mb-3 ">
+                <label for="cout_reglage" class="subtitle">prix du réglage </label>
+
+                <input formControlName="cout_reglage"
+                       [status]="ajouterMachine.controls['cout_reglage'].dirty ? (ajouterMachine.controls['cout_reglage'].invalid  ? 'danger' : 'success') : 'basic'"
+                       type="text"
+                       nbInput
+                       fullWidth
+                       status="primary"
+                       id="cout_reglage"
+                       placeholder="cout_reglage"
+                >
+                <ng-container *ngIf=" ajouterMachine.controls['cout_reglage'].invalid && ajouterMachine.controls['cout_reglage'].dirty">
+                  <nb-alert class="my-2" status="danger">
+                    longueur supérieure ou egale a 4
+                  </nb-alert>
+                </ng-container>
+
+
+              </div>
+            </div>
+
+          </div>
+          <button nbButton nbStepperPrevious class="mx-1">précédente</button>
+          <button nbButton type="submit" status="success" [disabled]="ajouterMachine.invalid">Enregistrer la modification</button>
+
+        </nb-step>
+      </nb-stepper>
+    </form>
+  </nb-card-body>
+</nb-card>

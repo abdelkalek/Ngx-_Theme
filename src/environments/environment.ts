@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   endPoint : "https://localhost:7086",
   endPointAuth : "https://localhost:5100/api",
-  endPointprod : "https://localhost:7025/api"
+  endPointprod : "https://localhost:7025/api",
+  endPointfab : "https://localhost:7238/api"
 };
 
 /*

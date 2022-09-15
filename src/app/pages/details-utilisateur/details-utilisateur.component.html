@@ -1,0 +1,129 @@
+<div class="mb-4">
+  <div class="row ">
+    <div class="col-md-12">
+      Page  <nb-icon icon="arrow-ios-forward-outline"></nb-icon> Détails d'utlisateur</div>
+
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-7">
+    <nb-card status="basic" class="mt-0">
+      <nb-card-header>
+        <div class="row my-0">
+          <div class="col-md">
+            <p class="text-primary  subtitle" >Détails d'Utilisateur</p>
+
+          </div>
+          <div class=" col-md left col">
+            <nb-icon icon="more-vertical-outline"></nb-icon>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div *ngIf="!!thisUser">
+          <div class="row justify-content-center text-center">
+            <img class="roundedImage shadow p-0 mb-1 bg-body " src="assets/Users/avatar.webp"
+                 alt="photo de profile"/>
+          </div>
+
+          <div class="row text-center">
+            <strong>
+              {{thisUser.userName}}</strong>
+          </div>
+          <div class="row  text-center justify-content-center ">
+            <p class="subtitle-2">
+              <img class="iconProfile" src="assets/profileimgs/a-01.svg"/>
+              {{thisUser.poste}}</p>
+          </div>
+
+          <nb-tabset>
+            <nb-tab tabIcon="person">
+              <div class="row text-center justify-content-between">
+                <strong> <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
+                  Matricule </strong>
+                <p>
+                  {{thisUser.matricule}}
+                </p>
+              </div>
+
+              <div class="row ">
+                <p>
+                  <img for="staticEmail" class="iconProfile" src="assets/profileimgs/a-02.svg"/>
+                  {{thisUser.nom +" "+ thisUser.prenom}}</p>
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-04.svg"/>
+                  {{thisUser.email}}</p>
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-07.svg"/>
+                  {{thisUser.phoneNumber}}</p>
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-09.svg"/>
+                  {{thisUser.ville +" , "+thisUser.adress}}</p>
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-12.svg"/>
+                  {{thisUser.poste }}</p>
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-11.svg"/>
+                  Code postale :
+                  {{thisUser.codePostal}}</p>
+              </div>
+              <div class="row ">
+                <div *ngIf="thisUser.genre === 'Homme'">
+                  <p>
+                    <img class="iconProfile" src="assets/Users/homme.png"/>
+                    {{thisUser.genre }}</p>
+                </div>
+                <div *ngIf="thisUser.genre == 'Femme'">
+                  <p>
+                    <img class="iconProfile" src="assets/Users/femme.png"/>
+                    {{thisUser.genre }}</p>
+                </div>
+
+              </div>
+              <div class="row ">
+                <p>
+                  <img class="iconProfile" src="assets/profileimgs/a-13.svg"/>
+                  {{thisUser.datedeNaissance | date}}</p>
+              </div>
+            </nb-tab>
+
+          </nb-tabset>
+          <div class=" left col">
+            <button nbButton outline status="success" size="medium" (click)="modifieruser(thisUser.id)"><nb-icon icon="edit-2-outline"></nb-icon>Modifier données</button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-5" >
+    <nb-card>
+      <img src="assets/roles/external-idp-header.png" width="100%">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Roles">
+          <ng2-smart-table  [settings]="settings" [source]="roleList"  (delete)="deleteUserRole($event)">
+          </ng2-smart-table>
+          <button class="my-2" nbButton outline status="success" size="medium" (click)="open()" ><nb-icon icon="plus"></nb-icon>Donner Role</button>
+        </nb-tab>
+        <nb-tab tabTitle="Permissions">
+          <button nbButton outline status="success" size="medium"><nb-icon icon="plus"></nb-icon>Donner permission</button>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+

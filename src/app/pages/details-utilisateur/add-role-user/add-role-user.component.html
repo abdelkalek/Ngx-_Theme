@@ -1,0 +1,41 @@
+<nb-card >
+  <nb-card-header>
+    Affecter un rôle
+  </nb-card-header>
+  <nb-card-body>
+
+      <form [formGroup]="addform" (ngSubmit)="submit()">
+        <div class="row">
+          <div class="col-md-7">
+            <div  class="mb-3">
+              <strong >Email de l'utilisateur: <span class="text-primary">  {{useremail}}</span></strong>
+            </div>
+            <nb-select class="mx-1"  fullWidth placeholder="List des rôles" status="primary" formControlName="roleName">
+              <nb-option [value]="r.name" *ngFor="let  r of rolesTab">{{r.name}}</nb-option>
+            </nb-select>
+            <div class="row my-4">
+              <div class="col-6">
+                <button fullWidth size="large" nbButton hero status="success" type="submit">Valider</button>
+              </div>
+              <div class="col-6">
+                <button fullWidth size="large" nbButton hero status="basic" (click)="dismiss()">Annuler</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class=" text-center">
+              <img src="assets/roles/roleimg.png" class="img-fluid" width="100%"/>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </form>
+
+
+  </nb-card-body>
+
+
+</nb-card>

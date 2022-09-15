@@ -14,7 +14,7 @@
 
 <div class="row">
 
-  <div class="col-lg-6 col-md-6 col-sm-12">
+  <div class="col-sm-12 col-md-6 col-12">
     <nb-card accent="primary">
       <nb-card-header>
         <b>
@@ -23,7 +23,6 @@
       </nb-card-header>
       <nb-card-body>
         <form [formGroup]="addcatform" (ngSubmit)="onsubmit()">
-
           <nb-alert outline="primary">
             <nb-toggle status="basic" [(checked)]="isSubCategory">il s'agit d'un sous-catégorie</nb-toggle>
             <div *ngIf="isSubCategory" class="my-3">
@@ -59,7 +58,7 @@
           <div class="mb-3">
             <label for="exampleInputdescription" class="form-label">Ajouter des proprietes </label>
 
-            <tag-input formControlName="lista"
+            <tag-input formControlName="properties"
                        [secondaryPlaceholder]="'Ajouter des proprietes ...'"
                        [onlyFromAutocomplete]="true">
               <tag-input-dropdown [showDropdownIfEmpty]="true"
@@ -79,30 +78,30 @@
             </button>
           </div>
         </form>
-
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-lg-6  col-md-6  col-sm-12">
+  <div class="col-sm-12  col-md-6  col-12">
     <nb-card>
-      <nb-menu [items]="it"></nb-menu>
+<!--      <nb-menu [items]="it"></nb-menu>-->
+
     </nb-card>
 
-<!--    <nb-accordion>-->
-<!--      <nb-accordion-item *ngFor="let cate of categoryList">-->
-<!--        <nb-accordion-item-header>-->
-<!--          <i class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>-->
-<!--          <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>-->
-<!--          {{cate.nom}}-->
-<!--        </nb-accordion-item-header>-->
-<!--        <nb-accordion-item-body *ngFor="let subcat of cate.subCategory">-->
-<!--          &nbsp;&nbsp;-->
-<!--          <i class="fa-regular fa-square-minus ms-3 text-primary" (click)="onsubmit()"></i>-->
-<!--          <i class="fa-regular fa-trash-can mx-4 text-danger" (click)="deletecategories(subcat.id)">-->
-<!--          </i>-->
-<!--          <strong>{{subcat.nom}}</strong>-->
-<!--        </nb-accordion-item-body>-->
-<!--      </nb-accordion-item>-->
-<!--    </nb-accordion>-->
+    <nb-accordion>
+      <nb-accordion-item *ngFor="let cate of categoryList">
+        <nb-accordion-item-header>
+          <i class="fa-regular fa-square-minus mx-2 text-warning" (click)="onsubmit()"></i>
+          <i class="fa-regular fa-trash-can mx-2 text-danger" (click)="deletecategories(cate.id)"></i>
+          {{cate.nom}}
+        </nb-accordion-item-header>
+        <nb-accordion-item-body *ngFor="let subcat of cate.subCategory">
+          &nbsp;&nbsp;
+          <i class="fa-regular fa-square-minus ms-3 text-warning" (click)="onsubmit()"></i>
+          <i class="fa-regular fa-trash-can mx-4 text-success" (click)="deletecategories(subcat.id)">
+          </i>
+          <strong>{{subcat.nom}}</strong>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
   </div>
 </div>

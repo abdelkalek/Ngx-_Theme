@@ -1,0 +1,16 @@
+
+<div class="mb-4">
+<p>pages > List des Machines</p>
+</div>
+<nb-card accent="info"  *ngIf="vue =='List'">
+
+  <nb-card-header class="row">
+    <div class="col-md-3">
+      <strong>List des Machines</strong>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table  [settings]="settings" [source]="listMachines" (edit)="editFunction($event)" (create)="createNewProd()" (delete)="deleteItem($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

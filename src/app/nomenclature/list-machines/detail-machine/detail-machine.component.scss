@@ -1,0 +1,55 @@
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.5rem;
+}
+
+button{
+  margin-inline: 0.2em;
+}
+.left {
+  display: flex;
+  justify-content: flex-end;
+}
+.box {
+  display: flex;
+  flex-flow: row wrap;
+
+  .one {
+    flex: 1 1 auto;
+  }
+}
+.roundedImage{
+  overflow:hidden;
+  -webkit-border-radius:100px;
+  -moz-border-radius:100px;
+  border-radius:100%;
+  max-width: 8em;
+}
+.iconProfile{
+  max-width: 1.9em;
+  align-content: center;
+  vertical-align: middle;
+}
+:host ::ng-deep .xng-breadcrumb-trail {
+
+  color: #0e68ee;
+
+}
+/*css profil*/
+.bgd{
+  background-image: url("/assets/bgs/wavegreen.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+}
+.img{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

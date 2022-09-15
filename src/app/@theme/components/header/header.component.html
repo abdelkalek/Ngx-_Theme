@@ -37,9 +37,6 @@
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon   [icon]="changeIconTogel ? 'menu-outline' : 'menu-2-outline'" ></nb-icon>
     </a>
-
-
-
   </div>
   <nb-form-field class="mx-3">
     <nb-icon nbPrefix icon="search" pack="eva"></nb-icon>
@@ -57,7 +54,6 @@
   <nb-icon  class="control-item"   icon="bell-outline" ></nb-icon>
   <nb-icon  class="control-item"   icon="email-outline" ></nb-icon>
   <nb-icon [icon]="changetheme ? 'moon' : 'sun'"  (click)="changeThemeTogel()"></nb-icon>
-
   <nb-actions size="small">
     <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
 <!--      <nb-user [nbContextMenu]="userMenu"-->

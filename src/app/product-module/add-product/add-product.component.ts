@@ -28,7 +28,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
     nom: new FormControl('', [Validators.required, Validators.minLength(9)]),
     ref: new FormControl('', [Validators.required, Validators.minLength(5)]),
     description: new FormControl('', [Validators.required]),
-    urlImage: new FormControl('', [Validators.required]),
+    urlImage: new FormControl('', ),
     cout: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
     poids: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
     volume: new FormControl('', [Validators.required, Validators.pattern(NUMERIC_PATTREN)]),
@@ -58,8 +58,9 @@ export class AddProductComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.categoryserv.getAllCategory().subscribe(
       (res) => {
-        //      this.categoryList = res;
+           this.categoryList = res;
         res.forEach((c) => {
+          this.items.push({id:c.id,text : c.nom})
           this.items.push({id: c.id, text: c.nom,children : c.subCategory.map((r)=>{ return {id:r.id,text:r.nom, children : r.subCategory.map((r)=>{ return {id:r.id,text:r.nom}})}})});
         })
         //    console.log(res)
@@ -167,6 +168,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
   }
 
   istrue : boolean = true
+  selectedCar: any;
 
   isChaked() {
     this.istrue = ! this.istrue

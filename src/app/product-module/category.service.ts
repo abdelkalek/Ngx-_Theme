@@ -22,7 +22,7 @@ export class CategoryService {
   }
 
   addCtegory(category: any) {
-    return this.http.post(this.endpoint + '/Category', category);
+    return this.http.post(this.endpoint + '/Category/addwithproperties', category);
   }
 
   getCategoryByid(id: string) {

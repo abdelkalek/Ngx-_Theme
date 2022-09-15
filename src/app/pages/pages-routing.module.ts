@@ -51,6 +51,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('../product-module/product-module.module').then((m) => m.ProductModuleModule)
       },
+      {
+        path: 'no',
+        loadChildren: () =>
+          import('../nomenclature/nomenclature.module').then((m) => m.NomenclatureModule)
+      },
       { path: '', redirectTo: 'pages', pathMatch: 'full' },
       { path: '**', redirectTo: 'pages' },
     ]

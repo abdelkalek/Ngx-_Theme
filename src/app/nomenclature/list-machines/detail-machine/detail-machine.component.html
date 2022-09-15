@@ -1,0 +1,82 @@
+<div *ngIf="!!machine">
+  <div class="row">
+    <div class="col-md-4">
+      <nb-card size="giant">
+        <nb-card-body>
+          <img src="assets/imgs/machine.svg" class="rounded-3  " alt="" width="100%">
+          <div class="row justify-content-center text-center ">
+            <p class="subtitle">Nom de Machine</p>
+            <p class="subtitle-2">{{machine.nom }}</p>
+          </div>
+          <div class="row">
+            <button  shape="round" outline  nbButton status="warning" (click)="Modifier()">Modifier </button>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-md-8">
+      <nb-card class="bgd" size="giant">
+        <nb-card-body>
+          <h5>informations de Machine</h5>
+          <nb-tabset>
+            <nb-tab tabIcon="attach-outline">
+              <div class="row ">
+                <div class="col-6">
+                  <div class="row  ">
+                    <p>   <img class="iconProfile" src="assets/profileimgs/a-03.svg"/>
+                      <strong>     Reference : </strong>
+                      {{machine.reference}}
+                    </p>
+                  </div>
+
+                  <div class="row ">
+                    <p>
+                      <img  class="iconProfile" src="assets/machineimg/coins_money_bank_currency_dollar_icon_150733.svg"/>
+                      <strong> Prix de vente :  </strong>   {{machine.prix}}   </p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img  class="iconProfile" src="assets/machineimg/percentage_icon-icons.com_53125.svg"/>
+                      <strong> Taux d'amortissement </strong> {{machine.taux_am}}    </p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img  class="iconProfile" src="assets/machineimg/1455554328_line-26_icon-icons.com_53319.svg"/>
+                      <strong>  nbr d'annee  d'amortissement:  </strong>  {{machine.nb_anne_am}}   </p>
+                  </div>
+                </div>
+                <div class="col-6">
+
+                  <div class="row ">
+                    <p>
+                      <img  class="iconProfile" src="assets/machineimg/coins_money_bank_currency_dollar_icon_150733.svg"/>
+                      <strong> Cout de fonctionnement :  </strong>
+                      {{machine.cout_font}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/machineimg/coins_money_bank_currency_dollar_icon_150733.svg"/>
+                      <strong> cout de reglage </strong>   {{machine.cout_reglage}}</p>
+                  </div>
+                  <div class="row ">
+                    <p>
+                      <img class="iconProfile" src="assets/profileimgs/a-13.svg"/>
+                      <strong> Date de panne Machine :  </strong>    {{machine.date_panne | date}}</p>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="row ">
+
+                  <img for="staticEmail" class="iconProfile" src="assets/machineimg/ic_description_128_28266.png"/>
+                  <strong> Description:    </strong>
+                <p> {{machine.description}}   </p>
+              </div>
+            </nb-tab>
+          </nb-tabset>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

@@ -130,14 +130,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
     children: [
       {
-        title: 'Ajouter Machine',
-        link: '/pages/forms/inputs',
+        title: 'List des Machines',
+        link: '/pages/no',
      //   icon: 'plus-circle-outline'
 
       },
       {
-        title: 'Category List ',
-        link: '/pages/forms/layouts',
+        title: 'Ajouter une machine ',
+        link: '/pages/no/ajouter',
+     //   icon: 'list-outline'
+      },
+      {
+        title: 'Operation',
+        link: '/pages/no/operation',
      //   icon: 'list-outline'
       }
     ]},
